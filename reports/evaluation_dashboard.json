@@ -1,0 +1,2014 @@
+{
+  "comparison": {
+    "rag_only": {
+      "retrieval_mode": "bm25",
+      "total": 36,
+      "passed": 12,
+      "pass_rate": 0.3333,
+      "citation_rate": 1.0,
+      "analysis_coverage": 0.0,
+      "reviewed_rate": 0.0,
+      "p95_latency_ms": 0.171,
+      "results": [
+        {
+          "id": "structured-01",
+          "type": "top_case",
+          "latency_ms": 0.251,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-02",
+          "type": "top_case",
+          "latency_ms": 0.156,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-03",
+          "type": "correlation",
+          "latency_ms": 0.131,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-04",
+          "type": "correlation",
+          "latency_ms": 0.11,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-05",
+          "type": "case_detail",
+          "latency_ms": 0.103,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-06",
+          "type": "case_detail",
+          "latency_ms": 0.097,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-07",
+          "type": "top_case",
+          "latency_ms": 0.117,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-08",
+          "type": "top_case",
+          "latency_ms": 0.089,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-09",
+          "type": "correlation",
+          "latency_ms": 0.11,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "structured-10",
+          "type": "correlation",
+          "latency_ms": 0.105,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-01",
+          "type": "retrieval",
+          "latency_ms": 0.098,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-02",
+          "type": "retrieval",
+          "latency_ms": 0.091,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-03",
+          "type": "retrieval",
+          "latency_ms": 0.073,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-04",
+          "type": "retrieval",
+          "latency_ms": 0.046,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-05",
+          "type": "retrieval",
+          "latency_ms": 0.045,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-06",
+          "type": "retrieval",
+          "latency_ms": 0.086,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-07",
+          "type": "retrieval",
+          "latency_ms": 0.076,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-08",
+          "type": "retrieval",
+          "latency_ms": 0.059,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-09",
+          "type": "retrieval",
+          "latency_ms": 0.126,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-10",
+          "type": "retrieval",
+          "latency_ms": 0.083,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-11",
+          "type": "retrieval",
+          "latency_ms": 0.046,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-12",
+          "type": "retrieval",
+          "latency_ms": 0.045,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-01",
+          "type": "mixed",
+          "latency_ms": 0.11,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-02",
+          "type": "mixed",
+          "latency_ms": 0.111,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-03",
+          "type": "mixed",
+          "latency_ms": 0.095,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-04",
+          "type": "mixed",
+          "latency_ms": 0.12,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-05",
+          "type": "mixed",
+          "latency_ms": 0.119,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-06",
+          "type": "mixed",
+          "latency_ms": 0.063,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-07",
+          "type": "mixed",
+          "latency_ms": 0.14,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-08",
+          "type": "mixed",
+          "latency_ms": 0.127,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-09",
+          "type": "mixed",
+          "latency_ms": 0.095,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-10",
+          "type": "mixed",
+          "latency_ms": 0.123,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-11",
+          "type": "mixed",
+          "latency_ms": 0.103,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-12",
+          "type": "mixed",
+          "latency_ms": 0.122,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-13",
+          "type": "mixed",
+          "latency_ms": 0.119,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-14",
+          "type": "mixed",
+          "latency_ms": 0.094,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        }
+      ]
+    },
+    "tool_agent": {
+      "retrieval_mode": "bm25",
+      "total": 36,
+      "passed": 22,
+      "pass_rate": 0.6111,
+      "citation_rate": 1.0,
+      "analysis_coverage": 0.5,
+      "reviewed_rate": 0.0,
+      "p95_latency_ms": 5.737,
+      "results": [
+        {
+          "id": "structured-01",
+          "type": "top_case",
+          "latency_ms": 0.268,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-02",
+          "type": "top_case",
+          "latency_ms": 0.179,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-03",
+          "type": "correlation",
+          "latency_ms": 1.505,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-04",
+          "type": "correlation",
+          "latency_ms": 0.978,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-05",
+          "type": "case_detail",
+          "latency_ms": 0.185,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-06",
+          "type": "case_detail",
+          "latency_ms": 0.139,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-07",
+          "type": "top_case",
+          "latency_ms": 0.176,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-08",
+          "type": "top_case",
+          "latency_ms": 0.134,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-09",
+          "type": "correlation",
+          "latency_ms": 0.93,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "structured-10",
+          "type": "correlation",
+          "latency_ms": 0.87,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-01",
+          "type": "retrieval",
+          "latency_ms": 5.767,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-02",
+          "type": "retrieval",
+          "latency_ms": 5.566,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-03",
+          "type": "retrieval",
+          "latency_ms": 5.557,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-04",
+          "type": "retrieval",
+          "latency_ms": 5.544,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-05",
+          "type": "retrieval",
+          "latency_ms": 5.566,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-06",
+          "type": "retrieval",
+          "latency_ms": 5.601,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-07",
+          "type": "retrieval",
+          "latency_ms": 5.571,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-08",
+          "type": "retrieval",
+          "latency_ms": 5.581,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-09",
+          "type": "retrieval",
+          "latency_ms": 5.614,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-10",
+          "type": "retrieval",
+          "latency_ms": 5.567,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-11",
+          "type": "retrieval",
+          "latency_ms": 5.495,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "retrieval-12",
+          "type": "retrieval",
+          "latency_ms": 5.52,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-01",
+          "type": "mixed",
+          "latency_ms": 1.053,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-02",
+          "type": "mixed",
+          "latency_ms": 0.902,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-03",
+          "type": "mixed",
+          "latency_ms": 5.689,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-04",
+          "type": "mixed",
+          "latency_ms": 0.907,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-05",
+          "type": "mixed",
+          "latency_ms": 0.211,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-06",
+          "type": "mixed",
+          "latency_ms": 5.528,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-07",
+          "type": "mixed",
+          "latency_ms": 0.92,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-08",
+          "type": "mixed",
+          "latency_ms": 5.732,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-09",
+          "type": "mixed",
+          "latency_ms": 0.206,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-10",
+          "type": "mixed",
+          "latency_ms": 0.902,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-11",
+          "type": "mixed",
+          "latency_ms": 0.871,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-12",
+          "type": "mixed",
+          "latency_ms": 5.701,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-13",
+          "type": "mixed",
+          "latency_ms": 5.659,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        },
+        {
+          "id": "mixed-14",
+          "type": "mixed",
+          "latency_ms": 5.621,
+          "passed": false,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": false
+        }
+      ]
+    },
+    "multi_agent": {
+      "retrieval_mode": "bm25",
+      "total": 36,
+      "passed": 34,
+      "pass_rate": 0.9444,
+      "citation_rate": 0.9444,
+      "analysis_coverage": 0.6944,
+      "reviewed_rate": 1.0,
+      "p95_latency_ms": 26.981,
+      "results": [
+        {
+          "id": "structured-01",
+          "type": "top_case",
+          "latency_ms": 19.084,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-02",
+          "type": "top_case",
+          "latency_ms": 16.895,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-03",
+          "type": "correlation",
+          "latency_ms": 17.607,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-04",
+          "type": "correlation",
+          "latency_ms": 17.221,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-05",
+          "type": "case_detail",
+          "latency_ms": 17.268,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-06",
+          "type": "case_detail",
+          "latency_ms": 63.268,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-07",
+          "type": "top_case",
+          "latency_ms": 16.601,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-08",
+          "type": "top_case",
+          "latency_ms": 16.411,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-09",
+          "type": "correlation",
+          "latency_ms": 17.382,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "structured-10",
+          "type": "correlation",
+          "latency_ms": 17.475,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-01",
+          "type": "retrieval",
+          "latency_ms": 16.529,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-02",
+          "type": "retrieval",
+          "latency_ms": 16.565,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-03",
+          "type": "retrieval",
+          "latency_ms": 16.655,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-04",
+          "type": "retrieval",
+          "latency_ms": 18.632,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-05",
+          "type": "retrieval",
+          "latency_ms": 16.363,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-06",
+          "type": "retrieval",
+          "latency_ms": 16.157,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-07",
+          "type": "retrieval",
+          "latency_ms": 16.454,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-08",
+          "type": "retrieval",
+          "latency_ms": 17.948,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-09",
+          "type": "retrieval",
+          "latency_ms": 16.997,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-10",
+          "type": "retrieval",
+          "latency_ms": 17.185,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-11",
+          "type": "retrieval",
+          "latency_ms": 17.337,
+          "passed": false,
+          "has_citation": false,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "retrieval-12",
+          "type": "retrieval",
+          "latency_ms": 16.875,
+          "passed": false,
+          "has_citation": false,
+          "has_analysis": false,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-01",
+          "type": "mixed",
+          "latency_ms": 20.081,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-02",
+          "type": "mixed",
+          "latency_ms": 19.249,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-03",
+          "type": "mixed",
+          "latency_ms": 19.303,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-04",
+          "type": "mixed",
+          "latency_ms": 19.73,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-05",
+          "type": "mixed",
+          "latency_ms": 19.086,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-06",
+          "type": "mixed",
+          "latency_ms": 20.577,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-07",
+          "type": "mixed",
+          "latency_ms": 18.724,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-08",
+          "type": "mixed",
+          "latency_ms": 19.081,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-09",
+          "type": "mixed",
+          "latency_ms": 17.634,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-10",
+          "type": "mixed",
+          "latency_ms": 18.138,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-11",
+          "type": "mixed",
+          "latency_ms": 19.361,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-12",
+          "type": "mixed",
+          "latency_ms": 18.89,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-13",
+          "type": "mixed",
+          "latency_ms": 19.245,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        },
+        {
+          "id": "mixed-14",
+          "type": "mixed",
+          "latency_ms": 19.173,
+          "passed": true,
+          "has_citation": true,
+          "has_analysis": true,
+          "reviewed": true
+        }
+      ]
+    }
+  },
+  "scientific_workflow": {
+    "questions": 30,
+    "passed": 28,
+    "pass_rate": 0.9333,
+    "retrieval_mode": "hybrid_rerank",
+    "p50_latency_ms": 2695.767,
+    "p95_latency_ms": 14542.739,
+    "downgraded": 0,
+    "results": [
+      {
+        "id": "wf-01",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "simulation_analysis",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [],
+        "retrieval_mode_used": "",
+        "latency_ms": 44.252
+      },
+      {
+        "id": "wf-02",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "simulation_analysis",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [],
+        "retrieval_mode_used": "",
+        "latency_ms": 44.101
+      },
+      {
+        "id": "wf-03",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 18116.105
+      },
+      {
+        "id": "wf-04",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 1995.707
+      },
+      {
+        "id": "wf-05",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 1667.759
+      },
+      {
+        "id": "wf-06",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 2695.767
+      },
+      {
+        "id": "wf-07",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 3181.375
+      },
+      {
+        "id": "wf-08",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_log"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 3475.031
+      },
+      {
+        "id": "wf-09",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "script"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 5513.745
+      },
+      {
+        "id": "wf-10",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_status"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 2176.229
+      },
+      {
+        "id": "wf-11",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 9366.588
+      },
+      {
+        "id": "wf-12",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 7174.127
+      },
+      {
+        "id": "wf-13",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "script"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 3770.665
+      },
+      {
+        "id": "wf-14",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 2251.802
+      },
+      {
+        "id": "wf-15",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_status"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 2101.066
+      },
+      {
+        "id": "wf-16",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 1629.501
+      },
+      {
+        "id": "wf-17",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 2362.565
+      },
+      {
+        "id": "wf-18",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck",
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 11619.076
+      },
+      {
+        "id": "wf-19",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_log"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 1988.669
+      },
+      {
+        "id": "wf-20",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck",
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 9034.307
+      },
+      {
+        "id": "wf-21",
+        "passed": false,
+        "checks": {
+          "route": false,
+          "review": true,
+          "grounded": true,
+          "source_type": false,
+          "answer_keyword": true
+        },
+        "task_type": "simulation_analysis",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [],
+        "retrieval_mode_used": "",
+        "latency_ms": 55.803
+      },
+      {
+        "id": "wf-22",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck",
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 8992.503
+      },
+      {
+        "id": "wf-23",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 2303.948
+      },
+      {
+        "id": "wf-24",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_log",
+          "run_status"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 4432.187
+      },
+      {
+        "id": "wf-25",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 1275.764
+      },
+      {
+        "id": "wf-26",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report",
+          "run_status"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 3157.232
+      },
+      {
+        "id": "wf-27",
+        "passed": false,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": false
+        },
+        "task_type": "simulation_analysis",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [],
+        "retrieval_mode_used": "",
+        "latency_ms": 60.323
+      },
+      {
+        "id": "wf-28",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_status",
+          "script"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 4805.807
+      },
+      {
+        "id": "wf-29",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck",
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 7721.92
+      },
+      {
+        "id": "wf-30",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "review": true,
+          "grounded": true,
+          "source_type": true,
+          "answer_keyword": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "retrieval_mode_used": "hybrid_rerank",
+        "latency_ms": 1780.635
+      }
+    ]
+  },
+  "knowledge_gap": {
+    "questions": 8,
+    "passed": 8,
+    "pass_rate": 1.0,
+    "results": [
+      {
+        "id": "gap-01",
+        "passed": true,
+        "status": "needs_experiment"
+      },
+      {
+        "id": "gap-02",
+        "passed": true,
+        "status": "needs_experiment"
+      },
+      {
+        "id": "gap-03",
+        "passed": true,
+        "status": "needs_experiment"
+      },
+      {
+        "id": "gap-04",
+        "passed": true,
+        "status": "needs_experiment"
+      },
+      {
+        "id": "gap-05",
+        "passed": true,
+        "status": "needs_experiment"
+      },
+      {
+        "id": "gap-06",
+        "passed": true,
+        "status": "needs_experiment"
+      },
+      {
+        "id": "gap-07",
+        "passed": true,
+        "status": "unsupported"
+      },
+      {
+        "id": "gap-08",
+        "passed": true,
+        "status": "not_required"
+      }
+    ]
+  },
+  "production_scenarios": {
+    "scenarios": 8,
+    "passed": 8,
+    "pass_rate": 1.0,
+    "retrieval_mode": "hybrid_rerank",
+    "llm_enabled": false,
+    "results": [
+      {
+        "id": "prod-01",
+        "type": "指标筛选",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "simulation_analysis",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [],
+        "gap": null,
+        "plan_id": null,
+        "latency_ms": 25.595
+      },
+      {
+        "id": "prod-02",
+        "type": "报告口径",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "gap": null,
+        "plan_id": null,
+        "latency_ms": 1492.174
+      },
+      {
+        "id": "prod-03",
+        "type": "失败排查",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "run_log",
+          "run_status"
+        ],
+        "gap": null,
+        "plan_id": null,
+        "latency_ms": 1483.736
+      },
+      {
+        "id": "prod-04",
+        "type": "复现实验",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck",
+          "script"
+        ],
+        "gap": null,
+        "plan_id": null,
+        "latency_ms": 4031.356
+      },
+      {
+        "id": "prod-05",
+        "type": "混合证据分析",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "input_deck",
+          "report"
+        ],
+        "gap": null,
+        "plan_id": null,
+        "latency_ms": 3181.369
+      },
+      {
+        "id": "prod-06",
+        "type": "知识缺口",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "gap": "needs_experiment",
+        "plan_id": "draft-16eeed1d27b9",
+        "latency_ms": 3454.297
+      },
+      {
+        "id": "prod-07",
+        "type": "风险拦截",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "knowledge",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [],
+        "gap": "unsupported",
+        "plan_id": null,
+        "latency_ms": 26.96
+      },
+      {
+        "id": "prod-08",
+        "type": "探索建议",
+        "passed": true,
+        "checks": {
+          "route": true,
+          "trace": true,
+          "review": true,
+          "source": true,
+          "sources": true,
+          "keyword": true,
+          "gap": true,
+          "plan": true
+        },
+        "task_type": "mixed",
+        "review": {
+          "approved": true,
+          "reasons": [],
+          "requires_revision": false
+        },
+        "sources": [
+          "report"
+        ],
+        "gap": "not_required",
+        "plan_id": "draft-2955bf9d8c4d",
+        "latency_ms": 788.818
+      }
+    ]
+  },
+  "safety_gates": {
+    "total": 7,
+    "passed": 7,
+    "pass_rate": 1.0,
+    "checks": [
+      {
+        "id": "valid_plan_accepted",
+        "passed": true
+      },
+      {
+        "id": "out_of_range_parameter_rejected",
+        "passed": true
+      },
+      {
+        "id": "unknown_parameter_rejected",
+        "passed": true
+      },
+      {
+        "id": "template_hash_mismatch_rejected",
+        "passed": true
+      },
+      {
+        "id": "unapproved_execution_blocked",
+        "passed": true
+      },
+      {
+        "id": "mcp_has_no_arbitrary_sql_or_real_execution",
+        "passed": true
+      },
+      {
+        "id": "unknown_gap_creates_no_plan",
+        "passed": true
+      }
+    ]
+  },
+  "retrieval_default": {
+    "questions": 12,
+    "recall_at_5": 0.9167,
+    "mrr": 0.7569,
+    "ndcg_at_5": 0.7866,
+    "p50_latency_ms": 18743.761,
+    "p95_latency_ms": 55673.047
+  },
+  "concurrency_smoke": {
+    "concurrent_users": 5,
+    "completed": 5,
+    "approved": 5,
+    "wall_time_ms": 9196.607,
+    "p95_latency_ms": 9195.029
+  },
+  "real_moose_execution": {
+    "plan_id": "plan-3e07141432dc",
+    "successful_cases": 1,
+    "total_cases": 1,
+    "elapsed_s": 84.374,
+    "mpi_processes": 1
+  },
+  "limitations": [
+    "主评测关闭 LLM，保证可复现并将模型输出与流程正确性分离。",
+    "真实 MOOSE 执行仍需审批与显式 real 模式；受限沙箱曾阻断 MPI socket，但 P0 已在宿主环境完成单进程真实运行。"
+  ]
+}

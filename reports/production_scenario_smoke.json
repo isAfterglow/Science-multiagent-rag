@@ -1,0 +1,224 @@
+{
+  "scenarios": 8,
+  "passed": 8,
+  "pass_rate": 1.0,
+  "retrieval_mode": "hybrid_rerank",
+  "llm_enabled": false,
+  "results": [
+    {
+      "id": "prod-01",
+      "type": "指标筛选",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "simulation_analysis",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [],
+      "gap": null,
+      "plan_id": null,
+      "latency_ms": 25.595
+    },
+    {
+      "id": "prod-02",
+      "type": "报告口径",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "gap": null,
+      "plan_id": null,
+      "latency_ms": 1492.174
+    },
+    {
+      "id": "prod-03",
+      "type": "失败排查",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_log",
+        "run_status"
+      ],
+      "gap": null,
+      "plan_id": null,
+      "latency_ms": 1483.736
+    },
+    {
+      "id": "prod-04",
+      "type": "复现实验",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck",
+        "script"
+      ],
+      "gap": null,
+      "plan_id": null,
+      "latency_ms": 4031.356
+    },
+    {
+      "id": "prod-05",
+      "type": "混合证据分析",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck",
+        "report"
+      ],
+      "gap": null,
+      "plan_id": null,
+      "latency_ms": 3181.369
+    },
+    {
+      "id": "prod-06",
+      "type": "知识缺口",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "gap": "needs_experiment",
+      "plan_id": "draft-16eeed1d27b9",
+      "latency_ms": 3454.297
+    },
+    {
+      "id": "prod-07",
+      "type": "风险拦截",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [],
+      "gap": "unsupported",
+      "plan_id": null,
+      "latency_ms": 26.96
+    },
+    {
+      "id": "prod-08",
+      "type": "探索建议",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "trace": true,
+        "review": true,
+        "source": true,
+        "sources": true,
+        "keyword": true,
+        "gap": true,
+        "plan": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "gap": "not_required",
+      "plan_id": "draft-2955bf9d8c4d",
+      "latency_ms": 788.818
+    }
+  ]
+}

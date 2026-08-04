@@ -1,0 +1,173 @@
+[
+  {
+    "mode": "hybrid_rerank",
+    "chunk_strategy": "fixed",
+    "questions": 14,
+    "review_pass_rate": 0.8571,
+    "dual_evidence_rate": 1.0,
+    "p95_latency_ms": 6129.3,
+    "results": [
+      {
+        "id": "mixed-01",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt"
+        ],
+        "latency_ms": 6129.3
+      },
+      {
+        "id": "mixed-02",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt"
+        ],
+        "latency_ms": 743.619
+      },
+      {
+        "id": "mixed-03",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt"
+        ],
+        "latency_ms": 733.637
+      },
+      {
+        "id": "mixed-04",
+        "approved": false,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2176.943
+      },
+      {
+        "id": "mixed-05",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2113.013
+      },
+      {
+        "id": "mixed-06",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt"
+        ],
+        "latency_ms": 680.314
+      },
+      {
+        "id": "mixed-07",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt",
+          "generate_lhs_layer1_main_cases.py",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2165.364
+      },
+      {
+        "id": "mixed-08",
+        "approved": false,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "batch_run_layer1_lhs.log"
+        ],
+        "latency_ms": 719.56
+      },
+      {
+        "id": "mixed-09",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt"
+        ],
+        "latency_ms": 698.443
+      },
+      {
+        "id": "mixed-10",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt",
+          "generate_lhs_layer1_main_cases.py",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2243.108
+      },
+      {
+        "id": "mixed-11",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt",
+          "generate_lhs_layer1_main_cases.py",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2324.789
+      },
+      {
+        "id": "mixed-12",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "generate_lhs_layer1_main_cases.py",
+          "layer1_lhs_analysis_summary.txt",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2231.356
+      },
+      {
+        "id": "mixed-13",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt",
+          "generate_lhs_layer1_main_cases.py",
+          "case1_fiat_walltemp_nominal.i",
+          "case1_fiat_walltemp_nominal.i"
+        ],
+        "latency_ms": 2185.56
+      },
+      {
+        "id": "mixed-14",
+        "approved": true,
+        "has_analysis": true,
+        "has_citation": true,
+        "citations": [
+          "layer1_lhs_analysis_summary.txt"
+        ],
+        "latency_ms": 712.434
+      }
+    ]
+  }
+]

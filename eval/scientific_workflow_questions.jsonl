@@ -1,0 +1,30 @@
+{"id":"wf-01","question":"early_1_2_rmse 最低的历史 case 是哪个，数值是多少？","task_type":"simulation_analysis","must_contain":"case_"}
+{"id":"wf-02","question":"cpv_front_scale 与 early_1_2_rmse 的线性相关性如何？","task_type":"simulation_analysis","must_contain":"Pearson"}
+{"id":"wf-03","question":"tbegin2_shift 对 temp_mean_rmse 的影响是否值得进一步验证？","task_type":"mixed","must_contain":"Pearson"}
+{"id":"wf-04","question":"查看 case_019 的参数与指标，确认其是否为可复用候选。","task_type":"mixed","must_contain":"case_"}
+{"id":"wf-05","question":"kv_front_scale 与 early_1_2_rmse 的关系是否能证明因果？","task_type":"mixed","must_contain":"Pearson"}
+{"id":"wf-06","question":"解释早期温度误差时，报告中应优先引用哪类历史证据？","task_type":"knowledge","source_type":"report"}
+{"id":"wf-07","question":"LHS 分析中基线 early_1_2_rmse 是多少？","task_type":"knowledge","source_type":"report"}
+{"id":"wf-08","question":"批量任务失败后，应该先从哪份运行日志排查？","task_type":"knowledge","source_type":"run_log"}
+{"id":"wf-09","question":"批量运行过程如何记录每个 case 的开始时间？","task_type":"knowledge","source_type":"script"}
+{"id":"wf-10","question":"LHS case 的状态和耗时保存在什么记录中？","task_type":"knowledge","source_type":"run_status"}
+{"id":"wf-11","question":"MOOSE 输入 deck 中如何定位边界条件相关设置？","task_type":"knowledge","source_type":"input_deck"}
+{"id":"wf-12","question":"case 输入文件采用什么 MOOSE 区块语法？","task_type":"knowledge","source_type":"input_deck"}
+{"id":"wf-13","question":"批量生成脚本如何约定 LHS case 的命名？","task_type":"knowledge","source_type":"script"}
+{"id":"wf-14","question":"历史结果如何进行温度误差排名，并应引用报告哪个部分？","task_type":"knowledge","source_type":"report"}
+{"id":"wf-15","question":"运行状态表中的 return_code 代表什么排查信号？","task_type":"knowledge","source_type":"run_status"}
+{"id":"wf-16","question":"cpv_mid_scale 是否应优先调整以降低 early_1_2_rmse？给出数据和报告证据。","task_type":"mixed","must_contain":"Pearson","source_type":"report"}
+{"id":"wf-17","question":"ER_scale 与 early_1_2_rmse 的关系及局限性是什么？","task_type":"mixed","must_contain":"Pearson","source_type":"report"}
+{"id":"wf-18","question":"最优 early_1_2_rmse case 的参数分析应如何与输入文件核对？","task_type":"mixed","must_contain":"case_","source_type":"input_deck"}
+{"id":"wf-19","question":"为什么历史 LHS 仿真需要同时保存日志和温度误差指标？","task_type":"knowledge","source_type":"run_log"}
+{"id":"wf-20","question":"pyrolysis_heat_scale 对 early_1_2_rmse 的影响是否明显，当前证据有什么边界？","task_type":"mixed","must_contain":"Pearson","source_type":"report"}
+{"id":"wf-21","question":"rho_reactive_scale 与 early_1_2_rmse 的关系是什么，能否直接用于新仿真？","task_type":"mixed","must_contain":"Pearson","source_type":"report"}
+{"id":"wf-22","question":"如果要复现一个历史 case，应从输入 deck 中核对哪些温度相关配置？","task_type":"mixed","source_type":"input_deck"}
+{"id":"wf-23","question":"历史分析报告如何描述参数影响与因果关系的区别？","task_type":"mixed","source_type":"report"}
+{"id":"wf-24","question":"某 case 非零 return_code 时，日志和状态表应如何联合诊断？","task_type":"knowledge","source_type":"run_log"}
+{"id":"wf-25","question":"preexp_scale 是否是降低 early_1_2_rmse 的关键参数？请给数据依据。","task_type":"mixed","must_contain":"Pearson"}
+{"id":"wf-26","question":"case_005 的参数、运行状态和指标是否完整？","task_type":"mixed","must_contain":"case_"}
+{"id":"wf-27","question":"如何根据 early_1_2_rmse 的历史排序提出下一轮候选仿真？","task_type":"simulation_analysis","must_contain":"case_"}
+{"id":"wf-28","question":"批处理脚本和状态 CSV 在可复现实验中各自承担什么作用？","task_type":"knowledge","source_type":"script"}
+{"id":"wf-29","question":"当报告结论与单个输入 deck 不一致时，应优先如何保留证据和提出复核？","task_type":"knowledge","source_type":"report"}
+{"id":"wf-30","question":"早期温度误差的关键参数排序如何同时引用历史数据和报告依据？","task_type":"mixed","must_contain":"Pearson","source_type":"report"}

@@ -1,0 +1,12 @@
+{"id":"retrieval-01","question":"LHS 分析中基线 early_1_2_rmse 是多少","relevant_sources":["layer1_lhs_analysis_summary.txt"]}
+{"id":"retrieval-02","question":"批量运行日志中如何记录 case 的开始时间","relevant_sources":["batch_run_layer1_lhs.log","run_batch_layer1_cases.py"]}
+{"id":"retrieval-03","question":"MOOSE 输入文件中温度相关设置在哪里","relevant_sources":["case1_fiat_walltemp_nominal.i"]}
+{"id":"retrieval-04","question":"历史报告如何解释参数影响","relevant_sources":["layer1_lhs_analysis_summary.txt"]}
+{"id":"retrieval-05","question":"运行失败时应该查看什么日志","relevant_sources":["batch_run_layer1_lhs.log"]}
+{"id":"retrieval-06","question":"输入 deck 包含哪些边界条件设置","relevant_sources":["case1_fiat_walltemp_nominal.i"]}
+{"id":"retrieval-07","question":"LHS case 的运行状态如何保存","relevant_sources":["batch_run_status_layer1_lhs.csv","run_batch_layer1_cases.py"]}
+{"id":"retrieval-08","question":"early_1_2_rmse 的基线值是什么","relevant_sources":["layer1_lhs_analysis_summary.txt"]}
+{"id":"retrieval-09","question":"case 输入文件使用什么 MOOSE 语法","relevant_sources":["case1_fiat_walltemp_nominal.i"]}
+{"id":"retrieval-10","question":"批量运行脚本中的 case 命名规则","relevant_sources":["run_batch_layer1_cases.py","generate_lhs_layer1_main_cases.py"]}
+{"id":"retrieval-11","question":"历史仿真如何进行温度误差排名","relevant_sources":["layer1_lhs_analysis_summary.txt"]}
+{"id":"retrieval-12","question":"热防护温度误差校准的已有分析总结","relevant_sources":["layer1_lhs_analysis_summary.txt"]}

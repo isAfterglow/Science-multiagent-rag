@@ -1,0 +1,22 @@
+{"id":"structured-01","type":"top_case","question":"early_1_2_rmse 最好的 case 是哪个","metric":"early_1_2_rmse"}
+{"id":"structured-02","type":"top_case","question":"temp_mean_rmse 最低的 3 个 case","metric":"temp_mean_rmse"}
+{"id":"structured-03","type":"correlation","question":"cpv_front_scale 对 early_1_2_rmse 有何影响","metric":"early_1_2_rmse"}
+{"id":"structured-04","type":"correlation","question":"ER_scale 与 early_1_2_rmse 的相关性","metric":"early_1_2_rmse"}
+{"id":"structured-05","type":"case_detail","question":"查看 case_019 的参数与指标","case_id":"case_019"}
+{"id":"structured-06","type":"case_detail","question":"查看 case_005 的参数与指标","case_id":"case_005"}
+{"id":"structured-07","type":"top_case","question":"early_1mm_rmse 最低的 case","metric":"early_1mm_rmse"}
+{"id":"structured-08","type":"top_case","question":"early_2mm_rmse 最低的 case","metric":"early_2mm_rmse"}
+{"id":"structured-09","type":"correlation","question":"tbegin2_shift 对 temp_mean_rmse 的影响","metric":"temp_mean_rmse"}
+{"id":"structured-10","type":"correlation","question":"kv_front_scale 与 early_1_2_rmse 的关系","metric":"early_1_2_rmse"}
+{"id":"retrieval-01","type":"retrieval","question":"LHS 分析中基线 early_1_2_rmse 是多少"}
+{"id":"retrieval-02","type":"retrieval","question":"批量运行日志中如何记录 case 的开始时间"}
+{"id":"retrieval-03","type":"retrieval","question":"MOOSE 输入文件中温度相关设置在哪里"}
+{"id":"retrieval-04","type":"retrieval","question":"历史报告如何解释参数影响"}
+{"id":"retrieval-05","type":"retrieval","question":"运行失败时应该查看什么日志"}
+{"id":"retrieval-06","type":"retrieval","question":"输入 deck 包含哪些边界条件设置"}
+{"id":"retrieval-07","type":"retrieval","question":"LHS case 的运行状态如何保存"}
+{"id":"retrieval-08","type":"retrieval","question":"early_1_2_rmse 的基线值是什么"}
+{"id":"retrieval-09","type":"retrieval","question":"case 输入文件使用什么 MOOSE 语法"}
+{"id":"retrieval-10","type":"retrieval","question":"批量运行脚本中的 case 命名规则"}
+{"id":"retrieval-11","type":"retrieval","question":"历史仿真如何进行温度误差排名"}
+{"id":"retrieval-12","type":"retrieval","question":"热防护温度误差校准的已有分析总结"}

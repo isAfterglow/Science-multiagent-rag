@@ -1,0 +1,12 @@
+.env
+data/*.sqlite3
+data/index/
+data/artifacts/
+data/milvus/
+data/runs/
+data/knowledge_sources/raw/
+data/knowledge_sources/rendered/
+web/node_modules/
+web/dist/
+__pycache__/
+.pytest_cache/

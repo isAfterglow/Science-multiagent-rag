@@ -1,0 +1,12 @@
+{
+  "sources": 8,
+  "pages": 195,
+  "blocks": 2216,
+  "parse_coverage": 0.9744,
+  "two_column_pages": 72,
+  "reading_order_valid_rate": 1.0,
+  "tables": 9,
+  "high_confidence_tables": 3,
+  "table_candidates": 6,
+  "ocr_blocks": 6
+}

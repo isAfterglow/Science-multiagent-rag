@@ -1,0 +1,1360 @@
+{
+  "mode": "bm25",
+  "chunk_strategy": "structure",
+  "chunk_count": 1500,
+  "metrics": {
+    "questions": 44,
+    "source_recall_at_5": 0.5758,
+    "question_hit_rate": 0.6136,
+    "mrr": 0.5568,
+    "ndcg_at_5": 0.5512,
+    "page_hit_rate": 0.6061,
+    "authority_correct_rate": 0.7955,
+    "scientific_source_recall_at_5": 0.5152,
+    "ocr_source_recall_at_5": 0.5,
+    "ocr_page_hit_rate": 0.0,
+    "p50_latency_ms": 0.548,
+    "p95_latency_ms": 0.969
+  },
+  "results": [
+    {
+      "id": "mm-01",
+      "question": "TUFROC 公开技术资料中，标准电弧喷流测试覆盖了哪些类型的试件和载荷条件？",
+      "expected_sources": [
+        "nasa_tufroc_2019"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tufroc_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        1,
+        20,
+        2,
+        19
+      ],
+      "source_hit": true,
+      "first_hit_rank": 2,
+      "hit_ranks": [
+        2
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.75
+    },
+    {
+      "id": "mm-02",
+      "question": "TUFROC 的先进配方和加工改进主要面向什么性能目标？",
+      "expected_sources": [
+        "nasa_tufroc_2019"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tufroc_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        1,
+        20,
+        2,
+        19
+      ],
+      "source_hit": true,
+      "first_hit_rank": 2,
+      "hit_ranks": [
+        2
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.449
+    },
+    {
+      "id": "mm-03",
+      "question": "查找 TUFROC 热防护系统的公开 NASA 技术资料并给出页码。",
+      "expected_sources": [
+        "nasa_tufroc_2019"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tps_testing_2019",
+        "nasa_charring_ablation_1966",
+        "nasa_charring_ablation_1966",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        2,
+        1,
+        113,
+        1
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.699
+    },
+    {
+      "id": "mm-04",
+      "question": "外部资料中 H1 test article 的设计目的是什么？",
+      "expected_sources": [
+        "nasa_tufroc_2019"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_tufroc_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        5,
+        13,
+        14,
+        6
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.732
+    },
+    {
+      "id": "mm-05",
+      "question": "针对热流和剪切耦合条件，哪份公开技术资料描述了带缝隙瓦片的测试？",
+      "expected_sources": [
+        "nasa_tufroc_2019"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.397
+    },
+    {
+      "id": "mm-06",
+      "question": "在多层壁热防护系统的历史扫描资料中，发明标题与专利号出现在哪一页？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": false,
+      "requires_ocr": true,
+      "latency_ms": 0.408
+    },
+    {
+      "id": "mm-07",
+      "question": "扫描版多层壁热防护系统资料的背景部分讨论了哪类飞行器的气动加热？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        6
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.297
+    },
+    {
+      "id": "mm-08",
+      "question": "历史多层壁热防护资料中，详细说明从哪一页开始？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        7
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.397
+    },
+    {
+      "id": "mm-09",
+      "question": "查找描述 space shuttle re-entry thermal protection 的多层壁资料页。",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        7
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982"
+      ],
+      "returned_pages": [
+        3,
+        4,
+        8,
+        2,
+        7
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.994
+    },
+    {
+      "id": "mm-10",
+      "question": "多层壁资料中提及 silicide coated columbium 和 edge seals 的内容在哪页？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        8
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982"
+      ],
+      "returned_pages": [
+        1,
+        7,
+        2,
+        9,
+        8
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.987
+    },
+    {
+      "id": "mm-11",
+      "question": "扫描技术资料关于 titanium alloy foil sheets 的权利要求在哪页？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        9
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982"
+      ],
+      "returned_pages": [
+        7,
+        1,
+        8,
+        2,
+        9
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.799
+    },
+    {
+      "id": "mm-12",
+      "question": "检索多层壁热防护结构示意图，要求返回 OCR 来源和页码。",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        3,
+        4,
+        5
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": false,
+      "requires_ocr": true,
+      "latency_ms": 0.608
+    },
+    {
+      "id": "mm-13",
+      "question": "Multiwall thermal protection system 的发明人和 NASA 归属信息来自哪页扫描件？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982"
+      ],
+      "returned_pages": [
+        3,
+        4,
+        2,
+        6,
+        8
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": true,
+      "latency_ms": 0.909
+    },
+    {
+      "id": "mm-14",
+      "question": "检索 hypervelocity vehicle 的热防护说明，给出原始技术资料页码。",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        6,
+        7
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_multiwall_1982",
+        "nasa_thermal_response_2011"
+      ],
+      "returned_pages": [
+        6,
+        6,
+        23,
+        8,
+        11
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.724
+    },
+    {
+      "id": "mm-15",
+      "question": "当前历史 LHS 仿真的 early_1_2_rmse 基线值是什么？",
+      "expected_sources": [
+        "project_lhs_report"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_lhs_report"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.691
+    },
+    {
+      "id": "mm-16",
+      "question": "项目的批量运行日志如何记录 case 开始时间？",
+      "expected_sources": [
+        "project_run_log",
+        "project_run_script"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_lhs_script",
+        "project_run_script",
+        "project_run_log"
+      ],
+      "returned_pages": [
+        null,
+        null,
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 2,
+      "hit_ranks": [
+        2,
+        3
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.532
+    },
+    {
+      "id": "mm-17",
+      "question": "MOOSE 输入 deck 中温度相关设置在哪里？",
+      "expected_sources": [
+        "project_input_deck"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_input_deck"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.66
+    },
+    {
+      "id": "mm-18",
+      "question": "历史 LHS 报告如何界定参数影响的因果局限？",
+      "expected_sources": [
+        "project_lhs_report"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_lhs_report"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.463
+    },
+    {
+      "id": "mm-19",
+      "question": "运行失败时项目应查看哪份运行日志？",
+      "expected_sources": [
+        "project_run_log"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_run_log"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.264
+    },
+    {
+      "id": "mm-20",
+      "question": "项目输入 deck 包含哪些边界条件设置？",
+      "expected_sources": [
+        "project_input_deck"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_input_deck"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.55
+    },
+    {
+      "id": "mm-21",
+      "question": "历史 LHS case 的运行状态保存在什么记录中？",
+      "expected_sources": [
+        "project_run_script",
+        "project_run_status"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_run_status"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.57
+    },
+    {
+      "id": "mm-22",
+      "question": "项目批量脚本中的 case 命名规则是什么？",
+      "expected_sources": [
+        "project_lhs_script",
+        "project_run_script"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_lhs_script",
+        "project_run_script"
+      ],
+      "returned_pages": [
+        null,
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1,
+        2
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.506
+    },
+    {
+      "id": "mm-23",
+      "question": "历史仿真如何进行温度误差排名？",
+      "expected_sources": [
+        "project_lhs_report"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_lhs_report"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.268
+    },
+    {
+      "id": "mm-24",
+      "question": "当前项目中验证 MOOSE 输入语法应引用哪类证据？",
+      "expected_sources": [
+        "project_input_deck"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "project_input_deck"
+      ],
+      "returned_pages": [
+        null
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.548
+    },
+    {
+      "id": "mm-25",
+      "question": "请结合历史仿真报告与公开 TUFROC 文献，分别说明项目证据和外部机理证据应来自哪里。",
+      "expected_sources": [
+        "nasa_tufroc_2019",
+        "project_lhs_report"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tufroc_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        1,
+        20,
+        2,
+        19
+      ],
+      "source_hit": true,
+      "first_hit_rank": 2,
+      "hit_ranks": [
+        2
+      ],
+      "page_hit": true,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.615
+    },
+    {
+      "id": "mm-26",
+      "question": "对比项目中的温度误差校准报告与外部热防护资料，检索时应同时返回两类来源。",
+      "expected_sources": [
+        "nasa_tufroc_2019",
+        "project_lhs_report"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.41
+    },
+    {
+      "id": "mm-27",
+      "question": "为下一次 MOOSE 热防护参数探索查找输入 deck、历史报告和外部 TUFROC 测试背景。",
+      "expected_sources": [
+        "nasa_tufroc_2019",
+        "project_input_deck",
+        "project_lhs_report"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tufroc_2019",
+        "nasa_charring_ablation_1966",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        1,
+        40,
+        20,
+        2
+      ],
+      "source_hit": true,
+      "first_hit_rank": 2,
+      "hit_ranks": [
+        2
+      ],
+      "page_hit": true,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.916
+    },
+    {
+      "id": "mm-28",
+      "question": "要核对项目真实运行耗时，不能用外部论文替代，应检索项目状态表和日志。",
+      "expected_sources": [
+        "project_run_log",
+        "project_run_status"
+      ],
+      "expected_pages": [],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.511
+    },
+    {
+      "id": "mm-29",
+      "question": "解释热防护设计时，查找 NASA 多层壁原始资料和本项目历史分析报告。",
+      "expected_sources": [
+        "nasa_multiwall_1982",
+        "project_lhs_report"
+      ],
+      "expected_pages": [
+        6,
+        7
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_charring_ablation_1966",
+        "nasa_charring_ablation_1966",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        1,
+        113,
+        1,
+        7
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": true,
+      "authority_hit": false,
+      "requires_ocr": false,
+      "latency_ms": 0.617
+    },
+    {
+      "id": "mm-30",
+      "question": "当用户问扫描图中的精确结构尺寸时，应返回哪些 OCR 置信度和页码元数据？",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        3,
+        4,
+        5
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982"
+      ],
+      "returned_pages": [
+        2,
+        1,
+        9,
+        8,
+        7
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": true,
+      "latency_ms": 0.6
+    },
+    {
+      "id": "mm-31",
+      "question": "检索公开 NASA 资料中 gapped TUFROC tiles 在热流和剪切下的测试描述。",
+      "expected_sources": [
+        "nasa_tufroc_2019"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tps_testing_2019",
+        "nasa_charring_ablation_1966",
+        "nasa_charring_ablation_1966",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        2,
+        1,
+        113,
+        1
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.905
+    },
+    {
+      "id": "mm-32",
+      "question": "为解释 space shuttle leading edge 热环境，查找多层壁系统的详细说明页。",
+      "expected_sources": [
+        "nasa_multiwall_1982"
+      ],
+      "expected_pages": [
+        7
+      ],
+      "returned_sources": [
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "nasa_multiwall_1982",
+        "project_lhs_report",
+        "nasa_multiwall_1982"
+      ],
+      "returned_pages": [
+        8,
+        1,
+        7,
+        null,
+        3
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.914
+    },
+    {
+      "id": "mm-33",
+      "question": "Advanced TUFROC 的双层结构如何组合碳复合材料表面与低导热 silica tile？",
+      "expected_sources": [
+        "nasa_advanced_tufroc_2021"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tufroc_2019",
+        "nasa_silicate_ablation_2016",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        1,
+        10,
+        20,
+        2
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.73
+    },
+    {
+      "id": "mm-34",
+      "question": "Advanced TUFROC 相比原始系统为什么会有更低的表面温度？",
+      "expected_sources": [
+        "nasa_advanced_tufroc_2021"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_advanced_tufroc_2021",
+        "nasa_tufroc_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        1,
+        1,
+        20,
+        2,
+        19
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.508
+    },
+    {
+      "id": "mm-35",
+      "question": "公开 TPS 材料热试验资料列出的测试设施包括哪些类型？",
+      "expected_sources": [
+        "nasa_tps_testing_2019"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        11,
+        3,
+        7,
+        21
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.522
+    },
+    {
+      "id": "mm-36",
+      "question": "TPS 材料测试为什么需要 piecewise testing，并从公开资料定位测试设施页。",
+      "expected_sources": [
+        "nasa_tps_testing_2019"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        3,
+        11,
+        7,
+        17,
+        2
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.706
+    },
+    {
+      "id": "mm-37",
+      "question": "炭化烧蚀热防护系统的瞬态一维模型如何划分材料区域？",
+      "expected_sources": [
+        "nasa_charring_ablation_1966"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.31
+    },
+    {
+      "id": "mm-38",
+      "question": "历史炭化烧蚀报告中用于数值计算的程序名称是什么？",
+      "expected_sources": [
+        "nasa_charring_ablation_1966"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.304
+    },
+    {
+      "id": "mm-39",
+      "question": "硅酸盐热烧蚀模型同时考虑了哪些质量损失机制？",
+      "expected_sources": [
+        "nasa_silicate_ablation_2016"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.305
+    },
+    {
+      "id": "mm-40",
+      "question": "硅酸盐烧蚀模型的表面熔融层受到哪些驱动力影响？",
+      "expected_sources": [
+        "nasa_silicate_ablation_2016"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.307
+    },
+    {
+      "id": "mm-41",
+      "question": "烧蚀热防护基础资料如何区分低热流和高热流环境的材料选择？",
+      "expected_sources": [
+        "nasa_ablation_fundamentals_2014"
+      ],
+      "expected_pages": [
+        3
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": false,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.305
+    },
+    {
+      "id": "mm-42",
+      "question": "烧蚀热防护基础课程的内容覆盖哪些建模与地面试验主题？",
+      "expected_sources": [
+        "nasa_ablation_fundamentals_2014"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        19,
+        18,
+        17,
+        16
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.301
+    },
+    {
+      "id": "mm-43",
+      "question": "FIATC 程序由哪两个已有热防护分析程序的能力组合而来？",
+      "expected_sources": [
+        "nasa_thermal_response_2011"
+      ],
+      "expected_pages": [
+        1
+      ],
+      "returned_sources": [
+        "nasa_thermal_response_2011",
+        "nasa_thermal_response_2011",
+        "nasa_thermal_response_2011",
+        "nasa_thermal_response_2011",
+        "nasa_thermal_response_2011"
+      ],
+      "returned_pages": [
+        11,
+        10,
+        6,
+        9,
+        1
+      ],
+      "source_hit": true,
+      "first_hit_rank": 1,
+      "hit_ranks": [
+        1
+      ],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.413
+    },
+    {
+      "id": "mm-44",
+      "question": "现有 TPS 材料烧蚀化学表格方法有什么局限？",
+      "expected_sources": [
+        "nasa_thermal_response_2011"
+      ],
+      "expected_pages": [
+        2
+      ],
+      "returned_sources": [
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019",
+        "nasa_tps_testing_2019"
+      ],
+      "returned_pages": [
+        2,
+        11,
+        3,
+        7,
+        21
+      ],
+      "source_hit": false,
+      "first_hit_rank": null,
+      "hit_ranks": [],
+      "page_hit": true,
+      "authority_hit": true,
+      "requires_ocr": false,
+      "latency_ms": 0.507
+    }
+  ]
+}

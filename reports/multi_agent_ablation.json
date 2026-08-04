@@ -1,0 +1,1010 @@
+{
+  "rag_only": {
+    "retrieval_mode": "bm25",
+    "total": 36,
+    "passed": 12,
+    "pass_rate": 0.3333,
+    "citation_rate": 1.0,
+    "analysis_coverage": 0.0,
+    "reviewed_rate": 0.0,
+    "p95_latency_ms": 4.062,
+    "results": [
+      {
+        "id": "structured-01",
+        "type": "top_case",
+        "latency_ms": 4.166,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-02",
+        "type": "top_case",
+        "latency_ms": 3.634,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-03",
+        "type": "correlation",
+        "latency_ms": 3.673,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-04",
+        "type": "correlation",
+        "latency_ms": 3.522,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-05",
+        "type": "case_detail",
+        "latency_ms": 3.442,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-06",
+        "type": "case_detail",
+        "latency_ms": 3.537,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-07",
+        "type": "top_case",
+        "latency_ms": 3.689,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-08",
+        "type": "top_case",
+        "latency_ms": 3.692,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-09",
+        "type": "correlation",
+        "latency_ms": 4.044,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "structured-10",
+        "type": "correlation",
+        "latency_ms": 4.016,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-01",
+        "type": "retrieval",
+        "latency_ms": 0.347,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-02",
+        "type": "retrieval",
+        "latency_ms": 0.339,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-03",
+        "type": "retrieval",
+        "latency_ms": 0.681,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-04",
+        "type": "retrieval",
+        "latency_ms": 0.156,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-05",
+        "type": "retrieval",
+        "latency_ms": 0.154,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-06",
+        "type": "retrieval",
+        "latency_ms": 0.719,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-07",
+        "type": "retrieval",
+        "latency_ms": 0.23,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-08",
+        "type": "retrieval",
+        "latency_ms": 0.196,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-09",
+        "type": "retrieval",
+        "latency_ms": 0.763,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-10",
+        "type": "retrieval",
+        "latency_ms": 0.286,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-11",
+        "type": "retrieval",
+        "latency_ms": 0.144,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-12",
+        "type": "retrieval",
+        "latency_ms": 2.912,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-01",
+        "type": "mixed",
+        "latency_ms": 0.372,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-02",
+        "type": "mixed",
+        "latency_ms": 0.325,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-03",
+        "type": "mixed",
+        "latency_ms": 3.041,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-04",
+        "type": "mixed",
+        "latency_ms": 0.826,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-05",
+        "type": "mixed",
+        "latency_ms": 0.792,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-06",
+        "type": "mixed",
+        "latency_ms": 0.189,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-07",
+        "type": "mixed",
+        "latency_ms": 3.703,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-08",
+        "type": "mixed",
+        "latency_ms": 0.396,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-09",
+        "type": "mixed",
+        "latency_ms": 0.264,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-10",
+        "type": "mixed",
+        "latency_ms": 3.6,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-11",
+        "type": "mixed",
+        "latency_ms": 3.546,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-12",
+        "type": "mixed",
+        "latency_ms": 3.188,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-13",
+        "type": "mixed",
+        "latency_ms": 3.509,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-14",
+        "type": "mixed",
+        "latency_ms": 0.308,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      }
+    ]
+  },
+  "tool_agent": {
+    "retrieval_mode": "bm25",
+    "total": 36,
+    "passed": 22,
+    "pass_rate": 0.6111,
+    "citation_rate": 1.0,
+    "analysis_coverage": 0.5,
+    "reviewed_rate": 0.0,
+    "p95_latency_ms": 227.374,
+    "results": [
+      {
+        "id": "structured-01",
+        "type": "top_case",
+        "latency_ms": 0.543,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-02",
+        "type": "top_case",
+        "latency_ms": 0.205,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-03",
+        "type": "correlation",
+        "latency_ms": 1.752,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-04",
+        "type": "correlation",
+        "latency_ms": 1.172,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-05",
+        "type": "case_detail",
+        "latency_ms": 0.212,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-06",
+        "type": "case_detail",
+        "latency_ms": 0.157,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-07",
+        "type": "top_case",
+        "latency_ms": 0.174,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-08",
+        "type": "top_case",
+        "latency_ms": 0.157,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-09",
+        "type": "correlation",
+        "latency_ms": 1.036,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "structured-10",
+        "type": "correlation",
+        "latency_ms": 1.03,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-01",
+        "type": "retrieval",
+        "latency_ms": 219.401,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-02",
+        "type": "retrieval",
+        "latency_ms": 221.533,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-03",
+        "type": "retrieval",
+        "latency_ms": 221.607,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-04",
+        "type": "retrieval",
+        "latency_ms": 219.538,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-05",
+        "type": "retrieval",
+        "latency_ms": 221.278,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-06",
+        "type": "retrieval",
+        "latency_ms": 222.15,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-07",
+        "type": "retrieval",
+        "latency_ms": 220.425,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-08",
+        "type": "retrieval",
+        "latency_ms": 223.309,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-09",
+        "type": "retrieval",
+        "latency_ms": 226.417,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-10",
+        "type": "retrieval",
+        "latency_ms": 222.407,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-11",
+        "type": "retrieval",
+        "latency_ms": 221.647,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-12",
+        "type": "retrieval",
+        "latency_ms": 227.517,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-01",
+        "type": "mixed",
+        "latency_ms": 1.541,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-02",
+        "type": "mixed",
+        "latency_ms": 1.086,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-03",
+        "type": "mixed",
+        "latency_ms": 227.349,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-04",
+        "type": "mixed",
+        "latency_ms": 1.553,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-05",
+        "type": "mixed",
+        "latency_ms": 0.265,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-06",
+        "type": "mixed",
+        "latency_ms": 223.146,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-07",
+        "type": "mixed",
+        "latency_ms": 1.523,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-08",
+        "type": "mixed",
+        "latency_ms": 222.05,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-09",
+        "type": "mixed",
+        "latency_ms": 0.37,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-10",
+        "type": "mixed",
+        "latency_ms": 1.323,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-11",
+        "type": "mixed",
+        "latency_ms": 1.054,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-12",
+        "type": "mixed",
+        "latency_ms": 224.814,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-13",
+        "type": "mixed",
+        "latency_ms": 227.168,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-14",
+        "type": "mixed",
+        "latency_ms": 224.624,
+        "passed": false,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      }
+    ]
+  },
+  "multi_agent": {
+    "retrieval_mode": "bm25",
+    "total": 36,
+    "passed": 36,
+    "pass_rate": 1.0,
+    "citation_rate": 1.0,
+    "analysis_coverage": 0.6944,
+    "reviewed_rate": 0.9444,
+    "p95_latency_ms": 251.216,
+    "results": [
+      {
+        "id": "structured-01",
+        "type": "top_case",
+        "latency_ms": 243.517,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-02",
+        "type": "top_case",
+        "latency_ms": 241.231,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-03",
+        "type": "correlation",
+        "latency_ms": 240.609,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-04",
+        "type": "correlation",
+        "latency_ms": 241.923,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-05",
+        "type": "case_detail",
+        "latency_ms": 245.518,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-06",
+        "type": "case_detail",
+        "latency_ms": 243.547,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-07",
+        "type": "top_case",
+        "latency_ms": 245.991,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-08",
+        "type": "top_case",
+        "latency_ms": 241.95,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-09",
+        "type": "correlation",
+        "latency_ms": 243.818,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "structured-10",
+        "type": "correlation",
+        "latency_ms": 251.906,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-01",
+        "type": "retrieval",
+        "latency_ms": 251.094,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-02",
+        "type": "retrieval",
+        "latency_ms": 243.499,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-03",
+        "type": "retrieval",
+        "latency_ms": 240.562,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-04",
+        "type": "retrieval",
+        "latency_ms": 242.9,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-05",
+        "type": "retrieval",
+        "latency_ms": 225.59,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-06",
+        "type": "retrieval",
+        "latency_ms": 230.659,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-07",
+        "type": "retrieval",
+        "latency_ms": 229.745,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-08",
+        "type": "retrieval",
+        "latency_ms": 229.913,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-09",
+        "type": "retrieval",
+        "latency_ms": 229.897,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-10",
+        "type": "retrieval",
+        "latency_ms": 230.695,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": true
+      },
+      {
+        "id": "retrieval-11",
+        "type": "retrieval",
+        "latency_ms": 234.624,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "retrieval-12",
+        "type": "retrieval",
+        "latency_ms": 238.393,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": false,
+        "reviewed": false
+      },
+      {
+        "id": "mixed-01",
+        "type": "mixed",
+        "latency_ms": 234.809,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-02",
+        "type": "mixed",
+        "latency_ms": 234.18,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-03",
+        "type": "mixed",
+        "latency_ms": 242.141,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-04",
+        "type": "mixed",
+        "latency_ms": 230.551,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-05",
+        "type": "mixed",
+        "latency_ms": 239.761,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-06",
+        "type": "mixed",
+        "latency_ms": 250.55,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-07",
+        "type": "mixed",
+        "latency_ms": 249.739,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-08",
+        "type": "mixed",
+        "latency_ms": 229.398,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-09",
+        "type": "mixed",
+        "latency_ms": 240.032,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-10",
+        "type": "mixed",
+        "latency_ms": 250.742,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-11",
+        "type": "mixed",
+        "latency_ms": 230.859,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-12",
+        "type": "mixed",
+        "latency_ms": 231.862,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-13",
+        "type": "mixed",
+        "latency_ms": 232.575,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      },
+      {
+        "id": "mixed-14",
+        "type": "mixed",
+        "latency_ms": 233.277,
+        "passed": true,
+        "has_citation": true,
+        "has_analysis": true,
+        "reviewed": true
+      }
+    ]
+  }
+}

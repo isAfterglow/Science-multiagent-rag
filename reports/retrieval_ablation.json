@@ -1,0 +1,2010 @@
+{
+  "ground_truth": "/home/ai4mater/005-mat4ai_agent/1-graph-agent/2-multi-agent-moose-rag/eval/retrieval_ground_truth.jsonl",
+  "chunking_ablation": [
+    {
+      "mode": "hybrid",
+      "chunk_strategy": "document",
+      "chunk_count": 16,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.5833,
+        "mrr": 0.4333,
+        "ndcg_at_5": 0.4577,
+        "p50_latency_ms": 102.83,
+        "p95_latency_ms": 4904.542
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "batch_run_status_layer1_lhs.csv"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:document:0",
+            "6d661957778d4bc80ae6:document:0",
+            "058ede96b884276dd66a:document:0",
+            "24f92a850bb66d9cb330:document:0",
+            "161c3edc57bd45b250a4:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 4904.542
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "161c3edc57bd45b250a4:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0",
+            "6d661957778d4bc80ae6:document:0"
+          ],
+          "hit": false,
+          "latency_ms": 114.427
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0",
+            "24f92a850bb66d9cb330:document:0",
+            "3676a42fab1db9d6225b:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 102.662
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "161c3edc57bd45b250a4:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "24f92a850bb66d9cb330:document:0",
+            "6d661957778d4bc80ae6:document:0"
+          ],
+          "hit": false,
+          "latency_ms": 90.9
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "161c3edc57bd45b250a4:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "24f92a850bb66d9cb330:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0"
+          ],
+          "hit": false,
+          "latency_ms": 97.321
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:document:0",
+            "161c3edc57bd45b250a4:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "6d661957778d4bc80ae6:document:0",
+            "24f92a850bb66d9cb330:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 102.83
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:document:0",
+            "161c3edc57bd45b250a4:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "f8244a4fdc4eda262b76:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 97.343
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "6d661957778d4bc80ae6:document:0",
+            "3676a42fab1db9d6225b:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 109.481
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "161c3edc57bd45b250a4:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0",
+            "6d661957778d4bc80ae6:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 107.146
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "161c3edc57bd45b250a4:document:0",
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0",
+            "6d661957778d4bc80ae6:document:0"
+          ],
+          "hit": true,
+          "latency_ms": 102.61
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "6d661957778d4bc80ae6:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0",
+            "3676a42fab1db9d6225b:document:0"
+          ],
+          "hit": false,
+          "latency_ms": 100.852
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:document:0",
+            "10b76d2fb6636c1eecd9:document:0",
+            "1ebd1aa8f87e3ceb3fbe:document:0",
+            "3676a42fab1db9d6225b:document:0",
+            "2a56ea54344bd7acba3c:document:0"
+          ],
+          "hit": false,
+          "latency_ms": 106.887
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "chunk_strategy": "fixed",
+      "chunk_count": 167,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.9167,
+        "mrr": 0.6111,
+        "ndcg_at_5": 0.698,
+        "p50_latency_ms": 106.06,
+        "p95_latency_ms": 123.918
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:0",
+            "058ede96b884276dd66a:fixed:4",
+            "10b76d2fb6636c1eecd9:fixed:4",
+            "3676a42fab1db9d6225b:fixed:4"
+          ],
+          "hit": true,
+          "latency_ms": 123.918
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "batch_run_status_layer1_lhs.csv",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "058ede96b884276dd66a:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "6d661957778d4bc80ae6:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 109.515
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:9",
+            "4f431ff49b9768e13dbb:fixed:9",
+            "24f92a850bb66d9cb330:fixed:9",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 102.624
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:2",
+            "10b76d2fb6636c1eecd9:fixed:2",
+            "2a56ea54344bd7acba3c:fixed:11",
+            "9f4c49a5d3d3926fb441:fixed:11",
+            "1ebd1aa8f87e3ceb3fbe:fixed:11"
+          ],
+          "hit": false,
+          "latency_ms": 90.545
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:7",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "e7d8419fd7d96335e87b:fixed:3",
+            "6d661957778d4bc80ae6:fixed:8",
+            "161c3edc57bd45b250a4:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 97.23
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:6",
+            "10b76d2fb6636c1eecd9:fixed:6",
+            "2a56ea54344bd7acba3c:fixed:6",
+            "9f4c49a5d3d3926fb441:fixed:6",
+            "24f92a850bb66d9cb330:fixed:6"
+          ],
+          "hit": true,
+          "latency_ms": 106.06
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "6d661957778d4bc80ae6:fixed:0",
+            "f8244a4fdc4eda262b76:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "058ede96b884276dd66a:fixed:2"
+          ],
+          "hit": true,
+          "latency_ms": 97.784
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "058ede96b884276dd66a:fixed:10",
+            "10b76d2fb6636c1eecd9:fixed:4",
+            "7b96f0f97538e209c77f:fixed:10",
+            "6d661957778d4bc80ae6:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 109.665
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:12",
+            "6d661957778d4bc80ae6:fixed:8",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "161c3edc57bd45b250a4:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 107.511
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:7",
+            "6d661957778d4bc80ae6:fixed:10",
+            "161c3edc57bd45b250a4:fixed:0",
+            "f8244a4fdc4eda262b76:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 105.979
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:2",
+            "058ede96b884276dd66a:fixed:0",
+            "9d7d89f978aee420a119:fixed:3",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "2a56ea54344bd7acba3c:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 100.261
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:9",
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:2",
+            "7b96f0f97538e209c77f:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 106.881
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "chunk_strategy": "structure",
+      "chunk_count": 1273,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.6667,
+        "mrr": 0.5833,
+        "ndcg_at_5": 0.6089,
+        "p50_latency_ms": 184.216,
+        "p95_latency_ms": 211.217
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:structure:0",
+            "6d661957778d4bc80ae6:structure:0",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "3676a42fab1db9d6225b:structure:6",
+            "9f4c49a5d3d3926fb441:structure:6"
+          ],
+          "hit": true,
+          "latency_ms": 131.28
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "bfda7fe04f10be67b0c3:structure:110",
+            "f8244a4fdc4eda262b76:structure:1",
+            "e7d8419fd7d96335e87b:structure:0",
+            "24f92a850bb66d9cb330:structure:110",
+            "9f4c49a5d3d3926fb441:structure:110"
+          ],
+          "hit": true,
+          "latency_ms": 183.837
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9f4c49a5d3d3926fb441:structure:11",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "1ebd1aa8f87e3ceb3fbe:structure:11",
+            "10b76d2fb6636c1eecd9:structure:11",
+            "2a56ea54344bd7acba3c:structure:11"
+          ],
+          "hit": true,
+          "latency_ms": 180.772
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "bfda7fe04f10be67b0c3:structure:96",
+            "9f4c49a5d3d3926fb441:structure:94",
+            "94c49d6dac14dac50423:structure:94",
+            "2a56ea54344bd7acba3c:structure:94",
+            "058ede96b884276dd66a:structure:94"
+          ],
+          "hit": false,
+          "latency_ms": 177.891
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:structure:1",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "94c49d6dac14dac50423:structure:112",
+            "4f431ff49b9768e13dbb:structure:112",
+            "2a56ea54344bd7acba3c:structure:112"
+          ],
+          "hit": false,
+          "latency_ms": 175.86
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "24f92a850bb66d9cb330:structure:16",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "2a56ea54344bd7acba3c:structure:16",
+            "9f4c49a5d3d3926fb441:structure:16",
+            "94c49d6dac14dac50423:structure:16"
+          ],
+          "hit": true,
+          "latency_ms": 184.216
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_chunk_ids": [
+            "161c3edc57bd45b250a4:structure:0",
+            "6d661957778d4bc80ae6:structure:0",
+            "f8244a4fdc4eda262b76:structure:0",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "e7d8419fd7d96335e87b:structure:2"
+          ],
+          "hit": true,
+          "latency_ms": 174.938
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:structure:0",
+            "10b76d2fb6636c1eecd9:structure:4",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "9f4c49a5d3d3926fb441:structure:4",
+            "1ebd1aa8f87e3ceb3fbe:structure:4"
+          ],
+          "hit": true,
+          "latency_ms": 211.217
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "bfda7fe04f10be67b0c3:structure:110",
+            "6d661957778d4bc80ae6:structure:6",
+            "f8244a4fdc4eda262b76:structure:1",
+            "9f4c49a5d3d3926fb441:structure:110",
+            "94c49d6dac14dac50423:structure:110"
+          ],
+          "hit": true,
+          "latency_ms": 207.861
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "bfda7fe04f10be67b0c3:structure:108",
+            "6d661957778d4bc80ae6:structure:6",
+            "f8244a4fdc4eda262b76:structure:2",
+            "161c3edc57bd45b250a4:structure:1",
+            "9f4c49a5d3d3926fb441:structure:108"
+          ],
+          "hit": true,
+          "latency_ms": 201.793
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:structure:2",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "4f431ff49b9768e13dbb:structure:76",
+            "9f4c49a5d3d3926fb441:structure:76",
+            "24f92a850bb66d9cb330:structure:76"
+          ],
+          "hit": false,
+          "latency_ms": 199.634
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "94c49d6dac14dac50423:structure:11",
+            "bfda7fe04f10be67b0c3:structure:110",
+            "7b96f0f97538e209c77f:structure:11",
+            "10b76d2fb6636c1eecd9:structure:11",
+            "058ede96b884276dd66a:structure:11"
+          ],
+          "hit": false,
+          "latency_ms": 204.942
+        }
+      ]
+    }
+  ],
+  "strategy_ablation": [
+    {
+      "mode": "bm25",
+      "chunk_strategy": "fixed",
+      "chunk_count": 167,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.5,
+        "mrr": 0.4583,
+        "ndcg_at_5": 0.437,
+        "p50_latency_ms": 0.207,
+        "p95_latency_ms": 0.352
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:0",
+            "058ede96b884276dd66a:fixed:4",
+            "10b76d2fb6636c1eecd9:fixed:3"
+          ],
+          "hit": true,
+          "latency_ms": 0.352
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 0.25
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 0.173
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": false,
+          "latency_ms": 0.122
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": false,
+          "latency_ms": 0.12
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 0.207
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:2",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": false,
+          "latency_ms": 0.23
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:3"
+          ],
+          "hit": true,
+          "latency_ms": 0.17
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 0.254
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": false,
+          "latency_ms": 0.21
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": false,
+          "latency_ms": 0.123
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:0",
+            "10b76d2fb6636c1eecd9:fixed:0"
+          ],
+          "hit": false,
+          "latency_ms": 0.116
+        }
+      ]
+    },
+    {
+      "mode": "dense",
+      "chunk_strategy": "fixed",
+      "chunk_count": 167,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.9167,
+        "mrr": 0.7667,
+        "ndcg_at_5": 0.7974,
+        "p50_latency_ms": 121.862,
+        "p95_latency_ms": 178.698
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:0",
+            "3676a42fab1db9d6225b:fixed:4",
+            "2a56ea54344bd7acba3c:fixed:4",
+            "10b76d2fb6636c1eecd9:fixed:4"
+          ],
+          "hit": true,
+          "latency_ms": 178.698
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "batch_run_status_layer1_lhs.csv",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:1",
+            "e7d8419fd7d96335e87b:fixed:1",
+            "161c3edc57bd45b250a4:fixed:0",
+            "6d661957778d4bc80ae6:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:12"
+          ],
+          "hit": true,
+          "latency_ms": 127.595
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "4f431ff49b9768e13dbb:fixed:9",
+            "058ede96b884276dd66a:fixed:9",
+            "24f92a850bb66d9cb330:fixed:9",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 132.181
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "2a56ea54344bd7acba3c:fixed:11",
+            "9f4c49a5d3d3926fb441:fixed:11",
+            "1ebd1aa8f87e3ceb3fbe:fixed:11",
+            "24f92a850bb66d9cb330:fixed:11",
+            "4f431ff49b9768e13dbb:fixed:11"
+          ],
+          "hit": false,
+          "latency_ms": 110.553
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:1",
+            "e7d8419fd7d96335e87b:fixed:3",
+            "6d661957778d4bc80ae6:fixed:8",
+            "161c3edc57bd45b250a4:fixed:0",
+            "1ebd1aa8f87e3ceb3fbe:fixed:7"
+          ],
+          "hit": true,
+          "latency_ms": 116.732
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "2a56ea54344bd7acba3c:fixed:6",
+            "9f4c49a5d3d3926fb441:fixed:6",
+            "24f92a850bb66d9cb330:fixed:6",
+            "058ede96b884276dd66a:fixed:6",
+            "4f431ff49b9768e13dbb:fixed:6"
+          ],
+          "hit": true,
+          "latency_ms": 121.862
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:3",
+            "6d661957778d4bc80ae6:fixed:1",
+            "2a56ea54344bd7acba3c:fixed:7"
+          ],
+          "hit": true,
+          "latency_ms": 116.706
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "7b96f0f97538e209c77f:fixed:10",
+            "6d661957778d4bc80ae6:fixed:0",
+            "4f431ff49b9768e13dbb:fixed:10",
+            "058ede96b884276dd66a:fixed:10"
+          ],
+          "hit": true,
+          "latency_ms": 116.142
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:8",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "161c3edc57bd45b250a4:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:1",
+            "7b96f0f97538e209c77f:fixed:10"
+          ],
+          "hit": true,
+          "latency_ms": 119.285
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:10",
+            "161c3edc57bd45b250a4:fixed:0",
+            "f8244a4fdc4eda262b76:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:3",
+            "9d7d89f978aee420a119:fixed:1"
+          ],
+          "hit": true,
+          "latency_ms": 125.855
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:2",
+            "9d7d89f978aee420a119:fixed:3",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "2a56ea54344bd7acba3c:fixed:9",
+            "10b76d2fb6636c1eecd9:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 112.378
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:2",
+            "7b96f0f97538e209c77f:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9",
+            "10b76d2fb6636c1eecd9:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 122.688
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "chunk_strategy": "fixed",
+      "chunk_count": 167,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.9167,
+        "mrr": 0.6111,
+        "ndcg_at_5": 0.698,
+        "p50_latency_ms": 118.005,
+        "p95_latency_ms": 135.374
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:0",
+            "058ede96b884276dd66a:fixed:4",
+            "10b76d2fb6636c1eecd9:fixed:4",
+            "3676a42fab1db9d6225b:fixed:4"
+          ],
+          "hit": true,
+          "latency_ms": 135.374
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "batch_run_status_layer1_lhs.csv",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "058ede96b884276dd66a:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "6d661957778d4bc80ae6:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 121.245
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:9",
+            "4f431ff49b9768e13dbb:fixed:9",
+            "24f92a850bb66d9cb330:fixed:9",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 112.785
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:2",
+            "10b76d2fb6636c1eecd9:fixed:2",
+            "2a56ea54344bd7acba3c:fixed:11",
+            "9f4c49a5d3d3926fb441:fixed:11",
+            "1ebd1aa8f87e3ceb3fbe:fixed:11"
+          ],
+          "hit": false,
+          "latency_ms": 103.331
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:7",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "e7d8419fd7d96335e87b:fixed:3",
+            "6d661957778d4bc80ae6:fixed:8",
+            "161c3edc57bd45b250a4:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 110.789
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:6",
+            "10b76d2fb6636c1eecd9:fixed:6",
+            "2a56ea54344bd7acba3c:fixed:6",
+            "9f4c49a5d3d3926fb441:fixed:6",
+            "24f92a850bb66d9cb330:fixed:6"
+          ],
+          "hit": true,
+          "latency_ms": 117.587
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "6d661957778d4bc80ae6:fixed:0",
+            "f8244a4fdc4eda262b76:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "058ede96b884276dd66a:fixed:2"
+          ],
+          "hit": true,
+          "latency_ms": 109.171
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "058ede96b884276dd66a:fixed:10",
+            "10b76d2fb6636c1eecd9:fixed:4",
+            "7b96f0f97538e209c77f:fixed:10",
+            "6d661957778d4bc80ae6:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 124.828
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:12",
+            "6d661957778d4bc80ae6:fixed:8",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "161c3edc57bd45b250a4:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 119.196
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_chunk_ids": [
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:7",
+            "6d661957778d4bc80ae6:fixed:10",
+            "161c3edc57bd45b250a4:fixed:0",
+            "f8244a4fdc4eda262b76:fixed:0"
+          ],
+          "hit": true,
+          "latency_ms": 118.647
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:2",
+            "058ede96b884276dd66a:fixed:0",
+            "9d7d89f978aee420a119:fixed:3",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "2a56ea54344bd7acba3c:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 117.141
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:9",
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:2",
+            "7b96f0f97538e209c77f:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 118.005
+        }
+      ]
+    },
+    {
+      "mode": "hybrid_rerank",
+      "chunk_strategy": "fixed",
+      "chunk_count": 167,
+      "metrics": {
+        "questions": 12,
+        "recall_at_5": 0.9167,
+        "mrr": 0.7569,
+        "ndcg_at_5": 0.7866,
+        "p50_latency_ms": 18743.761,
+        "p95_latency_ms": 55673.047
+      },
+      "results": [
+        {
+          "id": "retrieval-01",
+          "question": "LHS 分析中基线 early_1_2_rmse 是多少",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "6d661957778d4bc80ae6:fixed:0",
+            "058ede96b884276dd66a:fixed:8",
+            "10b76d2fb6636c1eecd9:fixed:4",
+            "2a56ea54344bd7acba3c:fixed:4"
+          ],
+          "hit": true,
+          "latency_ms": 17813.014
+        },
+        {
+          "id": "retrieval-02",
+          "question": "批量运行日志中如何记录 case 的开始时间",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "batch_run_layer1_lhs.log",
+            "batch_run_status_layer1_lhs.csv",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "6d661957778d4bc80ae6:fixed:1",
+            "058ede96b884276dd66a:fixed:8"
+          ],
+          "hit": true,
+          "latency_ms": 14451.999
+        },
+        {
+          "id": "retrieval-03",
+          "question": "MOOSE 输入文件中温度相关设置在哪里",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:3",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "bfda7fe04f10be67b0c3:fixed:9",
+            "4f431ff49b9768e13dbb:fixed:9",
+            "24f92a850bb66d9cb330:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 17279.68
+        },
+        {
+          "id": "retrieval-04",
+          "question": "历史报告如何解释参数影响",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:4",
+            "24f92a850bb66d9cb330:fixed:11",
+            "4f431ff49b9768e13dbb:fixed:11",
+            "1ebd1aa8f87e3ceb3fbe:fixed:11",
+            "94c49d6dac14dac50423:fixed:11"
+          ],
+          "hit": false,
+          "latency_ms": 23413.358
+        },
+        {
+          "id": "retrieval-05",
+          "question": "运行失败时应该查看什么日志",
+          "relevant_sources": [
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "batch_run_layer1_lhs.log",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:0",
+            "161c3edc57bd45b250a4:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:1",
+            "6d661957778d4bc80ae6:fixed:1",
+            "058ede96b884276dd66a:fixed:4"
+          ],
+          "hit": true,
+          "latency_ms": 14688.395
+        },
+        {
+          "id": "retrieval-06",
+          "question": "输入 deck 包含哪些边界条件设置",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "2a56ea54344bd7acba3c:fixed:6",
+            "9f4c49a5d3d3926fb441:fixed:6",
+            "1ebd1aa8f87e3ceb3fbe:fixed:6",
+            "7b96f0f97538e209c77f:fixed:6",
+            "058ede96b884276dd66a:fixed:6"
+          ],
+          "hit": true,
+          "latency_ms": 27375.703
+        },
+        {
+          "id": "retrieval-07",
+          "question": "LHS case 的运行状态如何保存",
+          "relevant_sources": [
+            "batch_run_status_layer1_lhs.csv",
+            "run_batch_layer1_cases.py"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_layer1_lhs.log",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:0",
+            "6d661957778d4bc80ae6:fixed:8",
+            "e7d8419fd7d96335e87b:fixed:1",
+            "161c3edc57bd45b250a4:fixed:0",
+            "058ede96b884276dd66a:fixed:4"
+          ],
+          "hit": true,
+          "latency_ms": 14164.439
+        },
+        {
+          "id": "retrieval-08",
+          "question": "early_1_2_rmse 的基线值是什么",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:0",
+            "058ede96b884276dd66a:fixed:8",
+            "7b96f0f97538e209c77f:fixed:10",
+            "94c49d6dac14dac50423:fixed:10",
+            "10b76d2fb6636c1eecd9:fixed:10"
+          ],
+          "hit": true,
+          "latency_ms": 13995.075
+        },
+        {
+          "id": "retrieval-09",
+          "question": "case 输入文件使用什么 MOOSE 语法",
+          "relevant_sources": [
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_sources": [
+            "generate_lhs_layer1_main_cases.py",
+            "run_batch_layer1_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "case1_fiat_walltemp_nominal.i",
+            "batch_run_layer1_lhs.log"
+          ],
+          "returned_chunk_ids": [
+            "6d661957778d4bc80ae6:fixed:1",
+            "f8244a4fdc4eda262b76:fixed:1",
+            "161c3edc57bd45b250a4:fixed:0",
+            "058ede96b884276dd66a:fixed:12",
+            "e7d8419fd7d96335e87b:fixed:1"
+          ],
+          "hit": true,
+          "latency_ms": 27057.862
+        },
+        {
+          "id": "retrieval-10",
+          "question": "批量运行脚本中的 case 命名规则",
+          "relevant_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py"
+          ],
+          "returned_sources": [
+            "run_batch_layer1_cases.py",
+            "generate_lhs_layer1_main_cases.py",
+            "batch_run_status_layer1_lhs.csv",
+            "batch_run_layer1_lhs.log",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "f8244a4fdc4eda262b76:fixed:0",
+            "6d661957778d4bc80ae6:fixed:8",
+            "161c3edc57bd45b250a4:fixed:0",
+            "e7d8419fd7d96335e87b:fixed:1",
+            "058ede96b884276dd66a:fixed:7"
+          ],
+          "hit": true,
+          "latency_ms": 18743.761
+        },
+        {
+          "id": "retrieval-11",
+          "question": "历史仿真如何进行温度误差排名",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "case1_fiat_walltemp_nominal.i",
+            "layer1_lhs_analysis_summary.txt",
+            "generate_lhs_layer1_main_cases.py",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "058ede96b884276dd66a:fixed:5",
+            "9d7d89f978aee420a119:fixed:3",
+            "6d661957778d4bc80ae6:fixed:2",
+            "1ebd1aa8f87e3ceb3fbe:fixed:9",
+            "94c49d6dac14dac50423:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 41310.847
+        },
+        {
+          "id": "retrieval-12",
+          "question": "热防护温度误差校准的已有分析总结",
+          "relevant_sources": [
+            "layer1_lhs_analysis_summary.txt"
+          ],
+          "returned_sources": [
+            "layer1_lhs_analysis_summary.txt",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i",
+            "case1_fiat_walltemp_nominal.i"
+          ],
+          "returned_chunk_ids": [
+            "9d7d89f978aee420a119:fixed:3",
+            "7b96f0f97538e209c77f:fixed:9",
+            "2a56ea54344bd7acba3c:fixed:9",
+            "3676a42fab1db9d6225b:fixed:9",
+            "10b76d2fb6636c1eecd9:fixed:9"
+          ],
+          "hit": true,
+          "latency_ms": 55673.047
+        }
+      ]
+    }
+  ],
+  "recommended_chunk_strategy": "fixed"
+}

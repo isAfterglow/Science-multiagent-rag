@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "moose-research": {
+      "command": "conda",
+      "args": [
+        "run",
+        "--no-capture-output",
+        "-n",
+        "scitime-agent",
+        "python",
+        "-m",
+        "app.mcp_server"
+      ]
+    }
+  }
+}

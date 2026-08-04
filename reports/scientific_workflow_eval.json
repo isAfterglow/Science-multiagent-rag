@@ -1,0 +1,670 @@
+{
+  "questions": 30,
+  "passed": 28,
+  "pass_rate": 0.9333,
+  "retrieval_mode": "hybrid_rerank",
+  "p50_latency_ms": 2695.767,
+  "p95_latency_ms": 14542.739,
+  "downgraded": 0,
+  "results": [
+    {
+      "id": "wf-01",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "simulation_analysis",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [],
+      "retrieval_mode_used": "",
+      "latency_ms": 44.252
+    },
+    {
+      "id": "wf-02",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "simulation_analysis",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [],
+      "retrieval_mode_used": "",
+      "latency_ms": 44.101
+    },
+    {
+      "id": "wf-03",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 18116.105
+    },
+    {
+      "id": "wf-04",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 1995.707
+    },
+    {
+      "id": "wf-05",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 1667.759
+    },
+    {
+      "id": "wf-06",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 2695.767
+    },
+    {
+      "id": "wf-07",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 3181.375
+    },
+    {
+      "id": "wf-08",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_log"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 3475.031
+    },
+    {
+      "id": "wf-09",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "script"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 5513.745
+    },
+    {
+      "id": "wf-10",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_status"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 2176.229
+    },
+    {
+      "id": "wf-11",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 9366.588
+    },
+    {
+      "id": "wf-12",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 7174.127
+    },
+    {
+      "id": "wf-13",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "script"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 3770.665
+    },
+    {
+      "id": "wf-14",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 2251.802
+    },
+    {
+      "id": "wf-15",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_status"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 2101.066
+    },
+    {
+      "id": "wf-16",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 1629.501
+    },
+    {
+      "id": "wf-17",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 2362.565
+    },
+    {
+      "id": "wf-18",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck",
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 11619.076
+    },
+    {
+      "id": "wf-19",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_log"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 1988.669
+    },
+    {
+      "id": "wf-20",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck",
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 9034.307
+    },
+    {
+      "id": "wf-21",
+      "passed": false,
+      "checks": {
+        "route": false,
+        "review": true,
+        "grounded": true,
+        "source_type": false,
+        "answer_keyword": true
+      },
+      "task_type": "simulation_analysis",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [],
+      "retrieval_mode_used": "",
+      "latency_ms": 55.803
+    },
+    {
+      "id": "wf-22",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck",
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 8992.503
+    },
+    {
+      "id": "wf-23",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 2303.948
+    },
+    {
+      "id": "wf-24",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_log",
+        "run_status"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 4432.187
+    },
+    {
+      "id": "wf-25",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 1275.764
+    },
+    {
+      "id": "wf-26",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report",
+        "run_status"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 3157.232
+    },
+    {
+      "id": "wf-27",
+      "passed": false,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": false
+      },
+      "task_type": "simulation_analysis",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [],
+      "retrieval_mode_used": "",
+      "latency_ms": 60.323
+    },
+    {
+      "id": "wf-28",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "run_status",
+        "script"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 4805.807
+    },
+    {
+      "id": "wf-29",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "knowledge",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "input_deck",
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 7721.92
+    },
+    {
+      "id": "wf-30",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "review": true,
+        "grounded": true,
+        "source_type": true,
+        "answer_keyword": true
+      },
+      "task_type": "mixed",
+      "review": {
+        "approved": true,
+        "reasons": [],
+        "requires_revision": false
+      },
+      "sources": [
+        "report"
+      ],
+      "retrieval_mode_used": "hybrid_rerank",
+      "latency_ms": 1780.635
+    }
+  ]
+}

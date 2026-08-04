@@ -1,0 +1,14 @@
+{"id":"mixed-01","type":"mixed","question":"cpv_front_scale 对 early_1_2_rmse 有何影响，并说明历史报告依据"}
+{"id":"mixed-02","type":"mixed","question":"ER_scale 与 early_1_2_rmse 的关系是什么？请给出仿真结果和解释依据"}
+{"id":"mixed-03","type":"mixed","question":"cpv_mid_scale 是否值得优先调整以降低 early_1_2_rmse？给出数据和机理依据"}
+{"id":"mixed-04","type":"mixed","question":"tbegin2_shift 对 temp_mean_rmse 的影响如何，并说明结论边界"}
+{"id":"mixed-05","type":"mixed","question":"early_1_2_rmse 最好的 case 是哪个？结合输入文件和历史记录解释"}
+{"id":"mixed-06","type":"mixed","question":"早期温度误差应优先关注哪些参数？请给出数值证据和报告依据"}
+{"id":"mixed-07","type":"mixed","question":"kv_front_scale 与 early_1_2_rmse 有何关系？现有数据是否能证明因果"}
+{"id":"mixed-08","type":"mixed","question":"历史 LHS 仿真为何需要查看运行日志？结合 early_1_2_rmse 分析说明"}
+{"id":"mixed-09","type":"mixed","question":"比较最优 early_1_2_rmse case 的参数分析与已有总结证据"}
+{"id":"mixed-10","type":"mixed","question":"pyrolysis_heat_scale 对 early_1_2_rmse 的影响是否明显？请给数据和文档依据"}
+{"id":"mixed-11","type":"mixed","question":"rho_reactive_scale 与 early_1_2_rmse 的关系及其不确定性是什么"}
+{"id":"mixed-12","type":"mixed","question":"我应如何依据历史 case 调整 cpv_front_scale？给出证据与局限性"}
+{"id":"mixed-13","type":"mixed","question":"preexp_scale 是否是降低 early_1_2_rmse 的关键参数？说明依据"}
+{"id":"mixed-14","type":"mixed","question":"如何解释 early_1_2_rmse 的参数排序，同时引用历史仿真报告"}

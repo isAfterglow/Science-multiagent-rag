@@ -1,0 +1,8 @@
+{"id":"gap-01","question":"新工况下 cpv_front_scale 对 early_1_2_rmse 的影响没有历史记录，需要验证。","expected":"needs_experiment"}
+{"id":"gap-02","question":"没有数据说明 ER_scale 在新边界条件下是否仍有效，请设计仿真。","expected":"needs_experiment"}
+{"id":"gap-03","question":"需要验证 tbegin2_shift 在新工况下对 temp_mean_rmse 的作用。","metric":"temp_mean_rmse","expected":"needs_experiment"}
+{"id":"gap-04","question":"请对 pyrolysis_heat_scale 的新条件敏感性进行仿真验证。","expected":"needs_experiment"}
+{"id":"gap-05","question":"rho_reactive_scale 在未记录工况下需要新的仿真证据。","expected":"needs_experiment"}
+{"id":"gap-06","question":"我需要验证 kv_front_scale 与 cpv_mid_scale 的组合在新工况的表现。","expected":"needs_experiment"}
+{"id":"gap-07","question":"foo_unknown_scale 对误差的影响需要仿真。","expected":"unsupported"}
+{"id":"gap-08","question":"请解释历史报告中的 early_1_2_rmse 基线。","expected":"not_required"}

@@ -1,0 +1,47 @@
+{
+  "questions": 8,
+  "passed": 8,
+  "pass_rate": 1.0,
+  "results": [
+    {
+      "id": "gap-01",
+      "passed": true,
+      "status": "needs_experiment"
+    },
+    {
+      "id": "gap-02",
+      "passed": true,
+      "status": "needs_experiment"
+    },
+    {
+      "id": "gap-03",
+      "passed": true,
+      "status": "needs_experiment"
+    },
+    {
+      "id": "gap-04",
+      "passed": true,
+      "status": "needs_experiment"
+    },
+    {
+      "id": "gap-05",
+      "passed": true,
+      "status": "needs_experiment"
+    },
+    {
+      "id": "gap-06",
+      "passed": true,
+      "status": "needs_experiment"
+    },
+    {
+      "id": "gap-07",
+      "passed": true,
+      "status": "unsupported"
+    },
+    {
+      "id": "gap-08",
+      "passed": true,
+      "status": "not_required"
+    }
+  ]
+}

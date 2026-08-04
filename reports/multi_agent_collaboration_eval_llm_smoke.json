@@ -1,0 +1,258 @@
+{
+  "questions": 3,
+  "llm_enabled": true,
+  "retrieval_mode": "bm25",
+  "passed": 2,
+  "pass_rate": 0.6667,
+  "route_accuracy": 0.6667,
+  "agent_path_rate": 1.0,
+  "review_approval_rate": 1.0,
+  "p50_latency_ms": 32415.328,
+  "p95_latency_ms": 32647.264,
+  "llm_calls": 13,
+  "llm_success_rate": 0.8462,
+  "results": [
+    {
+      "id": "wf-01",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5759.882,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 8056.845,
+          "success": true,
+          "error": ""
+        }
+      ],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [
+        {
+          "issue_type": "missing_evidence",
+          "severity": "error",
+          "message": "缺少历史 LHS case 的具体数据，无法确定 early_1_2_rmse 最低的历史 case 及其数值。",
+          "citation_chunk_ids": []
+        }
+      ],
+      "latency_ms": 17661.803
+    },
+    {
+      "id": "wf-02",
+      "task_type": "mixed",
+      "passed": false,
+      "checks": {
+        "route": false,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5778.716,
+          "success": false,
+          "error": "ValidationError: 1 validation error for RoutePlan\ntask_type\n  Input should be 'knowledge', 'simulation_analysis' or 'mixed' [type=literal_error, input_value='analysis', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error"
+        },
+        {
+          "role": "router",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 9844.368,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7135.14,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 4953.867,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 4459.181,
+          "success": true,
+          "error": ""
+        }
+      ],
+      "research_synthesis": {
+        "claims": [
+          {
+            "text": "cpv_front_scale 与 early_1_2_rmse 的线性相关性为 -0.707181。",
+            "limitations": [],
+            "citation_chunk_ids": [
+              "9d7d89f978aee420a119:parent_child:2"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "evidence_gap": ""
+      },
+      "planner_proposal": {},
+      "semantic_critiques": [
+        {
+          "issue_type": "causality",
+          "severity": "warning",
+          "message": "因果关系未验证，历史 LHS case 的相关性不能替代因果验证。",
+          "citation_chunk_ids": [
+            "9d7d89f978aee420a119:parent_child:2"
+          ]
+        }
+      ],
+      "latency_ms": 32415.328
+    },
+    {
+      "id": "wf-03",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "evidence_gap",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5437.228,
+          "success": false,
+          "error": "ValidationError: 1 validation error for RoutePlan\ntask_type\n  Input should be 'knowledge', 'simulation_analysis' or 'mixed' [type=literal_error, input_value='analysis', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error"
+        },
+        {
+          "role": "router",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 9063.726,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 3447.111,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 5086.39,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "planner",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 3938.87,
+          "success": true,
+          "error": ""
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 5413.032,
+          "success": true,
+          "error": ""
+        }
+      ],
+      "research_synthesis": {
+        "claims": [
+          {
+            "text": "tbegin2_shift 对 temp_mean_rmse 的影响值得进一步验证。",
+            "limitations": [
+              "缺乏直接证据支持"
+            ],
+            "citation_chunk_ids": [
+              "9d7d89f978aee420a119:parent_child:0"
+            ]
+          }
+        ],
+        "conflicts": [],
+        "evidence_gap": "需要更多数据来验证 tbegin2_shift 对 temp_mean_rmse 的影响。"
+      },
+      "planner_proposal": {
+        "target_metric": "temp_mean_rmse",
+        "focus_parameters": [
+          "tbegin2_shift"
+        ],
+        "rationale": "历史 Registry 不包含 tbegin2_shift 对 temp_mean_rmse 的直接证据，需要受控新仿真以验证其影响。",
+        "requires_human_approval": true
+      },
+      "semantic_critiques": [
+        {
+          "issue_type": "missing_evidence",
+          "severity": "error",
+          "message": "缺乏直接证据支持 tbegin2_shift 对 temp_mean_rmse 的影响。历史 LHS case 的相关性不能替代因果验证，需要控制变量或新的 MOOSE case 验证。",
+          "citation_chunk_ids": [
+            "9d7d89f978aee420a119:parent_child:0"
+          ]
+        }
+      ],
+      "latency_ms": 32647.264
+    }
+  ]
+}
