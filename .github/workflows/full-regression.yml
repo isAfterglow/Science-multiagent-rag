@@ -1,0 +1,30 @@
+name: Full Deterministic Regression
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * 1"
+
+jobs:
+  full-regression:
+    runs-on: [self-hosted, agent-eval]
+    env:
+      MOOSE_COPILOT_LLM_ENABLED: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - run: conda run --no-capture-output -n scitime-agent python -m eval.scientific_safety_eval
+      - run: >-
+          conda run --no-capture-output -n scitime-agent
+          python -m eval.multi_agent_collaboration_eval --mode bm25
+          --output reports/multi_agent_collaboration_eval_ci.json
+      - run: >-
+          conda run --no-capture-output -n scitime-agent
+          python -m eval.regression_gate
+          --workflow reports/multi_agent_collaboration_eval_ci.json
+          --safety reports/scientific_safety_eval.json
+          --output reports/regression_gate_ci.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deterministic-regression-reports
+          path: reports/*_ci.json

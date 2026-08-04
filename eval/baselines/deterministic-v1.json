@@ -1,0 +1,18 @@
+{
+  "schema_version": "science_agent_regression.v1",
+  "description": "LLM disabled, BM25 deterministic workflow baseline. wf-21 retains its documented historical label mismatch.",
+  "multi_agent": {
+    "questions": 30,
+    "min_pass_rate": 0.9667,
+    "min_route_accuracy": 0.9667,
+    "min_agent_path_rate": 1.0,
+    "min_reviewer_approval_rate": 1.0
+  },
+  "safety": {
+    "questions": 9,
+    "min_pass_rate": 1.0
+  },
+  "latency": {
+    "p95_warning_ms": 2500.0
+  }
+}

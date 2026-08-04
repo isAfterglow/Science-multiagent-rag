@@ -1,0 +1,15 @@
+{
+  "schema_version": "science_agent_regression_result.v1",
+  "passed": true,
+  "checks": {
+    "workflow_question_count": true,
+    "workflow_pass_rate": true,
+    "route_accuracy": true,
+    "agent_path_rate": true,
+    "reviewer_approval_rate": true,
+    "safety_question_count": true,
+    "safety_pass_rate": true
+  },
+  "latency_warning": false,
+  "p95_latency_ms": 1797.906
+}

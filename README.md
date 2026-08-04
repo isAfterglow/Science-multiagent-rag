@@ -1,6 +1,38 @@
 # MOOSE Research Copilot
 
-阶段一实现只读仿真知识底座；阶段二在其上实现证据驱动的 LangGraph 多 Agent 协作。系统将现有 LHS case、参数、指标、日志、输入文件和报告写入 SQLite Registry，并对文档建立离线 Hybrid Retrieval。
+面向 MOOSE 热防护仿真研究的证据约束多智能体 Copilot。它把已有 LHS case、参数、指标、日志、输入文件和报告写入 SQLite Registry，对论文和扫描件建立可追溯 RAG；LLM 只提出受限建议，程序验证证据和参数边界，人工审批决定是否进入隔离执行。
+
+```mermaid
+flowchart LR
+  Q[研究问题] --> S[Supervisor]
+  S --> F{并发证据分发}
+  F --> R[Retriever: RAG 证据]
+  F --> A[Simulation Analyst: Registry 定量分析]
+  R --> C[Critic]
+  A --> C
+  C --> Y[Synthesizer]
+  Y --> V[Semantic Critic + Reviewer]
+  V -->|通过| O[带引用的结论]
+  V -->|缺证据| X[一次受限 Recovery]
+  X --> C
+  O --> P[计划草案]
+  P --> H[人工审批 / 隔离 dry-run]
+```
+
+| 离线确定性评测 | 结果 |
+| --- | --- |
+| 多 Agent 工作流 | 29 / 30（96.67%） |
+| 路由准确率 / Agent 路径覆盖 | 96.67% / 100% |
+| 科研安全策略 | 9 / 9（100%） |
+| 三方案消融：RAG / 工具 Agent / 多 Agent | 33.33% / 61.11% / 100% |
+
+完整演示见 [docs/DEMO_CASES.md](docs/DEMO_CASES.md)：论文/OCR、文档与历史仿真联合分析，以及从知识缺口到人工审批的边界。
+
+## 发布回归
+
+`AgentTrace v1` 将同步 SSE、后台任务和最终结果统一到一个 `trace_id` 下；每个事件带节点、父 Span、状态与耗时。`tests/test_trace_contract.py` 约束该协议和“一次受限 Recovery”上限。
+
+普通 PR 运行 `.github/workflows/ci.yml`：编译、离线契约测试和版本化门禁，不依赖私有 MOOSE 工作区或本地模型。带有本机数据与 `scitime-agent` 环境的 self-hosted runner 每周或手动运行 `.github/workflows/full-regression.yml`，重新生成安全与 30 题确定性工作流报告，并与 `eval/baselines/deterministic-v1.json` 比较。P95 延迟只告警，不作为质量阻断条件。
 
 ## 快速开始
 

@@ -1,0 +1,928 @@
+{
+  "questions": 30,
+  "llm_enabled": false,
+  "retrieval_mode": "bm25",
+  "passed": 29,
+  "pass_rate": 0.9667,
+  "route_accuracy": 0.9667,
+  "agent_path_rate": 1.0,
+  "review_approval_rate": 1.0,
+  "p50_latency_ms": 219.594,
+  "p95_latency_ms": 1797.906,
+  "llm_calls": 0,
+  "llm_success_rate": null,
+  "results": [
+    {
+      "id": "wf-01",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 3709.26
+    },
+    {
+      "id": "wf-02",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 218.203
+    },
+    {
+      "id": "wf-03",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "evidence_gap",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 222.528
+    },
+    {
+      "id": "wf-04",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 227.158
+    },
+    {
+      "id": "wf-05",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 215.828
+    },
+    {
+      "id": "wf-06",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 211.076
+    },
+    {
+      "id": "wf-07",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 211.129
+    },
+    {
+      "id": "wf-08",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 211.851
+    },
+    {
+      "id": "wf-09",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 219.224
+    },
+    {
+      "id": "wf-10",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 221.702
+    },
+    {
+      "id": "wf-11",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 227.396
+    },
+    {
+      "id": "wf-12",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 213.819
+    },
+    {
+      "id": "wf-13",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 221.459
+    },
+    {
+      "id": "wf-14",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 226.064
+    },
+    {
+      "id": "wf-15",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 216.627
+    },
+    {
+      "id": "wf-16",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 220.384
+    },
+    {
+      "id": "wf-17",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 218.503
+    },
+    {
+      "id": "wf-18",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 213.385
+    },
+    {
+      "id": "wf-19",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 211.449
+    },
+    {
+      "id": "wf-20",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 222.609
+    },
+    {
+      "id": "wf-21",
+      "task_type": "simulation_analysis",
+      "passed": false,
+      "checks": {
+        "route": false,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": false,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 218.772
+    },
+    {
+      "id": "wf-22",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 224.205
+    },
+    {
+      "id": "wf-23",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 217.122
+    },
+    {
+      "id": "wf-24",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 219.594
+    },
+    {
+      "id": "wf-25",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 231.186
+    },
+    {
+      "id": "wf-26",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 234.07
+    },
+    {
+      "id": "wf-27",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 224.503
+    },
+    {
+      "id": "wf-28",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "evidence_gap",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 218.42
+    },
+    {
+      "id": "wf-29",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 214.152
+    },
+    {
+      "id": "wf-30",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 221.374
+    }
+  ]
+}
