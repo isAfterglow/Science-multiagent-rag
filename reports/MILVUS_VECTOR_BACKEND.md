@@ -1,5 +1,7 @@
 # Milvus 向量后端：实现与对照评测
 
+> 历史阶段对照（452 chunks）。当前 2,234 chunk 的可比基线与选型结论以 `STAGE3_RAG_SCALE_AND_CITATION.md` 和 `README.md` 为准。
+
 ## 架构
 
 SQLite Registry 仍是项目事实、审批记录和完整科学证据的事实源；DocumentIR 仍保存 PDF 页码、bbox、表格 CSV、OCR 置信度和原始页图。Milvus 仅保存可再生 Child 的 `chunk_id`、BGE-M3 向量、`source_type`、`document_id` 和 `content_hash`。ANN 命中后由内存中的 SQLite-derived chunk map 回填完整 `EvidenceCard`，避免复制或丢失可审计证据。

@@ -1,5 +1,7 @@
 # 科研多模态 RAG 升级记录
 
+> 历史阶段实验（小语料）。当前公开语料、默认切分和 120 题评测结论以 `STAGE3_RAG_SCALE_AND_CITATION.md`、`RAG_PRODUCTION_HARDENING.md` 与 `RETRIEVAL_OPTIMIZATION_V5.md` 为准。
+
 ## 范围与边界
 
 本次新增公开 NASA NTRS 资料，而不从受限出版站点抓取全文。`nasa_tufroc_2019` 是公开 TUFROC 技术资料（等级 C）；`nasa_multiwall_1982` 是公开历史扫描专利资料（等级 D）。两者只能解释外部热防护背景与机理，不能支撑项目 MOOSE 的实际指标、运行耗时或参数结论；这些结论仍必须引用等级 A/B 的 Registry、日志、input deck 和项目报告。

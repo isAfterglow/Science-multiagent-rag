@@ -2,9 +2,9 @@
   "questions": 30,
   "passed": 28,
   "pass_rate": 0.9333,
-  "retrieval_mode": "bm25",
-  "p50_latency_ms": 44.364,
-  "p95_latency_ms": 73.753,
+  "retrieval_mode": "dense",
+  "p50_latency_ms": 1740.148,
+  "p95_latency_ms": 5318.093,
   "downgraded": 0,
   "results": [
     {
@@ -26,7 +26,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 48.448
+      "latency_ms": 5010.181
     },
     {
       "id": "wf-02",
@@ -47,7 +47,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 41.772
+      "latency_ms": 1564.122
     },
     {
       "id": "wf-03",
@@ -69,8 +69,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 47.71
+      "retrieval_mode_used": "dense",
+      "latency_ms": 5694.429
     },
     {
       "id": "wf-04",
@@ -92,8 +92,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 52.603
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1658.658
     },
     {
       "id": "wf-05",
@@ -115,8 +115,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 48.956
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1749.07
     },
     {
       "id": "wf-06",
@@ -138,8 +138,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 44.364
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1631.194
     },
     {
       "id": "wf-07",
@@ -161,8 +161,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 40.317
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1762.707
     },
     {
       "id": "wf-08",
@@ -184,8 +184,8 @@
       "sources": [
         "run_log"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 39.797
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1632.02
     },
     {
       "id": "wf-09",
@@ -207,8 +207,8 @@
       "sources": [
         "script"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 71.279
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1676.495
     },
     {
       "id": "wf-10",
@@ -230,8 +230,8 @@
       "sources": [
         "run_status"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 41.436
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1744.273
     },
     {
       "id": "wf-11",
@@ -253,8 +253,8 @@
       "sources": [
         "input_deck"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 41.399
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1616.837
     },
     {
       "id": "wf-12",
@@ -276,8 +276,8 @@
       "sources": [
         "input_deck"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 39.947
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1740.148
     },
     {
       "id": "wf-13",
@@ -299,8 +299,8 @@
       "sources": [
         "script"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 41.535
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1633.286
     },
     {
       "id": "wf-14",
@@ -322,8 +322,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 40.097
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1728.833
     },
     {
       "id": "wf-15",
@@ -345,8 +345,8 @@
       "sources": [
         "run_status"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 40.738
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1587.277
     },
     {
       "id": "wf-16",
@@ -368,8 +368,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 45.525
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1712.173
     },
     {
       "id": "wf-17",
@@ -391,8 +391,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 43.124
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1599.812
     },
     {
       "id": "wf-18",
@@ -415,8 +415,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 48.735
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1792.745
     },
     {
       "id": "wf-19",
@@ -438,8 +438,8 @@
       "sources": [
         "run_log"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 39.609
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1742.927
     },
     {
       "id": "wf-20",
@@ -462,8 +462,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 44.66
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1922.265
     },
     {
       "id": "wf-21",
@@ -484,7 +484,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 45.538
+      "latency_ms": 1746.997
     },
     {
       "id": "wf-22",
@@ -507,8 +507,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 44.338
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1951.749
     },
     {
       "id": "wf-23",
@@ -530,8 +530,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 50.893
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1728.926
     },
     {
       "id": "wf-24",
@@ -554,8 +554,8 @@
         "run_log",
         "run_status"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 46.918
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1938.407
     },
     {
       "id": "wf-25",
@@ -577,8 +577,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 44.664
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1697.011
     },
     {
       "id": "wf-26",
@@ -601,8 +601,8 @@
         "report",
         "run_status"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 76.776
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1791.65
     },
     {
       "id": "wf-27",
@@ -623,7 +623,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 49.071
+      "latency_ms": 1599.943
     },
     {
       "id": "wf-28",
@@ -646,8 +646,8 @@
         "run_status",
         "script"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 40.424
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1763.193
     },
     {
       "id": "wf-29",
@@ -670,8 +670,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 36.544
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1636.168
     },
     {
       "id": "wf-30",
@@ -693,8 +693,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "bm25",
-      "latency_ms": 40.097
+      "retrieval_mode_used": "dense",
+      "latency_ms": 1756.743
     }
   ]
 }

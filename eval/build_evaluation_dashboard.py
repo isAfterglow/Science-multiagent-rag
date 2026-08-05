@@ -20,10 +20,9 @@ def _read_report(name: str) -> dict | list:
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
-def _best_retrieval(data: dict) -> dict:
-    rows = [*data.get("chunking_ablation", []), *data.get("strategy_ablation", [])]
-    target = next((row for row in rows if row.get("mode") == "hybrid_rerank" and row.get("chunk_strategy") == "fixed"), None)
-    return target or {}
+def _current_retrieval() -> dict:
+    report = _read_report("rag_scale_v5_final_dense_cpu.json")
+    return report.get("metrics", {}) if isinstance(report, dict) else {}
 
 
 def _table_row(name: str, passed: str, detail: str) -> str:
@@ -41,11 +40,11 @@ def _latest_real_execution() -> dict:
 def run(*, refresh_expensive: bool = False) -> dict:
     registry = SimulationRegistry(DB_PATH)
     comparison = run_comparison(registry, retrieval_mode="bm25")
-    workflow = run_workflow("hybrid_rerank") if refresh_expensive else _read_report("scientific_workflow_eval.json")
+    workflow = run_workflow("dense") if refresh_expensive else _read_report("scientific_workflow_eval.json")
     gap = run_gap()
     production = run_production() if refresh_expensive else _read_report("production_scenario_smoke.json")
     safety = run_safety()
-    retrieval = _best_retrieval(_read_report("retrieval_ablation.json"))
+    retrieval = _current_retrieval()
     concurrency = _read_report("concurrency_smoke.json")
     real_execution = _latest_real_execution()
     dashboard = {
@@ -54,7 +53,7 @@ def run(*, refresh_expensive: bool = False) -> dict:
         "knowledge_gap": gap,
         "production_scenarios": production,
         "safety_gates": safety,
-        "retrieval_default": retrieval.get("metrics", {}),
+        "retrieval_default": retrieval,
         "concurrency_smoke": {key: concurrency.get(key) for key in ("concurrent_users", "completed", "approved", "wall_time_ms", "p95_latency_ms")},
         "real_moose_execution": real_execution,
         "limitations": ["主评测关闭 LLM，保证可复现并将模型输出与流程正确性分离。", "真实 MOOSE 执行仍需审批与显式 real 模式；受限沙箱曾阻断 MPI socket，但 P0 已在宿主环境完成单进程真实运行。"],
@@ -65,7 +64,7 @@ def run(*, refresh_expensive: bool = False) -> dict:
     lines = [
         "# 统一评测看板",
         "",
-        "主工作流评测使用 `hybrid_rerank + fixed`；基线对比使用相同的轻量 BM25 检索，避免 CPU 模型加载影响公平性和可复现性。LLM 默认关闭。",
+        "当前默认检索为 `dense + parent_child`；BM25 仅用于 fast 档或经置信度验证的精确英文术语问题。LLM 默认关闭。",
         "",
         "| 维度 | 结果 | 说明 |",
         "| --- | --- | --- |",
@@ -77,7 +76,7 @@ def run(*, refresh_expensive: bool = False) -> dict:
         _table_row("知识缺口", f"{gap['passed']}/{gap['questions']} ({gap['pass_rate']:.2%})", "覆盖 needs_experiment、unsupported、not_required"),
         _table_row("安全闸门", f"{safety['passed']}/{safety['total']} ({safety['pass_rate']:.2%})", "参数/模板白名单、审批拦截、MCP 工具边界"),
         _table_row("真实 MOOSE P0", f"{real_execution.get('successful_cases', 0)}/{real_execution.get('total_cases', 0)} 成功", f"{real_execution.get('mpi_processes', '-')} MPI 进程，{real_execution.get('elapsed_s', '-')} s，计划 {real_execution.get('plan_id', '-')}"),
-        _table_row("默认检索", f"Recall@5 {retrieval.get('metrics', {}).get('recall_at_5', 0):.2%}", f"MRR {retrieval.get('metrics', {}).get('mrr', 0):.3f}，nDCG@5 {retrieval.get('metrics', {}).get('ndcg_at_5', 0):.3f}"),
+        _table_row("默认检索（120 题）", f"Source Recall@5 {retrieval.get('source_recall_at_5', 0):.2%}", f"Page hit {retrieval.get('page_hit_rate', 0):.2%}，MRR {retrieval.get('mrr', 0):.3f}，P95 {retrieval.get('p95_latency_ms', 0):.0f} ms"),
         _table_row("5 用户并发冒烟", f"{concurrency.get('approved', 0)}/{concurrency.get('completed', 0)} 审核通过", f"端到端 P95 {concurrency.get('p95_latency_ms', 0):.0f} ms"),
         "",
         "## 结构化路由策略",
@@ -96,6 +95,6 @@ def run(*, refresh_expensive: bool = False) -> dict:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--refresh-expensive", action="store_true", help="重跑 Hybrid Rerank 工作流和生产场景；CPU 环境耗时和内存开销更高。")
+    parser.add_argument("--refresh-expensive", action="store_true", help="重跑默认 Dense 工作流和生产场景；CPU 环境需要加载 embedding 模型。")
     args = parser.parse_args()
     print(json.dumps(run(refresh_expensive=args.refresh_expensive), ensure_ascii=False, indent=2))

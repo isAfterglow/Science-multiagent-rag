@@ -8,6 +8,7 @@ import time
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
+from threading import Lock
 from typing import Any, Iterable, Literal
 
 import numpy as np
@@ -25,6 +26,7 @@ _EMBEDDER = None
 _RERANKER = None
 _TOKENIZER = None
 _DEVICE_STATUS: dict[str, str] = {}
+_MODEL_INIT_LOCK = Lock()
 
 
 def resolve_service_tier(tier: str, configured_mode: str) -> str:
@@ -144,41 +146,47 @@ def build_chunks(documents: list[dict[str, Any]], strategy: ChunkStrategy) -> li
 def _embedder():
     global _EMBEDDER
     if _EMBEDDER is None:
-        if not EMBEDDING_MODEL_PATH.exists(): raise FileNotFoundError(f"Embedding model missing: {EMBEDDING_MODEL_PATH}")
-        from FlagEmbedding import BGEM3FlagModel
-        # Index construction is an offline workload. A larger CPU batch avoids
-        # turning a small local corpus into hundreds of transformer calls.
-        device = _resolve_device(EMBEDDING_DEVICE, "embedding")
-        try:
-            _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=device == "cuda", devices=device, batch_size=16 if device == "cuda" else 32, query_max_length=512, passage_max_length=512)
-            _DEVICE_STATUS["embedding"] = device
-        except Exception as exc:
-            if device != "cuda": raise
-            _DEVICE_STATUS["embedding"] = f"cpu_fallback: {type(exc).__name__}"
-            _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=32, query_max_length=512, passage_max_length=512)
+        with _MODEL_INIT_LOCK:
+            if _EMBEDDER is None:
+                if not EMBEDDING_MODEL_PATH.exists(): raise FileNotFoundError(f"Embedding model missing: {EMBEDDING_MODEL_PATH}")
+                from FlagEmbedding import BGEM3FlagModel
+                # Index construction is an offline workload. A larger CPU batch avoids
+                # turning a small local corpus into hundreds of transformer calls.
+                device = _resolve_device(EMBEDDING_DEVICE, "embedding")
+                try:
+                    _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=device == "cuda", devices=device, batch_size=16 if device == "cuda" else 32, query_max_length=512, passage_max_length=512)
+                    _DEVICE_STATUS["embedding"] = device
+                except Exception as exc:
+                    if device != "cuda": raise
+                    _DEVICE_STATUS["embedding"] = f"cpu_fallback: {type(exc).__name__}"
+                    _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=32, query_max_length=512, passage_max_length=512)
     return _EMBEDDER
 
 def _reranker():
     global _RERANKER
     if _RERANKER is None:
-        if not RERANKER_MODEL_PATH.exists(): raise FileNotFoundError(f"Reranker model missing: {RERANKER_MODEL_PATH}")
-        from FlagEmbedding import FlagReranker
-        device = _resolve_device(RERANKER_DEVICE, "reranker")
-        try:
-            _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=device == "cuda", devices=device, batch_size=8 if device == "cuda" else 16, max_length=512, normalize=True)
-            _DEVICE_STATUS["reranker"] = device
-        except Exception as exc:
-            if device != "cuda": raise
-            _DEVICE_STATUS["reranker"] = f"cpu_fallback: {type(exc).__name__}"
-            _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=16, max_length=512, normalize=True)
+        with _MODEL_INIT_LOCK:
+            if _RERANKER is None:
+                if not RERANKER_MODEL_PATH.exists(): raise FileNotFoundError(f"Reranker model missing: {RERANKER_MODEL_PATH}")
+                from FlagEmbedding import FlagReranker
+                device = _resolve_device(RERANKER_DEVICE, "reranker")
+                try:
+                    _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=device == "cuda", devices=device, batch_size=8 if device == "cuda" else 16, max_length=512, normalize=True)
+                    _DEVICE_STATUS["reranker"] = device
+                except Exception as exc:
+                    if device != "cuda": raise
+                    _DEVICE_STATUS["reranker"] = f"cpu_fallback: {type(exc).__name__}"
+                    _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=16, max_length=512, normalize=True)
     return _RERANKER
 
 
 def _tokenizer():
     global _TOKENIZER
     if _TOKENIZER is None:
-        from transformers import AutoTokenizer
-        _TOKENIZER = AutoTokenizer.from_pretrained(str(EMBEDDING_MODEL_PATH), local_files_only=True)
+        with _MODEL_INIT_LOCK:
+            if _TOKENIZER is None:
+                from transformers import AutoTokenizer
+                _TOKENIZER = AutoTokenizer.from_pretrained(str(EMBEDDING_MODEL_PATH), local_files_only=True)
     return _TOKENIZER
 
 

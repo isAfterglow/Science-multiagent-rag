@@ -24,11 +24,11 @@ QUESTIONS = [
 
 def _one(question: str, retrieval_mode: str) -> dict:
     started = time.perf_counter()
-    result = run_multi_agent(question, SimulationRegistry(DB_PATH), LLMRouter(enabled=False), retrieval_mode, "fixed")
+    result = run_multi_agent(question, SimulationRegistry(DB_PATH), LLMRouter(enabled=False), retrieval_mode, "parent_child")
     return {"question": question, "latency_ms": round((time.perf_counter() - started) * 1000, 3), "approved": bool(result["review"].get("approved")), "task_type": result["task_type"]}
 
 
-def run(users: int = 8, retrieval_mode: str = "bm25") -> dict:
+def run(users: int = 8, retrieval_mode: str = "dense") -> dict:
     started = time.perf_counter()
     with ThreadPoolExecutor(max_workers=users, thread_name_prefix="load") as pool:
         rows = [future.result() for future in as_completed([pool.submit(_one, QUESTIONS[index % len(QUESTIONS)], retrieval_mode) for index in range(users)])]
@@ -41,6 +41,6 @@ def run(users: int = 8, retrieval_mode: str = "bm25") -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--users", type=int, default=8)
-    parser.add_argument("--mode", default="bm25", choices=["bm25", "dense", "hybrid", "hybrid_rerank"])
+    parser.add_argument("--mode", default="dense", choices=["bm25", "dense", "hybrid", "hybrid_rerank"])
     args = parser.parse_args()
     print(json.dumps(run(args.users, args.mode), ensure_ascii=False, indent=2))

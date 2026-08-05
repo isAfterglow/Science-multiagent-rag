@@ -1,5 +1,7 @@
 # 复杂科研文档 RAG：解析、检索与可信回答
 
+> 历史阶段文档解析与切分实验。452 Child 的数字仅对应当时语料；当前 2,234 Child 语料和默认检索请见 `STAGE3_RAG_SCALE_AND_CITATION.md`。
+
 ## P0：DocumentIR 与 token-aware Parent-Child
 
 科学语料为 8 份公开 NASA NTRS 技术资料，覆盖演示型技术文档、双栏论文式报告、扫描专利、矢量表格和 OCR 页。解析不再将 PDF 当成整页纯文本：

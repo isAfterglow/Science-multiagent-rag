@@ -28,7 +28,7 @@ def run() -> dict:
     results = []
     for scenario in SCENARIOS:
         started = time.perf_counter()
-        result = run_multi_agent(scenario["question"], registry, LLMRouter(enabled=False), "hybrid_rerank", "fixed")
+        result = run_multi_agent(scenario["question"], registry, LLMRouter(enabled=False), "dense", "parent_child")
         sources = {card["source_type"] for card in result.get("evidence_cards", [])}
         trace_nodes = [item["node"] for item in result.get("trace", [])]
         checks = {
@@ -43,7 +43,7 @@ def run() -> dict:
         }
         results.append({"id": scenario["id"], "type": scenario["type"], "passed": all(checks.values()), "checks": checks, "task_type": result["task_type"], "review": result["review"], "sources": sorted(sources), "gap": result.get("evidence_gap", {}).get("status"), "plan_id": result.get("plan_draft", {}).get("plan_id"), "latency_ms": round((time.perf_counter() - started) * 1000, 3)})
     passed = sum(item["passed"] for item in results)
-    output = {"scenarios": len(results), "passed": passed, "pass_rate": round(passed / len(results), 4), "retrieval_mode": "hybrid_rerank", "llm_enabled": False, "results": results}
+    output = {"scenarios": len(results), "passed": passed, "pass_rate": round(passed / len(results), 4), "retrieval_mode": "dense", "chunk_strategy": "parent_child", "llm_enabled": False, "results": results}
     (ROOT / "reports" / "production_scenario_smoke.json").write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
     return output
 

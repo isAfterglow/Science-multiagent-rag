@@ -16,7 +16,7 @@ from app.simulation_plan import PARAMETER_BOUNDS
 QUESTIONS = Path(__file__).with_name("scientific_workflow_questions.jsonl")
 
 
-def run(*, retrieval_mode: str = "bm25", llm_enabled: bool = False, limit: int | None = None) -> dict:
+def run(*, retrieval_mode: str = "dense", llm_enabled: bool = False, limit: int | None = None) -> dict:
     items = [json.loads(line) for line in QUESTIONS.read_text(encoding="utf-8").splitlines() if line.strip()]
     if limit is not None:
         items = items[:limit]
@@ -62,7 +62,7 @@ def run(*, retrieval_mode: str = "bm25", llm_enabled: bool = False, limit: int |
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", default="bm25", choices=["bm25", "dense", "hybrid", "hybrid_rerank"])
+    parser.add_argument("--mode", default="dense", choices=["bm25", "dense", "hybrid", "hybrid_rerank"])
     parser.add_argument("--llm-enabled", action="store_true")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--output", type=Path, default=ROOT / "reports" / "multi_agent_collaboration_eval.json")

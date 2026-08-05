@@ -1,5 +1,7 @@
 # 阶段 3：科研语料扩展、向量索引对照与原页核验
 
+> 本文前半部分记录 75 题/V2 的扩容过程。当前发布基线为 V5：49 份来源、1,016 页、2,234 chunks、120 题、`dense + parent_child`；Local Dense 的 Source Recall@5 为 0.8694、Page hit 为 0.7890、P95 为 212.173 ms。完整当前选型见 `RAG_PRODUCTION_HARDENING.md` 与 `RETRIEVAL_OPTIMIZATION_V5.md`。
+
 ## 目标与边界
 
 本阶段扩大公开科研知识库，并验证两种向量后端在完全相同的语料、embedding 和检索配置下的行为。原始 PDF、解析产物、页图和向量缓存保留在 `data/knowledge_sources/`，不进入版本库；可复现的来源清单位于 `knowledge_sources/manifest.json`。

@@ -1,5 +1,7 @@
 # Recovery 闭环与默认模型并发
 
+> 历史阶段结果。其 `BM25 + fixed` 与 `hybrid_rerank + fixed` 延迟仅用于回溯当时策略；当前默认路径为 `dense + parent_child`。
+
 评测日期：2026-08-03。
 
 ## 受限 Recovery Agent

@@ -18,7 +18,7 @@ def _questions() -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def evaluate(mode: str, chunk_strategy: str = "fixed") -> dict:
+def evaluate(mode: str, chunk_strategy: str = "parent_child") -> dict:
     registry = SimulationRegistry(DB_PATH)
     router = LLMRouter(enabled=False)
     rows = []
@@ -35,7 +35,7 @@ def evaluate(mode: str, chunk_strategy: str = "fixed") -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--modes", nargs="+", default=["bm25", "dense", "hybrid"])
-    parser.add_argument("--chunk-strategy", default="fixed")
+    parser.add_argument("--chunk-strategy", default="parent_child")
     parser.add_argument("--output", type=Path, default=ROOT / "reports" / "end_to_end_retrieval_comparison.json")
     args = parser.parse_args()
     result = [evaluate(mode, args.chunk_strategy) for mode in args.modes]

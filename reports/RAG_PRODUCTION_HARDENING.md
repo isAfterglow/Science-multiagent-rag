@@ -19,14 +19,14 @@ CUDA 对 BGE embedding/query 有明显收益；reranker 收益不足以抵消其
 
 | 120 题 CPU | Source Recall@5 | MRR | nDCG@5 | Page hit | P95 |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Dense baseline | 0.8694 | 0.8479 | 0.8394 | 0.7890 | 209.235 ms |
-| Source-summary fusion | 0.8694 | 0.8653 | 0.8507 | 0.7890 | 245.080 ms |
+| Dense baseline | 0.8694 | 0.8479 | 0.8394 | 0.7890 | 212.173 ms |
+| Source-summary fusion | 0.8778 | 0.8575 | 0.8470 | 0.7890 | 223.002 ms |
 
-融合保留为显式实验模式：质量不下降且排名指标增加，但默认 Dense 仍有更低延迟。先前的 profile 硬过滤实验使 Source Recall@5 降到 0.7778，已回退并作为负实验记录。
+融合保留为显式 `precision` 档：Source Recall@5、Question hit 和排名指标提高，但默认 Dense 仍有更低延迟。先前的 profile 硬过滤实验使 Source Recall@5 降到 0.7778，已回退并作为负实验记录。
 
 ## 3. 动态检索路由评估
 
-全量 BM25 的 Page hit 为 0.7982，但 Source Recall@5/MRR/nDCG 为 0.8611/0.8232/0.8185，低于 Dense。将显式“表格、单位、Variables、Equation Number、Mole Fractions”等问法切到 BM25 的离线组合（6/120 题）得到 Source hit 0.9000、Page hit 0.7250，低于 Dense 的 0.9000/0.7890。因此不启用基于关键词的在线强制路由；运行时保留模式选择接口，后续仅在新增标注子集出现可验证收益后启用。
+全量 BM25 的 Page hit 为 0.7982，但 Source Recall@5/MRR/nDCG 为 0.8611/0.8232/0.8185，低于 Dense。V5 仅对 4/120 个高置信、精确英文技术术语问题启用 BM25 路由，整体 Source Recall@5 保持 0.8694，Page hit 提升到 0.7982，P95 为 217.114 ms。泛词和不确定问法仍保持 Dense，避免关键词路由损伤语义召回。
 
 ## 4. 异步导入
 

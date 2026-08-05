@@ -15,13 +15,13 @@ from app.registry import SimulationRegistry
 QUESTIONS = Path(__file__).with_name("scientific_workflow_questions.jsonl")
 
 
-def run(retrieval_mode: str = "bm25") -> dict:
+def run(retrieval_mode: str = "dense") -> dict:
     registry = SimulationRegistry(DB_PATH)
     rows = [json.loads(line) for line in QUESTIONS.read_text(encoding="utf-8").splitlines() if line.strip()]
     results = []
     for item in rows:
         started = time.perf_counter()
-        result = run_multi_agent(item["question"], registry, LLMRouter(enabled=False), retrieval_mode, "fixed")
+        result = run_multi_agent(item["question"], registry, LLMRouter(enabled=False), retrieval_mode, "parent_child")
         statements = result.get("grounded_statements", [])
         claim_verifications = result.get("claim_verifications", [])
         source_types = {card["source_type"] for card in result.get("evidence_cards", [])}
@@ -41,7 +41,7 @@ def run(retrieval_mode: str = "bm25") -> dict:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", default="bm25", choices=["bm25", "dense", "hybrid", "hybrid_rerank"])
+    parser.add_argument("--mode", default="dense", choices=["bm25", "dense", "hybrid", "hybrid_rerank"])
     args = parser.parse_args()
     output = ROOT / "reports" / "scientific_workflow_eval.json"
     output.write_text(json.dumps(run(args.mode), ensure_ascii=False, indent=2), encoding="utf-8")

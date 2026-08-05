@@ -1,52 +1,60 @@
 {
   "concurrent_users": 5,
-  "retrieval_mode": "hybrid_rerank",
+  "retrieval_mode": "dense",
   "completed": 5,
   "approved": 5,
-  "wall_time_ms": 9196.607,
-  "p95_latency_ms": 9195.029,
+  "wall_time_ms": 15473.18,
+  "p95_latency_ms": 15472.211,
   "model_resources": {
     "embedding": {
-      "requests": 4,
-      "mean_wait_ms": 3951.588
+      "requests": 1,
+      "active": 0,
+      "mean_wait_ms": 0.003
     },
     "reranker": {
-      "requests": 4,
-      "mean_wait_ms": 1028.781
+      "requests": 0,
+      "active": 0,
+      "mean_wait_ms": 0.0
     },
     "llm": {
       "requests": 0,
+      "active": 0,
+      "mean_wait_ms": 0.0
+    },
+    "gpu_inference": {
+      "requests": 0,
+      "active": 0,
       "mean_wait_ms": 0.0
     }
   },
   "results": [
     {
       "question": "early_1_2_rmse 最好的 case 是哪个？",
-      "latency_ms": 98.557,
+      "latency_ms": 9883.515,
       "approved": true,
       "task_type": "simulation_analysis"
     },
     {
-      "question": "LHS 分析中基线 early_1_2_rmse 是多少？",
-      "latency_ms": 6345.474,
-      "approved": true,
-      "task_type": "knowledge"
-    },
-    {
       "question": "cpv_front_scale 对 early_1_2_rmse 有何影响，并说明历史报告依据。",
-      "latency_ms": 6887.893,
+      "latency_ms": 14695.888,
       "approved": true,
       "task_type": "mixed"
     },
     {
       "question": "MOOSE 输入 deck 包含哪些边界条件设置？",
-      "latency_ms": 8701.346,
+      "latency_ms": 14885.959,
       "approved": true,
       "task_type": "knowledge"
     },
     {
       "question": "批量运行日志中如何记录 case 的开始时间？",
-      "latency_ms": 9195.029,
+      "latency_ms": 14995.982,
+      "approved": true,
+      "task_type": "knowledge"
+    },
+    {
+      "question": "LHS 分析中基线 early_1_2_rmse 是多少？",
+      "latency_ms": 15472.211,
       "approved": true,
       "task_type": "knowledge"
     }

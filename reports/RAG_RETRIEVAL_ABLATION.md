@@ -1,5 +1,7 @@
 # RAG 检索消融（本地 BGE）
 
+> 历史阶段实验（2026-08-03，16 份项目文档、12 道来源级题），不代表当前默认配置。当前线上默认与 120 题基线为 `dense + parent_child`，请见 `README.md`、`RAG_PRODUCTION_HARDENING.md` 与 `RETRIEVAL_OPTIMIZATION_V5.md`。
+
 评测日期：2026-08-03。语料来自只读 MOOSE LHS 工作区，ingest 后包含 16 份文档。相关性标签为 `eval/retrieval_ground_truth.jsonl` 中 12 条问题的人工相关来源（source-level）；这比“返回任意引用”更能衡量检索质量。
 
 ## Chunk 切分

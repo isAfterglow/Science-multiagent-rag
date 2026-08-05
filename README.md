@@ -32,7 +32,7 @@ flowchart LR
 
 `AgentTrace v1` 将同步 SSE、后台任务和最终结果统一到一个 `trace_id` 下；每个事件带节点、父 Span、状态与耗时。`tests/test_trace_contract.py` 约束该协议和“一次受限 Recovery”上限。最终回答还会返回 Claim-Evidence 验证：事实句必须可回溯到同一 Registry 工具结果或原始 EvidenceCard；证据不足、冲突、限制语和待审批计划会被明确区分，不把它们伪装成已验证事实。
 
-普通 PR 运行 `.github/workflows/ci.yml`：编译、离线契约测试和版本化门禁，不依赖私有 MOOSE 工作区或本地模型。带有本机数据与 `scitime-agent` 环境的 self-hosted runner 每周或手动运行 `.github/workflows/full-regression.yml`，重新生成安全与 30 题确定性工作流报告，并与 `eval/baselines/deterministic-v1.json` 比较。P95 延迟只告警，不作为质量阻断条件。
+普通 PR 运行 `.github/workflows/ci.yml`：编译、离线契约测试和版本化门禁，不依赖私有 MOOSE 工作区或本地模型。带有本机数据与 `scitime-agent` 环境的 self-hosted runner 每周或手动运行 `.github/workflows/full-regression.yml`，重新生成安全、Claim-Evidence、30 题工作流、120 题检索和路由报告，并与 `eval/baselines/deterministic-v1.json` 比较。工作流 P95 只告警；120 题默认 Dense 的 Source Recall、Page hit 与 P95 则是发布门禁。
 
 任务调度默认是 SQLite 状态库加有界本地线程池；设置 `TASK_BACKEND=auto` 时会在 Redis/RQ 可达时自动改为共享队列，设置 `TASK_BACKEND=rq` 则在 Redis 不可用时直接失败，避免多实例部署误用本地队列。启动 Worker：
 
@@ -107,7 +107,7 @@ conda run -n scitime-agent python -m eval.end_to_end_retrieval_eval
 conda run -n scitime-agent python -m eval.scientific_multimodal_retrieval_eval --mode bm25 --chunk-strategy document
 ```
 
-扩展科学语料采用页级 Dense 默认检索；来源 Profile 只作为证据展示和实验信号，绝不硬过滤候选。当前公开语料为 49 份来源（含 2 篇开放获取 MOOSE 方法论文）、1,016 页、1,613 个页级文档组和 2,234 个完整检索块，覆盖技术报告、会议论文、预印本、book chapter、演示资料、poster、扫描报告与期刊论文。`document_kind` 会随 EvidenceCard 传递，供工作台审阅和类型回归评测使用。120 条页级题上的默认 Local Dense Source Recall@5 为 86.94%、页命中率为 78.90%、P95 为 209.235 ms。BM25 保留给 OCR/精确术语的离线候选，`hybrid_rerank` 仅用于离线实验。可信度策略、扩容和选型记录见 `reports/SCIENTIFIC_RAG_AND_WORKBENCH_STAGE.md`、`reports/STAGE3_RAG_SCALE_AND_CITATION.md` 与 `reports/RAG_PRODUCTION_HARDENING.md`。
+扩展科学语料采用页级 Dense 默认检索；来源 Profile 只作为证据展示和实验信号，绝不硬过滤候选。当前公开语料为 49 份来源（含 2 篇开放获取 MOOSE 方法论文）、1,016 页、1,613 个页级文档组和 2,234 个完整检索块，覆盖技术报告、会议论文、预印本、book chapter、演示资料、poster、扫描报告与期刊论文。`document_kind` 会随 EvidenceCard 传递，供工作台审阅和类型回归评测使用。120 条页级题上的默认 Local Dense Source Recall@5 为 86.94%、页命中率为 78.90%、P95 为 212.173 ms。BM25 仅用于明确的精确术语路由或 `fast` 档，`hybrid_rerank` 仅用于离线实验。可信度策略、扩容和选型记录见 `reports/STAGE3_RAG_SCALE_AND_CITATION.md`、`reports/RAG_PRODUCTION_HARDENING.md` 与 `reports/RETRIEVAL_OPTIMIZATION_V5.md`。
 
 检索成本通过 `RETRIEVAL_TIER` 显式选择：`fast` 为 BM25、`default` 为 Dense、`precision` 为来源摘要融合。优化后的 `precision` 在 120 题上将 Source Recall@5 提升至 87.78%、Question hit 提升至 90.83%，P95 为 223.002 ms；默认仍取更稳的 Dense。精确英文术语的置信度路由只在离线评测验证后使用，不会因“表格”等泛词替换语义检索。指标、子集切片、路由对照和门禁定义见 `reports/RETRIEVAL_OPTIMIZATION_V5.md`。
 
@@ -134,7 +134,7 @@ VECTOR_BACKEND=milvus MOOSE_MILVUS_URI=data/milvus/scientific_chunks.db \
 
 每个 Child 以内容哈希单独缓存 BGE-M3 embedding；新文档只编码新增/变更 Child，Milvus 按 `chunk_id` 增量 upsert，并删除已不属于当前语料的旧 Child。Milvus 不可用时 Dense 自动使用本地 Numpy 缓存，EvidenceCard 和 SSE trace 会记录实际后端及降级原因。
 
-当前 1,515 chunk 基准使用 Milvus `FLAT + IP` 与本地全量点积保持可复现一致；两者在 75 条页级题上的检索指标相同，但同轮实测中 Local Numpy 的 P50/P95 延迟为 159.274/199.639 ms，低于 Milvus Lite 的 880.577/995.911 ms。Milvus 首次同步 1,515 vectors 用时 1,543.764 ms。语料增长到数万块后再通过新 collection 版本评测 HNSW/AUTOINDEX。详细对照见 `reports/MILVUS_VECTOR_BACKEND.md` 与 `reports/STAGE3_RAG_SCALE_AND_CITATION.md`。
+在当前 2,234 chunk 对照中，Milvus Lite `FLAT + IP` 与 Local Numpy 的检索质量一致，但 Local P50/P95 为 180.706/225.397 ms，低于 Milvus Lite 的 1,226.955/1,305.651 ms；首次同步 2,234 vectors 用时 2,015.485 ms。Local 因而仍是默认在线后端；Milvus 用于更大 collection、增量 upsert、metadata filter 与多实例部署。详细对照见 `reports/STAGE3_RAG_SCALE_AND_CITATION.md`。
 
 ## 回答验证与并发任务
 
@@ -155,7 +155,7 @@ Reviewer 发现 `citation_coverage`、`missing_retrieval` 或 `no_evidence` 时�
 `/research/stream` 在 LangGraph 节点完成时实时发送 SSE 事件。Embedding、Reranker、LLM 分别由进程内有界信号量控制；`/observability` 返回其排队指标。运行默认模型压测：
 
 ```bash
-conda run -n scitime-agent python -m eval.concurrency_smoke --users 5 --mode hybrid_rerank
+conda run -n scitime-agent python -m eval.concurrency_smoke --users 5 --mode dense
 ```
 
 Supervisor 还会声明 `EvidenceRequirement`，分别验收 Registry、报告、日志、状态表、输入 deck 和脚本；缺失类型触发一次受限补检索。探索性计划草案基于相关性方向生成差异化候选，必须调用 `POST /plans/drafts/confirm` 才会进入待审批状态。完整实验结果见 `reports/EVIDENCE_CONTRACT_PLAN_ADVISOR_AND_QOS.md`。

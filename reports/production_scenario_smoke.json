@@ -2,7 +2,8 @@
   "scenarios": 8,
   "passed": 8,
   "pass_rate": 1.0,
-  "retrieval_mode": "hybrid_rerank",
+  "retrieval_mode": "dense",
+  "chunk_strategy": "parent_child",
   "llm_enabled": false,
   "results": [
     {
@@ -28,7 +29,7 @@
       "sources": [],
       "gap": null,
       "plan_id": null,
-      "latency_ms": 25.595
+      "latency_ms": 5020.425
     },
     {
       "id": "prod-02",
@@ -55,7 +56,7 @@
       ],
       "gap": null,
       "plan_id": null,
-      "latency_ms": 1492.174
+      "latency_ms": 5612.665
     },
     {
       "id": "prod-03",
@@ -83,7 +84,7 @@
       ],
       "gap": null,
       "plan_id": null,
-      "latency_ms": 1483.736
+      "latency_ms": 1755.664
     },
     {
       "id": "prod-04",
@@ -111,7 +112,7 @@
       ],
       "gap": null,
       "plan_id": null,
-      "latency_ms": 4031.356
+      "latency_ms": 1643.14
     },
     {
       "id": "prod-05",
@@ -139,7 +140,7 @@
       ],
       "gap": null,
       "plan_id": null,
-      "latency_ms": 3181.369
+      "latency_ms": 1803.625
     },
     {
       "id": "prod-06",
@@ -165,8 +166,8 @@
         "report"
       ],
       "gap": "needs_experiment",
-      "plan_id": "draft-16eeed1d27b9",
-      "latency_ms": 3454.297
+      "plan_id": "draft-f7cc27f82d05",
+      "latency_ms": 1691.691
     },
     {
       "id": "prod-07",
@@ -188,10 +189,14 @@
         "reasons": [],
         "requires_revision": false
       },
-      "sources": [],
+      "sources": [
+        "paper",
+        "report",
+        "script"
+      ],
       "gap": "unsupported",
       "plan_id": null,
-      "latency_ms": 26.96
+      "latency_ms": 1804.5
     },
     {
       "id": "prod-08",
@@ -217,8 +222,8 @@
         "report"
       ],
       "gap": "not_required",
-      "plan_id": "draft-2955bf9d8c4d",
-      "latency_ms": 788.818
+      "plan_id": "draft-499d120e96cf",
+      "latency_ms": 1653.095
     }
   ]
 }
