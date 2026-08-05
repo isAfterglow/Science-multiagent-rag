@@ -13,17 +13,32 @@ from typing import Any, Iterable, Literal
 import numpy as np
 from rank_bm25 import BM25Okapi
 
-from app.config import CHUNK_STRATEGY, EMBEDDING_MODEL_PATH, RETRIEVAL_MODE, RERANKER_MODEL_PATH, ROOT, VECTOR_BACKEND
+from app.config import CHUNK_STRATEGY, EMBEDDING_DEVICE, EMBEDDING_MODEL_PATH, RETRIEVAL_MODE, RETRIEVAL_TIER, RERANKER_DEVICE, RERANKER_MODEL_PATH, ROOT, VECTOR_BACKEND
 from app.models import EvidenceCard
-from app.resource_limits import acquire
+from app.resource_limits import acquire, acquire_inference
 from app.registry import SimulationRegistry
 from app.vector_store import LocalNpyVectorStore, MilvusVectorStore, VectorStore, chunk_content_hash, corpus_fingerprint
 
-RetrievalMode = Literal["bm25", "dense", "hybrid", "hybrid_rerank"]
+RetrievalMode = Literal["bm25", "dense", "dense_page", "hybrid", "hybrid_rerank", "source_fusion"]
 ChunkStrategy = Literal["document", "fixed", "structure", "parent_child"]
 _EMBEDDER = None
 _RERANKER = None
 _TOKENIZER = None
+_DEVICE_STATUS: dict[str, str] = {}
+
+
+def resolve_service_tier(tier: str, configured_mode: str) -> str:
+    """Map explicit latency/quality tiers without hiding the selected mode."""
+    return {"fast": "bm25", "default": configured_mode, "precision": "source_fusion"}.get(tier, configured_mode)
+
+def _resolve_device(requested: str, label: str) -> str:
+    if requested == "cpu": return "cpu"
+    try:
+        import torch
+        if torch.cuda.is_available(): return "cuda"
+    except Exception: pass
+    _DEVICE_STATUS[label] = "cpu_fallback: CUDA unavailable"
+    return "cpu"
 
 def tokenize(text: str) -> list[str]:
     return re.findall(r"[A-Za-z_][A-Za-z_0-9]*|[\u4e00-\u9fff]+|\d+(?:\.\d+)?", text.lower())
@@ -133,7 +148,14 @@ def _embedder():
         from FlagEmbedding import BGEM3FlagModel
         # Index construction is an offline workload. A larger CPU batch avoids
         # turning a small local corpus into hundreds of transformer calls.
-        _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=32, query_max_length=512, passage_max_length=512)
+        device = _resolve_device(EMBEDDING_DEVICE, "embedding")
+        try:
+            _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=device == "cuda", devices=device, batch_size=16 if device == "cuda" else 32, query_max_length=512, passage_max_length=512)
+            _DEVICE_STATUS["embedding"] = device
+        except Exception as exc:
+            if device != "cuda": raise
+            _DEVICE_STATUS["embedding"] = f"cpu_fallback: {type(exc).__name__}"
+            _EMBEDDER = BGEM3FlagModel(str(EMBEDDING_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=32, query_max_length=512, passage_max_length=512)
     return _EMBEDDER
 
 def _reranker():
@@ -141,7 +163,14 @@ def _reranker():
     if _RERANKER is None:
         if not RERANKER_MODEL_PATH.exists(): raise FileNotFoundError(f"Reranker model missing: {RERANKER_MODEL_PATH}")
         from FlagEmbedding import FlagReranker
-        _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=16, max_length=512, normalize=True)
+        device = _resolve_device(RERANKER_DEVICE, "reranker")
+        try:
+            _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=device == "cuda", devices=device, batch_size=8 if device == "cuda" else 16, max_length=512, normalize=True)
+            _DEVICE_STATUS["reranker"] = device
+        except Exception as exc:
+            if device != "cuda": raise
+            _DEVICE_STATUS["reranker"] = f"cpu_fallback: {type(exc).__name__}"
+            _RERANKER = FlagReranker(str(RERANKER_MODEL_PATH), use_fp16=False, devices="cpu", batch_size=16, max_length=512, normalize=True)
     return _RERANKER
 
 
@@ -168,11 +197,13 @@ def _rerank_scores(query: str, passages: list[str]) -> list[float]:
     torch.set_num_threads(min(torch.get_num_threads(), 4))
     reranker = _reranker()
     tokenizer, model = reranker.tokenizer, reranker.model
-    model.to("cpu").eval()
+    device = _DEVICE_STATUS.get("reranker", "cpu")
+    device = "cuda" if device == "cuda" else "cpu"
+    model.to(device).eval()
     scores: list[float] = []
     for start in range(0, len(passages), 16):
         batch = passages[start:start + 16]
-        inputs = tokenizer([query] * len(batch), batch, padding=True, truncation=True, max_length=256, return_tensors="pt")
+        inputs = tokenizer([query] * len(batch), batch, padding=True, truncation=True, max_length=256, return_tensors="pt").to(device)
         with torch.no_grad():
             logits = model(**inputs, return_dict=True).logits.view(-1).float()
         scores.extend(torch.sigmoid(logits).tolist())
@@ -181,9 +212,10 @@ def _rerank_scores(query: str, passages: list[str]) -> list[float]:
 class HybridRetriever:
     """Retrieves from SQLite-derived chunks through a replaceable vector backend."""
     def __init__(self, registry: SimulationRegistry, mode: RetrievalMode | str | None = None, chunk_strategy: ChunkStrategy | str | None = None, vector_backend: str | None = None) -> None:
-        self.mode: RetrievalMode = (mode or RETRIEVAL_MODE)  # type: ignore[assignment]
+        self.service_tier = RETRIEVAL_TIER
+        self.mode: RetrievalMode = (mode or resolve_service_tier(self.service_tier, RETRIEVAL_MODE))  # type: ignore[assignment]
         self.chunk_strategy: ChunkStrategy = (chunk_strategy or CHUNK_STRATEGY)  # type: ignore[assignment]
-        if self.mode not in {"bm25", "dense", "hybrid", "hybrid_rerank"}: raise ValueError(f"Unknown retrieval mode: {self.mode}")
+        if self.mode not in {"bm25", "dense", "dense_page", "hybrid", "hybrid_rerank", "source_fusion"}: raise ValueError(f"Unknown retrieval mode: {self.mode}")
         self.documents = registry.documents(); self.chunks = build_chunks(self.documents, self.chunk_strategy)
         self._chunk_by_id = {chunk.chunk_id: index for index, chunk in enumerate(self.chunks)}
         self.bm25 = BM25Okapi([tokenize(chunk.text) for chunk in self.chunks]) if self.chunks else None
@@ -191,9 +223,15 @@ class HybridRetriever:
         self.vector_backend_requested = (vector_backend or VECTOR_BACKEND).lower()
         self.vector_store: VectorStore | None = None
         self.vector_backend_status: dict[str, Any] = {"backend": "not_used", "status": "not_used", "count": 0}
+        self._source_summary_vectors: np.ndarray | None = None
+        self._source_summary_ids: list[str] = []
+        self._source_summaries: dict[str, str] = {}
+        self._source_summary_cache_status = "not_requested"
         if self.mode != "bm25":
             self.vectors = self._load_or_build_vectors()
             self._initialize_vector_store()
+        if self.mode == "source_fusion":
+            self._initialize_source_summary_index()
 
     def _cache_paths(self) -> tuple[Path, Path]:
         fingerprint = corpus_fingerprint(self.chunks)
@@ -241,11 +279,78 @@ class HybridRetriever:
 
     def _dense_ranking(self, query: str, source_types: set[str] | None = None) -> list[int]:
         if self.vectors is None or self.vector_store is None: return []
-        with acquire("embedding") as wait_ms:
+        with acquire_inference("embedding", uses_gpu=_DEVICE_STATUS.get("embedding") == "cuda") as waits:
             query_vector = np.asarray(_embedder().encode([query], return_dense=True, return_sparse=False, return_colbert_vecs=False)["dense_vecs"][0], dtype=np.float32)
-        self._embedding_wait_ms = wait_ms
+        self._embedding_wait_ms = waits["model_wait_ms"]
+        self._embedding_gpu_wait_ms = waits["gpu_wait_ms"]
+        self._last_query_vector = query_vector
         hits = self.vector_store.search(query_vector, limit=min(max(100, len(self.chunks)), len(self.chunks)), source_types=source_types)
         return [self._chunk_by_id[chunk_id] for chunk_id, _score in hits if chunk_id in self._chunk_by_id]
+
+    def _source_summary_cache_paths(self) -> tuple[Path, Path]:
+        fingerprint = corpus_fingerprint(self.chunks)
+        root = ROOT / "data" / "index"; root.mkdir(parents=True, exist_ok=True)
+        return root / f"source_summaries_{self.chunk_strategy}_{fingerprint}.npy", root / f"source_summaries_{self.chunk_strategy}_{fingerprint}.json"
+
+    def _initialize_source_summary_index(self) -> None:
+        """Build/load source summaries once per corpus, never per request."""
+        vector_path, metadata_path = self._source_summary_cache_paths()
+        grouped: dict[str, list[Chunk]] = defaultdict(list)
+        for chunk in self.chunks:
+            grouped[self._source_identity(chunk)].append(chunk)
+        self._source_summary_ids = sorted(grouped)
+        self._source_summaries = {}
+        for source_id in self._source_summary_ids:
+            chunk = grouped[source_id][0]
+            metadata = chunk.metadata
+            self._source_summaries[source_id] = " ".join(str(part) for part in [
+                metadata.get("title", ""), " ".join(map(str, metadata.get("topics", []))),
+                " ".join(map(str, metadata.get("aliases", []))), metadata.get("document_kind", chunk.source_type), chunk.text[:1000],
+            ])
+        if vector_path.exists() and metadata_path.exists():
+            payload = json.loads(metadata_path.read_text(encoding="utf-8"))
+            vectors = np.load(vector_path)
+            if payload.get("source_ids") == self._source_summary_ids and len(vectors) == len(self._source_summary_ids):
+                self._source_summary_vectors = vectors.astype(np.float32)
+                self._source_summary_cache_status = "hit"
+                return
+        with acquire_inference("embedding", uses_gpu=_DEVICE_STATUS.get("embedding") == "cuda"):
+            result = _embedder().encode([self._source_summaries[source] for source in self._source_summary_ids], return_dense=True, return_sparse=False, return_colbert_vecs=False)
+        self._source_summary_vectors = np.asarray(result["dense_vecs"], dtype=np.float32)
+        np.save(vector_path, self._source_summary_vectors)
+        metadata_path.write_text(json.dumps({"source_ids": self._source_summary_ids, "count": len(self._source_summary_ids), "chunk_strategy": self.chunk_strategy, "source_summary_schema": "title_topics_aliases_kind_first_fragment.v1"}, ensure_ascii=False), encoding="utf-8")
+        self._source_summary_cache_status = "built"
+
+    def _source_summary_ranking(self, query: str, candidate_sources: set[str]) -> dict[str, int]:
+        """Return semantic source ranks for a non-destructive fusion experiment.
+
+        The source summaries use manifest metadata plus the first page fragment.
+        They can boost an already retrieved page but never remove a full-corpus
+        page candidate, avoiding the recall loss of profile hard filtering.
+        """
+        if not self.chunks:
+            return {}
+        if self._source_summary_vectors is None:
+            self._initialize_source_summary_index()
+        # ``_dense_ranking`` has already embedded this exact query.  Reuse it
+        # so source-summary fusion is a ranking experiment, not two model calls.
+        query_vector = getattr(self, "_last_query_vector", None)
+        if query_vector is None:
+            query_vector = np.asarray(_embedder().encode([query], return_dense=True, return_sparse=False, return_colbert_vecs=False)["dense_vecs"][0], dtype=np.float32)
+        candidate_indexes = [index for index, source in enumerate(self._source_summary_ids) if source in candidate_sources]
+        if not candidate_indexes:
+            return {}
+        scores = self._source_summary_vectors[candidate_indexes] @ query_vector
+        order = np.argsort(-scores)
+        return {self._source_summary_ids[candidate_indexes[index]]: rank for rank, index in enumerate(order, 1)}
+
+    def _source_fusion(self, query: str, dense: list[int]) -> tuple[list[int], dict[int, dict[str, int]]]:
+        ranks = self._source_summary_ranking(query, {self._source_identity(self.chunks[index]) for index in dense})
+        # Rank fusion, rather than a source filter: the full corpus still
+        # competes and an irrelevant source summary cannot hide a good page.
+        details = {index: {"dense_rank": rank, "source_summary_rank": ranks.get(self._source_identity(self.chunks[index]), 10_000)} for rank, index in enumerate(dense, 1)}
+        score = {index: 1 / (60 + detail["dense_rank"]) + 0.35 / (60 + detail["source_summary_rank"]) for index, detail in details.items()}
+        return sorted(dense, key=lambda index: score[index], reverse=True), details
 
     def _bm25_ranking(self, query: str) -> list[int]:
         if self.bm25 is None: return []
@@ -298,6 +403,7 @@ class HybridRetriever:
             # rather than their complete formal title (e.g. "Advanced").
         return score
 
+
     def _profile_rerank(self, query: str, ranking: list[int]) -> list[int]:
         ordered = enumerate(ranking)
         return [index for _position, index in sorted(ordered, key=lambda item: (-self._profile_score(query, self.chunks[item[1]]), item[0]))]
@@ -315,17 +421,46 @@ class HybridRetriever:
                 break
         return selected
 
+    def _dense_sources_bm25_pages(self, dense: list[int], bm25_raw: list[int], candidate_k: int) -> tuple[list[int], dict[int, dict[str, int]]]:
+        """Keep semantic source recall while using lexical evidence for page location.
+
+        Dense vectors are comparatively robust to multilingual scientific
+        paraphrases, while BM25 is often better at locating a named symbol,
+        table heading or method term inside a long selected PDF.  This method
+        applies the latter only after source selection; it is not a query-ID
+        lookup or a source-specific rule.
+        """
+        bm25_by_source: dict[str, tuple[int, int]] = {}
+        for rank, index in enumerate(bm25_raw, 1):
+            bm25_by_source.setdefault(self._source_identity(self.chunks[index]), (index, rank))
+        ranking: list[int] = []
+        details: dict[int, dict[str, int]] = {}
+        seen_sources: set[str] = set()
+        for dense_rank, index in enumerate(dense, 1):
+            source = self._source_identity(self.chunks[index])
+            if source in seen_sources:
+                continue
+            seen_sources.add(source)
+            page_index, bm25_rank = bm25_by_source.get(source, (index, 0))
+            ranking.append(page_index)
+            details[page_index] = {"dense_source_rank": dense_rank, "bm25_page_rank": bm25_rank}
+            if len(ranking) >= candidate_k:
+                break
+        return ranking, details
+
     def retrieve(self, query: str, limit: int = 5, candidate_k: int = 20, source_types: Iterable[str] | None = None) -> list[EvidenceCard]:
         if not self.chunks: return []
         filters = set(source_types) if source_types is not None else self.infer_source_types(query)
         allowed = set(self._allowed_indices(filters))
         started = time.perf_counter()
         dense_raw = self._profile_rerank(query, [index for index in self._dense_ranking(query, filters) if index in allowed]) if self.mode != "bm25" else []
-        bm25_raw = self._profile_rerank(query, [index for index in self._bm25_ranking(query) if index in allowed]) if self.mode != "dense" else []
+        bm25_raw = self._profile_rerank(query, [index for index in self._bm25_ranking(query) if index in allowed]) if self.mode not in {"dense", "source_fusion"} else []
         dense = self._balanced_candidates(dense_raw, candidate_k) if dense_raw else []
         bm25 = self._balanced_candidates(bm25_raw, candidate_k) if bm25_raw else []
         if self.mode == "dense": ranking, details = dense, {idx: {"dense_rank": rank} for rank, idx in enumerate(dense, 1)}
+        elif self.mode == "source_fusion": ranking, details = self._source_fusion(query, dense)
         elif self.mode == "bm25": ranking, details = bm25, {idx: {"bm25_rank": rank} for rank, idx in enumerate(bm25, 1)}
+        elif self.mode == "dense_page": ranking, details = self._dense_sources_bm25_pages(dense, bm25_raw, candidate_k)
         else: ranking, details = self._rrf(dense, bm25)
         ranking = ranking[:candidate_k]
         rerank_scores: dict[int, float] = {}
@@ -339,9 +474,10 @@ class HybridRetriever:
                     candidate_sources.add(source)
                 if len(rerank_candidates) == 8:
                     break
-            with acquire("reranker") as wait_ms:
+            with acquire_inference("reranker", uses_gpu=_DEVICE_STATUS.get("reranker") == "cuda") as waits:
                 scores = _rerank_scores(query, [self.chunks[index].text for index in rerank_candidates])
-            self._reranker_wait_ms = wait_ms
+            self._reranker_wait_ms = waits["model_wait_ms"]
+            self._reranker_gpu_wait_ms = waits["gpu_wait_ms"]
             rerank_scores = dict(zip(rerank_candidates, map(float, scores), strict=True))
             ranking = sorted(rerank_candidates, key=lambda index: rerank_scores[index], reverse=True)
         elapsed = round((time.perf_counter() - started) * 1000, 3)
@@ -358,7 +494,7 @@ class HybridRetriever:
             seen_sources.add(identity)
             rank = len(cards) + 1
             score = rerank_scores.get(index, 1 / (60 + rank))
-            cards.append(EvidenceCard(claim=f"检索到与问题相关的{chunk.source_type}证据。", source_type=chunk.source_type, source_path=chunk.source_path, excerpt=chunk.text.replace("\n", " ")[:850], score=round(float(score), 6), retrieval={"mode": self.mode, "chunk_strategy": self.chunk_strategy, "vector_backend": self.vector_backend_status.get("backend", "not_used"), "vector_backend_fallback": self.vector_backend_status.get("fallback_reason", ""), "source_type_filter": sorted(filters), "chunk_id": chunk.chunk_id, "rank": rank, "start_line": chunk.start_line, "end_line": chunk.end_line, "citation_identity": identity, "authority": self._authority(chunk), **chunk.metadata, **details.get(index, {}), "rerank_score": rerank_scores.get(index), "embedding_queue_wait_ms": getattr(self, "_embedding_wait_ms", 0.0), "reranker_queue_wait_ms": getattr(self, "_reranker_wait_ms", 0.0), "latency_ms": elapsed}))
+            cards.append(EvidenceCard(claim=f"检索到与问题相关的{chunk.source_type}证据。", source_type=chunk.source_type, source_path=chunk.source_path, excerpt=chunk.text.replace("\n", " ")[:850], score=round(float(score), 6), retrieval={"mode": self.mode, "service_tier": self.service_tier, "chunk_strategy": self.chunk_strategy, "vector_backend": self.vector_backend_status.get("backend", "not_used"), "vector_backend_fallback": self.vector_backend_status.get("fallback_reason", ""), "source_type_filter": sorted(filters), "chunk_id": chunk.chunk_id, "rank": rank, "start_line": chunk.start_line, "end_line": chunk.end_line, "citation_identity": identity, "authority": self._authority(chunk), **chunk.metadata, **details.get(index, {}), "rerank_score": rerank_scores.get(index), "embedding_queue_wait_ms": getattr(self, "_embedding_wait_ms", 0.0), "embedding_gpu_wait_ms": getattr(self, "_embedding_gpu_wait_ms", 0.0), "reranker_queue_wait_ms": getattr(self, "_reranker_wait_ms", 0.0), "reranker_gpu_wait_ms": getattr(self, "_reranker_gpu_wait_ms", 0.0), "latency_ms": elapsed}))
             if len(cards) >= limit:
                 break
         return cards
@@ -382,4 +518,4 @@ class HybridRetriever:
     def search(self, query: str, limit: int = 5, source_types: Iterable[str] | None = None) -> list[EvidenceCard]: return self.retrieve(query, limit, source_types=source_types)
 
     def vector_status(self) -> dict[str, Any]:
-        return dict(self.vector_backend_status)
+        return {**self.vector_backend_status, "model_devices": dict(_DEVICE_STATUS), "source_summary_index": {"count": len(self._source_summary_ids), "cache": self._source_summary_cache_status}}

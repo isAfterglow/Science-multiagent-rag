@@ -13,6 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: conda run --no-capture-output -n scitime-agent python -m eval.scientific_safety_eval
+      - run: conda run --no-capture-output -n scitime-agent python -m eval.claim_evidence_eval
+      - run: >-
+          conda run --no-capture-output -n scitime-agent
+          python -m eval.scientific_multimodal_retrieval_eval
+          --mode dense --chunk-strategy parent_child
+          --output reports/scientific_multimodal_retrieval_eval_ci.json
+      - run: >-
+          conda run --no-capture-output -n scitime-agent
+          python -m eval.retrieval_routing_eval
+          --output reports/retrieval_routing_eval_ci.json
       - run: >-
           conda run --no-capture-output -n scitime-agent
           python -m eval.multi_agent_collaboration_eval --mode bm25
@@ -22,6 +32,8 @@ jobs:
           python -m eval.regression_gate
           --workflow reports/multi_agent_collaboration_eval_ci.json
           --safety reports/scientific_safety_eval.json
+          --claims reports/claim_evidence_eval.json
+          --retrieval reports/scientific_multimodal_retrieval_eval_ci.json
           --output reports/regression_gate_ci.json
       - uses: actions/upload-artifact@v4
         if: always()

@@ -12,6 +12,16 @@
     "questions": 9,
     "min_pass_rate": 1.0
   },
+  "claim_evidence": {
+    "questions": 31,
+    "min_pass_rate": 1.0
+  },
+  "scientific_retrieval": {
+    "questions": 120,
+    "min_source_recall_at_5": 0.8694,
+    "min_page_hit_rate": 0.789,
+    "max_p95_latency_ms": 260.0
+  },
   "latency": {
     "p95_warning_ms": 2500.0
   }

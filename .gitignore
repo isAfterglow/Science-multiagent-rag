@@ -6,6 +6,8 @@ data/milvus/
 data/runs/
 data/knowledge_sources/raw/
 data/knowledge_sources/rendered/
+data/knowledge_sources/parsed/
+data/knowledge_sources/manifest.json
 web/node_modules/
 web/dist/
 __pycache__/

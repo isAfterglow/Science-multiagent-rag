@@ -28,6 +28,7 @@ def run(*, retrieval_mode: str = "bm25", llm_enabled: bool = False, limit: int |
         nodes = [event["node"] for event in result["trace"]]
         cards = result.get("evidence_cards", [])
         statements = result.get("grounded_statements", [])
+        claim_verifications = result.get("claim_verifications", [])
         expected_agents = {"supervisor", "critic", "synthesizer", "semantic_critic", "reviewer"}
         if result["task_type"] in {"knowledge", "mixed"}:
             expected_agents |= {"retriever", "research_agent"}
@@ -38,11 +39,12 @@ def run(*, retrieval_mode: str = "bm25", llm_enabled: bool = False, limit: int |
             "route": result["task_type"] == item["task_type"],
             "agent_path": expected_agents.issubset(set(nodes)),
             "grounded": bool(statements) and all(row.get("source_path") and row.get("support") for row in statements),
+            "claim_evidence": bool(claim_verifications) and not any(row.get("status") in {"insufficient", "conflicted"} for row in claim_verifications),
             "required_source": not item.get("source_type") or item["source_type"] in {card["source_type"] for card in cards},
             "review": bool(result.get("review", {}).get("approved")),
             "planner_whitelist": not planner or all(name in PARAMETER_BOUNDS for name in planner.get("focus_parameters", [])),
         }
-        rows.append({"id": item["id"], "task_type": result["task_type"], "passed": all(checks.values()), "checks": checks, "nodes": nodes, "llm_calls": result.get("llm_calls", []), "research_synthesis": result.get("research_synthesis", {}), "planner_proposal": planner, "semantic_critiques": result.get("semantic_critiques", []), "latency_ms": round((time.perf_counter() - started) * 1000, 3)})
+        rows.append({"id": item["id"], "task_type": result["task_type"], "passed": all(checks.values()), "checks": checks, "nodes": nodes, "claim_verifications": claim_verifications, "llm_calls": result.get("llm_calls", []), "research_synthesis": result.get("research_synthesis", {}), "planner_proposal": planner, "semantic_critiques": result.get("semantic_critiques", []), "latency_ms": round((time.perf_counter() - started) * 1000, 3)})
     latencies = [row["latency_ms"] for row in rows]
     calls = [call for row in rows for call in row["llm_calls"]]
     return {

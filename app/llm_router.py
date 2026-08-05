@@ -10,7 +10,7 @@ from openai import OpenAI
 from pydantic import BaseModel, ValidationError
 
 from app import config
-from app.resource_limits import acquire
+from app.resource_limits import acquire_inference
 
 ModelT = TypeVar("ModelT", bound=BaseModel)
 
@@ -59,7 +59,11 @@ class LLMRouter:
             start = time.perf_counter()
             try:
                 client = self.client_factory(base_url=base_url, api_key=api_key, timeout=30.0, max_retries=0)
-                with acquire("llm"):
+                # The local server may use CUDA; serializing only in-process
+                # callers cannot control external Ollama, but prevents this
+                # application from scheduling BGE work alongside it.
+                local_gpu = base_url == config.LLM_BASE_URL and config.LLM_LOCAL_USES_GPU
+                with acquire_inference("llm", uses_gpu=local_gpu):
                     response = client.chat.completions.create(model=model, temperature=0, messages=[{"role": "system", "content": guarded_system}, {"role": "user", "content": user}], response_format={"type": "json_object"})
                 content = response.choices[0].message.content or ""
                 parsed = response_model.model_validate(self._json(content))

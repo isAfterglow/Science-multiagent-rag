@@ -1,0 +1,1742 @@
+{
+  "questions": 30,
+  "llm_enabled": false,
+  "retrieval_mode": "bm25",
+  "passed": 29,
+  "pass_rate": 0.9667,
+  "route_accuracy": 0.9667,
+  "agent_path_rate": 1.0,
+  "review_approval_rate": 1.0,
+  "p50_latency_ms": 230.219,
+  "p95_latency_ms": 1815.233,
+  "llm_calls": 0,
+  "llm_success_rate": null,
+  "results": [
+    {
+      "id": "wf-01",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 3739.385
+    },
+    {
+      "id": "wf-02",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 216.968
+    },
+    {
+      "id": "wf-03",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "evidence_gap",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:0",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        },
+        {
+          "statement_index": 3,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "SimulationPlan 是待审批草案，不是新产生的仿真事实。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 222.824
+    },
+    {
+      "id": "wf-04",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:0",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 230.937
+    },
+    {
+      "id": "wf-05",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 219.62
+    },
+    {
+      "id": "wf-06",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 229.233
+    },
+    {
+      "id": "wf-07",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:0",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 230.674
+    },
+    {
+      "id": "wf-08",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/batch_run_layer1_lhs.log",
+              "chunk_id": "e7d8419fd7d96335e87b:parent_child:3",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 236.774
+    },
+    {
+      "id": "wf-09",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/generate_lhs_layer1_main_cases.py",
+              "chunk_id": "6d661957778d4bc80ae6:parent_child:8",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 230.219
+    },
+    {
+      "id": "wf-10",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/batch_run_status_layer1_lhs.csv",
+              "chunk_id": "161c3edc57bd45b250a4:parent_child:0",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 233.35
+    },
+    {
+      "id": "wf-11",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/cases_layer1_lhs/case_004/case1_fiat_walltemp_nominal.i",
+              "chunk_id": "10b76d2fb6636c1eecd9:parent_child:5",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 230.795
+    },
+    {
+      "id": "wf-12",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/cases_layer1_lhs/case_004/case1_fiat_walltemp_nominal.i",
+              "chunk_id": "10b76d2fb6636c1eecd9:parent_child:5",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 227.882
+    },
+    {
+      "id": "wf-13",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/generate_lhs_layer1_main_cases.py",
+              "chunk_id": "6d661957778d4bc80ae6:parent_child:0",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 231.758
+    },
+    {
+      "id": "wf-14",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 228.277
+    },
+    {
+      "id": "wf-15",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/batch_run_status_layer1_lhs.csv",
+              "chunk_id": "161c3edc57bd45b250a4:parent_child:0",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 226.3
+    },
+    {
+      "id": "wf-16",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 233.102
+    },
+    {
+      "id": "wf-17",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 217.674
+    },
+    {
+      "id": "wf-18",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:0",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 216.076
+    },
+    {
+      "id": "wf-19",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/batch_run_layer1_lhs.log",
+              "chunk_id": "e7d8419fd7d96335e87b:parent_child:3",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 227.783
+    },
+    {
+      "id": "wf-20",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 231.244
+    },
+    {
+      "id": "wf-21",
+      "task_type": "simulation_analysis",
+      "passed": false,
+      "checks": {
+        "route": false,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": false,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 216.49
+    },
+    {
+      "id": "wf-22",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 220.981
+    },
+    {
+      "id": "wf-23",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 229.739
+    },
+    {
+      "id": "wf-24",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/batch_run_layer1_lhs.log",
+              "chunk_id": "e7d8419fd7d96335e87b:parent_child:1",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 215.548
+    },
+    {
+      "id": "wf-25",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 219.359
+    },
+    {
+      "id": "wf-26",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:1",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 233.279
+    },
+    {
+      "id": "wf-27",
+      "task_type": "simulation_analysis",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "SimulationPlan 是待审批草案，不是新产生的仿真事实。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 234.367
+    },
+    {
+      "id": "wf-28",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "evidence_gap",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/batch_run_status_layer1_lhs.csv",
+              "chunk_id": "161c3edc57bd45b250a4:parent_child:0",
+              "authority": "A"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "SimulationPlan 是待审批草案，不是新产生的仿真事实。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 240.926
+    },
+    {
+      "id": "wf-29",
+      "task_type": "knowledge",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 234.281
+    },
+    {
+      "id": "wf-30",
+      "task_type": "mixed",
+      "passed": true,
+      "checks": {
+        "route": true,
+        "agent_path": true,
+        "grounded": true,
+        "claim_evidence": true,
+        "required_source": true,
+        "review": true,
+        "planner_whitelist": true
+      },
+      "nodes": [
+        "supervisor",
+        "retriever",
+        "simulation_analyst",
+        "evidence_fanout",
+        "research_agent",
+        "plan_draft",
+        "planner_agent",
+        "critic",
+        "synthesizer",
+        "semantic_critic",
+        "reviewer"
+      ],
+      "claim_verifications": [
+        {
+          "statement_index": 0,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "simulation_registry.metrics + simulation_cases.parameters",
+              "kind": "registry_analysis"
+            }
+          ],
+          "reasons": [
+            "定量结论绑定到同一 Registry 工具输出。"
+          ]
+        },
+        {
+          "statement_index": 1,
+          "status": "supported",
+          "evidence_refs": [
+            {
+              "source_path": "/home/ai4mater/005-mat4ai_agent/0-mul-agent/stage3/workspace/without_dat_snapshot/layer1_lhs_analysis_summary.txt",
+              "chunk_id": "9d7d89f978aee420a119:parent_child:2",
+              "authority": "B"
+            }
+          ],
+          "reasons": [
+            "文档 Claim 可回溯到同一原始摘录和 chunk。"
+          ]
+        },
+        {
+          "statement_index": 2,
+          "status": "context_only",
+          "evidence_refs": [],
+          "reasons": [
+            "限制、规划建议或审批提示不作为外部事实结论。"
+          ]
+        }
+      ],
+      "llm_calls": [],
+      "research_synthesis": {},
+      "planner_proposal": {},
+      "semantic_critiques": [],
+      "latency_ms": 237.689
+    }
+  ]
+}

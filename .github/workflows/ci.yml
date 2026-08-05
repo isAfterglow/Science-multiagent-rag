@@ -21,13 +21,22 @@ jobs:
       - run: >-
           pytest -q
           tests/test_trace_contract.py
+          tests/test_claim_verifier.py
           tests/test_recovery_loop.py
           tests/test_llm_agent_collaboration.py
           tests/test_task_manager.py
+          tests/test_task_dispatcher.py
           tests/test_stage1.py
+          tests/test_scientific_manifest.py
+          tests/test_evidence_page.py
+          tests/test_resource_limits.py
+          tests/test_source_summary_fusion.py
+          tests/test_ingest_tasks.py
+      - run: python -m eval.claim_evidence_eval
       # Public runners have neither the private MOOSE workspace nor local models.
       # Validate the versioned gate contract here; run real corpus regression below.
       - run: >-
           python -m eval.regression_gate
           --workflow reports/multi_agent_collaboration_eval_deterministic.json
           --safety reports/scientific_safety_eval.json
+          --claims reports/claim_evidence_eval.json

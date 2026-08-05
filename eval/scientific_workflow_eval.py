@@ -23,11 +23,13 @@ def run(retrieval_mode: str = "bm25") -> dict:
         started = time.perf_counter()
         result = run_multi_agent(item["question"], registry, LLMRouter(enabled=False), retrieval_mode, "fixed")
         statements = result.get("grounded_statements", [])
+        claim_verifications = result.get("claim_verifications", [])
         source_types = {card["source_type"] for card in result.get("evidence_cards", [])}
         checks = {
             "route": result["task_type"] == item["task_type"],
             "review": bool(result["review"].get("approved")),
             "grounded": bool(statements) and all(statement.get("source_path") and statement.get("support") for statement in statements),
+            "claim_evidence": bool(claim_verifications) and not any(item.get("status") in {"insufficient", "conflicted"} for item in claim_verifications),
             "source_type": not item.get("source_type") or item["source_type"] in source_types,
             "answer_keyword": not item.get("must_contain") or item["must_contain"].lower() in result["answer"].lower(),
         }

@@ -2,9 +2,9 @@
   "questions": 30,
   "passed": 28,
   "pass_rate": 0.9333,
-  "retrieval_mode": "hybrid_rerank",
-  "p50_latency_ms": 2695.767,
-  "p95_latency_ms": 14542.739,
+  "retrieval_mode": "bm25",
+  "p50_latency_ms": 44.364,
+  "p95_latency_ms": 73.753,
   "downgraded": 0,
   "results": [
     {
@@ -14,6 +14,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -25,7 +26,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 44.252
+      "latency_ms": 48.448
     },
     {
       "id": "wf-02",
@@ -34,6 +35,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -45,7 +47,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 44.101
+      "latency_ms": 41.772
     },
     {
       "id": "wf-03",
@@ -54,6 +56,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -66,8 +69,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 18116.105
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 47.71
     },
     {
       "id": "wf-04",
@@ -76,6 +79,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -88,8 +92,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 1995.707
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 52.603
     },
     {
       "id": "wf-05",
@@ -98,6 +102,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -110,8 +115,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 1667.759
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 48.956
     },
     {
       "id": "wf-06",
@@ -120,6 +125,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -132,8 +138,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 2695.767
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 44.364
     },
     {
       "id": "wf-07",
@@ -142,6 +148,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -154,8 +161,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 3181.375
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 40.317
     },
     {
       "id": "wf-08",
@@ -164,6 +171,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -176,8 +184,8 @@
       "sources": [
         "run_log"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 3475.031
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 39.797
     },
     {
       "id": "wf-09",
@@ -186,6 +194,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -198,8 +207,8 @@
       "sources": [
         "script"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 5513.745
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 71.279
     },
     {
       "id": "wf-10",
@@ -208,6 +217,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -220,8 +230,8 @@
       "sources": [
         "run_status"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 2176.229
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 41.436
     },
     {
       "id": "wf-11",
@@ -230,6 +240,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -242,8 +253,8 @@
       "sources": [
         "input_deck"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 9366.588
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 41.399
     },
     {
       "id": "wf-12",
@@ -252,6 +263,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -264,8 +276,8 @@
       "sources": [
         "input_deck"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 7174.127
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 39.947
     },
     {
       "id": "wf-13",
@@ -274,6 +286,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -286,8 +299,8 @@
       "sources": [
         "script"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 3770.665
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 41.535
     },
     {
       "id": "wf-14",
@@ -296,6 +309,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -308,8 +322,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 2251.802
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 40.097
     },
     {
       "id": "wf-15",
@@ -318,6 +332,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -330,8 +345,8 @@
       "sources": [
         "run_status"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 2101.066
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 40.738
     },
     {
       "id": "wf-16",
@@ -340,6 +355,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -352,8 +368,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 1629.501
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 45.525
     },
     {
       "id": "wf-17",
@@ -362,6 +378,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -374,8 +391,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 2362.565
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 43.124
     },
     {
       "id": "wf-18",
@@ -384,6 +401,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -397,8 +415,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 11619.076
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 48.735
     },
     {
       "id": "wf-19",
@@ -407,6 +425,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -419,8 +438,8 @@
       "sources": [
         "run_log"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 1988.669
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 39.609
     },
     {
       "id": "wf-20",
@@ -429,6 +448,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -442,8 +462,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 9034.307
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 44.66
     },
     {
       "id": "wf-21",
@@ -452,6 +472,7 @@
         "route": false,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": false,
         "answer_keyword": true
       },
@@ -463,7 +484,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 55.803
+      "latency_ms": 45.538
     },
     {
       "id": "wf-22",
@@ -472,6 +493,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -485,8 +507,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 8992.503
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 44.338
     },
     {
       "id": "wf-23",
@@ -495,6 +517,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -507,8 +530,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 2303.948
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 50.893
     },
     {
       "id": "wf-24",
@@ -517,6 +540,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -530,8 +554,8 @@
         "run_log",
         "run_status"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 4432.187
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 46.918
     },
     {
       "id": "wf-25",
@@ -540,6 +564,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -552,8 +577,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 1275.764
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 44.664
     },
     {
       "id": "wf-26",
@@ -562,6 +587,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -575,8 +601,8 @@
         "report",
         "run_status"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 3157.232
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 76.776
     },
     {
       "id": "wf-27",
@@ -585,6 +611,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": false
       },
@@ -596,7 +623,7 @@
       },
       "sources": [],
       "retrieval_mode_used": "",
-      "latency_ms": 60.323
+      "latency_ms": 49.071
     },
     {
       "id": "wf-28",
@@ -605,6 +632,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -618,8 +646,8 @@
         "run_status",
         "script"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 4805.807
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 40.424
     },
     {
       "id": "wf-29",
@@ -628,6 +656,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -641,8 +670,8 @@
         "input_deck",
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 7721.92
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 36.544
     },
     {
       "id": "wf-30",
@@ -651,6 +680,7 @@
         "route": true,
         "review": true,
         "grounded": true,
+        "claim_evidence": true,
         "source_type": true,
         "answer_keyword": true
       },
@@ -663,8 +693,8 @@
       "sources": [
         "report"
       ],
-      "retrieval_mode_used": "hybrid_rerank",
-      "latency_ms": 1780.635
+      "retrieval_mode_used": "bm25",
+      "latency_ms": 40.097
     }
   ]
 }

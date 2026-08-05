@@ -60,6 +60,14 @@ class GroundedStatement(BaseModel):
     support: str = Field(min_length=1, max_length=900)
 
 
+class ClaimVerification(BaseModel):
+    """Deterministic provenance verdict for one user-visible statement."""
+    statement_index: int = Field(ge=0)
+    status: Literal["supported", "insufficient", "conflicted", "context_only"]
+    evidence_refs: list[dict] = Field(default_factory=list)
+    reasons: list[str] = Field(default_factory=list)
+
+
 class EvidenceRequirement(BaseModel):
     kind: Literal["registry_analysis", "report", "input_deck", "run_log", "run_status", "script", "paper", "scan_report"]
     reason: str = Field(min_length=3, max_length=240)

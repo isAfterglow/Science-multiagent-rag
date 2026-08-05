@@ -30,9 +30,16 @@ flowchart LR
 
 ## 发布回归
 
-`AgentTrace v1` 将同步 SSE、后台任务和最终结果统一到一个 `trace_id` 下；每个事件带节点、父 Span、状态与耗时。`tests/test_trace_contract.py` 约束该协议和“一次受限 Recovery”上限。
+`AgentTrace v1` 将同步 SSE、后台任务和最终结果统一到一个 `trace_id` 下；每个事件带节点、父 Span、状态与耗时。`tests/test_trace_contract.py` 约束该协议和“一次受限 Recovery”上限。最终回答还会返回 Claim-Evidence 验证：事实句必须可回溯到同一 Registry 工具结果或原始 EvidenceCard；证据不足、冲突、限制语和待审批计划会被明确区分，不把它们伪装成已验证事实。
 
 普通 PR 运行 `.github/workflows/ci.yml`：编译、离线契约测试和版本化门禁，不依赖私有 MOOSE 工作区或本地模型。带有本机数据与 `scitime-agent` 环境的 self-hosted runner 每周或手动运行 `.github/workflows/full-regression.yml`，重新生成安全与 30 题确定性工作流报告，并与 `eval/baselines/deterministic-v1.json` 比较。P95 延迟只告警，不作为质量阻断条件。
+
+任务调度默认是 SQLite 状态库加有界本地线程池；设置 `TASK_BACKEND=auto` 时会在 Redis/RQ 可达时自动改为共享队列，设置 `TASK_BACKEND=rq` 则在 Redis 不可用时直接失败，避免多实例部署误用本地队列。启动 Worker：
+
+```bash
+TASK_BACKEND=rq REDIS_URL=redis://127.0.0.1:6379/0 \
+  conda run -n scitime-agent rq worker moose-research
+```
 
 ## 快速开始
 
@@ -81,7 +88,7 @@ conda run -n scitime-agent python -m app.cli benchmark-models
 
 ## 检索消融
 
-默认配置为 `RETRIEVAL_MODE=hybrid_rerank`、`CHUNK_STRATEGY=fixed`，来自 `eval/retrieval_ground_truth.jsonl` 的 12 条人工来源标注。运行：
+默认配置为 `RETRIEVAL_MODE=dense`、`CHUNK_STRATEGY=parent_child`，由扩展科学语料的页级评测选择。`hybrid_rerank` 仅作为离线精度实验，CPU 延迟不适合作为在线默认。运行：
 
 ```bash
 conda run -n scitime-agent python -m eval.retrieval_eval
@@ -92,7 +99,7 @@ conda run -n scitime-agent python -m eval.end_to_end_retrieval_eval
 
 ## 科研多模态 RAG
 
-`data/knowledge_sources/manifest.json` 管理公开来源 URL、访问许可、来源等级与 SHA-256。运行 `conda run -n scitime-agent python -m app.cli ingest-scientific` 下载并解析公开 PDF：优先用 PyMuPDF 文本层，扫描页再渲染后由 RapidOCR 提取，并记录页面、OCR 置信度和原图路径。该流程仅替换 `scientific:` 命名空间，绝不调用 `Registry.reset()` 或覆盖真实 MOOSE case。
+`knowledge_sources/manifest.json` 是受版本控制的公开来源清单，管理 URL、访问许可和来源等级；原始 PDF、页图和解析缓存保留在被忽略的 `data/knowledge_sources/`。运行 `conda run -n scitime-agent python -m app.cli ingest-scientific` 下载并解析公开 PDF：优先用 PyMuPDF 文本层，扫描页再渲染后由 RapidOCR 提取，并记录页面、OCR 置信度和原图路径。该流程仅替换 `scientific:` 命名空间，绝不调用 `Registry.reset()` 或覆盖真实 MOOSE case。
 
 检索证据卡会携带来源等级：A 为项目运行/输入证据，B 为项目报告，C 为公开科研资料，D 为 OCR/扫描资料。项目实际数值只能由 A/B 支撑；C/D 仅用于背景和机理，低置信 OCR 不应作为精确数字结论。多模态评测运行：
 
@@ -100,11 +107,13 @@ conda run -n scitime-agent python -m eval.end_to_end_retrieval_eval
 conda run -n scitime-agent python -m eval.scientific_multimodal_retrieval_eval --mode bm25 --chunk-strategy document
 ```
 
-扩展科学语料采用两级检索：来源 Profile（主题及中英文术语）只参与来源级轻量重排，原始页文本负责页级定位，且候选阶段限制单一来源配额。当前默认对公开论文使用 Dense、对扫描/OCR 请求自动切换 BM25；`hybrid_rerank` 保留给离线实验。可信度策略与工作台说明见 `reports/SCIENTIFIC_RAG_AND_WORKBENCH_STAGE.md`。
+扩展科学语料采用页级 Dense 默认检索；来源 Profile 只作为证据展示和实验信号，绝不硬过滤候选。当前公开语料为 49 份来源（含 2 篇开放获取 MOOSE 方法论文）、1,016 页、1,613 个页级文档组和 2,234 个完整检索块，覆盖技术报告、会议论文、预印本、book chapter、演示资料、poster、扫描报告与期刊论文。`document_kind` 会随 EvidenceCard 传递，供工作台审阅和类型回归评测使用。120 条页级题上的默认 Local Dense Source Recall@5 为 86.94%、页命中率为 78.90%、P95 为 209.235 ms。BM25 保留给 OCR/精确术语的离线候选，`hybrid_rerank` 仅用于离线实验。可信度策略、扩容和选型记录见 `reports/SCIENTIFIC_RAG_AND_WORKBENCH_STAGE.md`、`reports/STAGE3_RAG_SCALE_AND_CITATION.md` 与 `reports/RAG_PRODUCTION_HARDENING.md`。
+
+检索成本通过 `RETRIEVAL_TIER` 显式选择：`fast` 为 BM25、`default` 为 Dense、`precision` 为来源摘要融合。优化后的 `precision` 在 120 题上将 Source Recall@5 提升至 87.78%、Question hit 提升至 90.83%，P95 为 223.002 ms；默认仍取更稳的 Dense。精确英文术语的置信度路由只在离线评测验证后使用，不会因“表格”等泛词替换语义检索。指标、子集切片、路由对照和门禁定义见 `reports/RETRIEVAL_OPTIMIZATION_V5.md`。
 
 ## 复杂文档 RAG
 
-科学 PDF 经过 `DocumentIR` 解析：PyMuPDF block+bbox、双栏阅读顺序、矢量表格 Markdown/CSV、OCR 页、section 与来源等级。默认 `parent_child` 用 BGE tokenizer 将子块限制为 384 token、64 token overlap；页和 section 仍是 Parent 引用。表格或 OCR 的低置信数值请求会进入 Reviewer 人工核对边界。完整解析、评测和选型依据见 `reports/COMPLEX_DOCUMENT_RAG.md`。
+科学 PDF 经过 `DocumentIR` 解析：PyMuPDF block+bbox、双栏阅读顺序、矢量表格 Markdown/CSV、OCR 页、section 与来源等级。默认 `parent_child` 用 BGE tokenizer 将子块限制为 384 token、64 token overlap；页和 section 仍是 Parent 引用。EvidenceCard 可在工作台中按需显示原始 PDF 页，并叠加 bbox 供人工核对。表格或 OCR 的低置信数值请求会进入 Reviewer 人工核对边界。完整解析、评测和选型依据见 `reports/COMPLEX_DOCUMENT_RAG.md` 与 `reports/STAGE3_RAG_SCALE_AND_CITATION.md`。
 
 ## 可切换 Milvus 向量索引
 
@@ -125,7 +134,7 @@ VECTOR_BACKEND=milvus MOOSE_MILVUS_URI=data/milvus/scientific_chunks.db \
 
 每个 Child 以内容哈希单独缓存 BGE-M3 embedding；新文档只编码新增/变更 Child，Milvus 按 `chunk_id` 增量 upsert，并删除已不属于当前语料的旧 Child。Milvus 不可用时 Dense 自动使用本地 Numpy 缓存，EvidenceCard 和 SSE trace 会记录实际后端及降级原因。
 
-当前 452 chunk 基准默认使用 Milvus `FLAT + IP` 与本地全量点积保持可复现一致；语料增长后再通过新 collection 版本评测 HNSW/AUTOINDEX。详细对照见 `reports/MILVUS_VECTOR_BACKEND.md`。
+当前 1,515 chunk 基准使用 Milvus `FLAT + IP` 与本地全量点积保持可复现一致；两者在 75 条页级题上的检索指标相同，但同轮实测中 Local Numpy 的 P50/P95 延迟为 159.274/199.639 ms，低于 Milvus Lite 的 880.577/995.911 ms。Milvus 首次同步 1,515 vectors 用时 1,543.764 ms。语料增长到数万块后再通过新 collection 版本评测 HNSW/AUTOINDEX。详细对照见 `reports/MILVUS_VECTOR_BACKEND.md` 与 `reports/STAGE3_RAG_SCALE_AND_CITATION.md`。
 
 ## 回答验证与并发任务
 

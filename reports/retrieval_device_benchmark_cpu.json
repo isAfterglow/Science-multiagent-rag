@@ -1,0 +1,25 @@
+{
+  "device_requested": "cpu",
+  "device_actual": {
+    "embedding": "cpu",
+    "reranker": "cpu"
+  },
+  "chunk_count": 2234,
+  "passage_embedding": {
+    "texts": 16,
+    "elapsed_ms": 22116.458,
+    "texts_per_second": 0.723,
+    "dimensions": 1024
+  },
+  "dense_query": {
+    "queries": 8,
+    "p50_latency_ms": 144.281,
+    "p95_latency_ms": 158.577,
+    "mean_latency_ms": 140.288
+  },
+  "reranker_8_candidates_ms": 4705.156,
+  "cuda": {
+    "cuda_available": true,
+    "max_memory_allocated_bytes": 0
+  }
+}

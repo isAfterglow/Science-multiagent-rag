@@ -1,0 +1,293 @@
+{
+  "questions": 31,
+  "passed": 31,
+  "pass_rate": 1.0,
+  "status_counts": {
+    "supported": 13,
+    "insufficient": 12,
+    "conflicted": 4,
+    "context_only": 2
+  },
+  "numeric_table_page_verification_rate": 1.0,
+  "results": [
+    {
+      "id": "ce-01",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-02",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-03",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-04",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-05",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-06",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-07",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-08",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-09",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-10",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-11",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-12",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-13",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-14",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-15",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-16",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-17",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 缺少可定位的原始摘录支持。"
+      ]
+    },
+    {
+      "id": "ce-18",
+      "expected": "conflicted",
+      "actual": "conflicted",
+      "passed": true,
+      "reasons": [
+        "引用证据被标记为与该 Claim 冲突。"
+      ]
+    },
+    {
+      "id": "ce-19",
+      "expected": "conflicted",
+      "actual": "conflicted",
+      "passed": true,
+      "reasons": [
+        "引用证据被标记为与该 Claim 冲突。"
+      ]
+    },
+    {
+      "id": "ce-20",
+      "expected": "conflicted",
+      "actual": "conflicted",
+      "passed": true,
+      "reasons": [
+        "引用证据被标记为与该 Claim 冲突。"
+      ]
+    },
+    {
+      "id": "ce-21",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "定量结论绑定到同一 Registry 工具输出。"
+      ]
+    },
+    {
+      "id": "ce-22",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "定量结论绑定到同一 Registry 工具输出。"
+      ]
+    },
+    {
+      "id": "ce-23",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "定量结论绑定到同一 Registry 工具输出。"
+      ]
+    },
+    {
+      "id": "ce-24",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "定量结论绑定到同一 Registry 工具输出。"
+      ]
+    },
+    {
+      "id": "ce-25",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "未找到与该定量结论匹配的 Registry 分析证据。"
+      ]
+    },
+    {
+      "id": "ce-26",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "未找到与该定量结论匹配的 Registry 分析证据。"
+      ]
+    },
+    {
+      "id": "ce-27",
+      "expected": "context_only",
+      "actual": "context_only",
+      "passed": true,
+      "reasons": [
+        "限制、规划建议或审批提示不作为外部事实结论。"
+      ]
+    },
+    {
+      "id": "ce-28",
+      "expected": "context_only",
+      "actual": "context_only",
+      "passed": true,
+      "reasons": [
+        "SimulationPlan 是待审批草案，不是新产生的仿真事实。"
+      ]
+    },
+    {
+      "id": "ce-29",
+      "expected": "supported",
+      "actual": "supported",
+      "passed": true,
+      "reasons": [
+        "文档 Claim 可回溯到同一原始摘录和 chunk。"
+      ]
+    },
+    {
+      "id": "ce-30",
+      "expected": "insufficient",
+      "actual": "insufficient",
+      "passed": true,
+      "reasons": [
+        "表格数值 Claim 缺少可回到原 PDF 页的 table block 元数据。"
+      ]
+    },
+    {
+      "id": "ce-31",
+      "expected": "conflicted",
+      "actual": "conflicted",
+      "passed": true,
+      "reasons": [
+        "引用证据被标记为与该 Claim 冲突。"
+      ]
+    }
+  ]
+}

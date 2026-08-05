@@ -1,0 +1,26 @@
+{
+  "device_requested": "cuda",
+  "device_actual": {
+    "embedding": "cuda",
+    "reranker": "cuda"
+  },
+  "chunk_count": 2234,
+  "passage_embedding": {
+    "texts": 16,
+    "elapsed_ms": 4611.121,
+    "texts_per_second": 3.47,
+    "dimensions": 1024
+  },
+  "dense_query": {
+    "queries": 8,
+    "p50_latency_ms": 36.678,
+    "p95_latency_ms": 84.978,
+    "mean_latency_ms": 42.457
+  },
+  "reranker_8_candidates_ms": 4301.096,
+  "cuda": {
+    "cuda_available": true,
+    "max_memory_allocated_bytes": 3509726208,
+    "device_name": "NVIDIA GeForce RTX 3050"
+  }
+}

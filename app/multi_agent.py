@@ -11,6 +11,7 @@ from langgraph.graph import END, START, StateGraph
 
 from app.analysis import parameter_correlation, top_cases
 from app.models import AnalysisEvidence, Critique, EvidenceCard, EvidenceRequirement, GroundedStatement, ReviewDecision
+from app.claim_verifier import verify_grounded_statements
 from app.llm_protocol import EvidenceSummary, PlannerProposal, ResearchSynthesis, RoutePlan, SemanticCritique
 from app.llm_router import LLMRouter
 from app.qa import METRICS, _explicit_metric
@@ -42,6 +43,7 @@ class ResearchState(TypedDict, total=False):
     semantic_critiques: list[dict]
     llm_calls: Annotated[list[dict], add]
     grounded_statements: Annotated[list[dict], add]
+    claim_verifications: list[dict]
     recovered_evidence_cards: list[dict]
     recovery_attempts: int
     recovery_actions: Annotated[list[dict], add]
@@ -237,12 +239,25 @@ def build_graph(
     def new_calls(start: int) -> list[dict]:
         return [call.__dict__ for call in router.telemetry[start:]]
 
+    def observed_calls(start: int, role: str, proposal: object | None) -> list[dict]:
+        """Keep trace truthfully observable for protocol-compatible routers.
+
+        Production ``LLMRouter`` appends telemetry itself.  Test/adaptor
+        routers may expose the same constrained protocol without mutating a
+        telemetry list, so record an explicit adapter event instead of
+        silently reporting that no model was used.
+        """
+        calls = new_calls(start)
+        if not calls and proposal is not None and bool(getattr(router, "enabled", False)):
+            return [{"role": role, "model": "protocol_adapter", "latency_ms": 0.0, "success": True, "error": "telemetry_not_emitted_by_adapter"}]
+        return calls
+
     def supervisor(state: ResearchState) -> dict:
         q = state["question"]
         call_start = len(router.telemetry)
         proposal = router.call_json("router", "你是科研任务路由器。只判断任务所需的受限工具和证据类型；不能作事实判断，不能授权执行仿真。", f"问题：{q}", RoutePlan)
         route = _resolve_route(q, proposal if isinstance(proposal, RoutePlan) else None, llm_enabled=bool(getattr(router, "enabled", False)))
-        calls = new_calls(call_start)
+        calls = observed_calls(call_start, "router", proposal)
         requirements = _evidence_requirements(q, route["analysis"])
         existing = {item.kind for item in requirements}
         for source in route["accepted_sources"]:
@@ -280,7 +295,7 @@ def build_graph(
             cards = active_retriever.search(state.get("retrieval_query", state["question"]), limit=4, source_types=_preferred_sources(state["question"]))
         excerpt_bundle = "\n\n".join(f"SOURCE: {card.source_path}\n{card.excerpt[:400]}" for card in cards)
         summary = router.call_json("evidence", "你是证据整理器。只总结给定摘录；不要新增事实、数值、来源或因果结论。", f"原问题：{state['question']}\n证据摘录：\n{excerpt_bundle}", EvidenceSummary) if cards else None
-        calls = new_calls(call_start)
+        calls = observed_calls(call_start, "evidence", summary)
         event = {"node": "retriever", "evidence_count": len(cards), "required_source_types": document_types, "retrieval_mode": effective_mode, "vector_backend": active_retriever.vector_status(), "downgrade": downgrade, "llm_evidence_used": bool(summary)}
         emit(event)
         output = {"evidence_cards": [card.model_dump() for card in cards], "retrieval_mode_used": effective_mode, "trace": [event], "llm_calls": calls}
@@ -331,7 +346,7 @@ def build_graph(
             PlannerProposal,
         ) if plan else None
         validated = _validated_planner(proposal if isinstance(proposal, PlannerProposal) else None, state["metric"], bool(plan))
-        calls = new_calls(call_start)
+        calls = observed_calls(call_start, "planner", proposal)
         event = {"node": "planner_agent", "has_draft": bool(plan), "llm_used": proposal is not None, "accepted": validated is not None, "focus_parameters": validated.focus_parameters if validated else []}
         emit(event)
         output = {"trace": [event], "llm_calls": calls}
@@ -374,7 +389,7 @@ def build_graph(
             ResearchSynthesis,
         ) if cards else None
         validated = _validated_research(proposal if isinstance(proposal, ResearchSynthesis) else None, cards)
-        calls = new_calls(call_start)
+        calls = observed_calls(call_start, "research", proposal)
         event = {"node": "research_agent", "evidence_count": len(cards), "llm_used": proposal is not None, "accepted": validated is not None, "claim_count": len(validated.claims) if validated else 0}
         emit(event)
         output = {"trace": [event], "llm_calls": calls}
@@ -450,7 +465,10 @@ def build_graph(
             statements.append(GroundedStatement(text=text, evidence_kind="limitation", source_path="planner_agent", support="LLM Planner 建议已通过参数白名单与人工审批标志校验。"))
         event = {"node": "synthesizer", "used_analysis": len(state.get("analysis_evidence", [])), "used_documents": len(cards), "grounded_statement_count": len(statements)}
         emit(event)
-        return {"draft": "\n".join(sections), "grounded_statements": [item.model_dump() for item in statements], "trace": [event]}
+        serialized = [item.model_dump() for item in statements]
+        verifications = verify_grounded_statements(serialized, cards, state.get("analysis_evidence", []))
+        event["claim_verification"] = {"supported": sum(item["status"] == "supported" for item in verifications), "context_only": sum(item["status"] == "context_only" for item in verifications), "insufficient": sum(item["status"] == "insufficient" for item in verifications), "conflicted": sum(item["status"] == "conflicted" for item in verifications)}
+        return {"draft": "\n".join(sections), "grounded_statements": serialized, "claim_verifications": verifications, "trace": [event]}
 
     def semantic_critic(state: ResearchState) -> dict:
         """Advisory semantic review; deterministic gates remain authoritative."""
@@ -464,7 +482,7 @@ def build_graph(
             SemanticCritique,
         )
         validated = _validated_semantic_critique(proposal if isinstance(proposal, SemanticCritique) else None, cards)
-        calls = new_calls(call_start)
+        calls = observed_calls(call_start, "critic", proposal)
         issues = _serialize_with_chunk_ids(validated, cards).get("issues", []) if validated else []
         event = {"node": "semantic_critic", "llm_used": proposal is not None, "accepted": validated is not None, "issue_count": len(issues)}
         emit(event)
@@ -477,6 +495,8 @@ def build_graph(
         if any(item["issue_type"] == "citation_coverage" for item in state.get("current_critiques", [])): reasons.append("引用摘录未覆盖问题中的关键术语，不能确认其支持结论。")
         if not state.get("draft"): reasons.append("未生成最终草稿。")
         if not state.get("grounded_statements"): reasons.append("最终回答没有可追溯的句级证据链接。")
+        unsupported = [item for item in state.get("claim_verifications", []) if item.get("status") in {"insufficient", "conflicted"}]
+        if unsupported: reasons.append(f"有 {len(unsupported)} 条最终事实 Claim 缺少可验证证据或存在冲突。")
         if state.get("llm_evidence_summary"):
             reasons.append("LLM 证据摘要已作为候选产物留存，未用于最终事实结论。")
         for issue in state.get("semantic_critiques", []):
@@ -542,4 +562,4 @@ def run_multi_agent(
     trace_id = new_trace_id()
     state = build_graph(registry, router, retrieval_mode, chunk_strategy, event_sink, trace_id).invoke({"question": question, "trace_id": trace_id, "current_span_id": ""}, {"recursion_limit": 24})
     events = state.get("trace", [])
-    return {"answer": state.get("draft", ""), "trace_id": trace_id, "trace_summary": trace_summary(events), "task_type": state.get("task_type"), "metric": state.get("metric"), "routing": state.get("routing", {}), "evidence_requirements": state.get("evidence_requirements", []), "retrieval_mode_used": state.get("retrieval_mode_used", ""), "evidence_cards": state.get("recovered_evidence_cards") or state.get("evidence_cards", []), "analysis_evidence": state.get("analysis_evidence", []), "grounded_statements": state.get("grounded_statements", []), "critiques": state.get("current_critiques", []), "semantic_critiques": state.get("semantic_critiques", []), "research_synthesis": state.get("research_synthesis", {}), "planner_proposal": state.get("planner_proposal", {}), "recovery_actions": state.get("recovery_actions", []), "evidence_gap": state.get("evidence_gap", {}), "plan_draft": state.get("plan_draft", {}), "review": state.get("review", {}), "trace": events, "llm_calls": state.get("llm_calls", []), "llm_evidence_summary": state.get("llm_evidence_summary", {})}
+    return {"answer": state.get("draft", ""), "trace_id": trace_id, "trace_summary": trace_summary(events), "task_type": state.get("task_type"), "metric": state.get("metric"), "routing": state.get("routing", {}), "evidence_requirements": state.get("evidence_requirements", []), "retrieval_mode_used": state.get("retrieval_mode_used", ""), "evidence_cards": state.get("recovered_evidence_cards") or state.get("evidence_cards", []), "analysis_evidence": state.get("analysis_evidence", []), "grounded_statements": state.get("grounded_statements", []), "claim_verifications": state.get("claim_verifications", []), "critiques": state.get("current_critiques", []), "semantic_critiques": state.get("semantic_critiques", []), "research_synthesis": state.get("research_synthesis", {}), "planner_proposal": state.get("planner_proposal", {}), "recovery_actions": state.get("recovery_actions", []), "evidence_gap": state.get("evidence_gap", {}), "plan_draft": state.get("plan_draft", {}), "review": state.get("review", {}), "trace": events, "llm_calls": state.get("llm_calls", []), "llm_evidence_summary": state.get("llm_evidence_summary", {})}
