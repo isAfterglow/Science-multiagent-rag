@@ -1,0 +1,68 @@
+{
+  "source_report": "/home/ai4mater/005-mat4ai_agent/1-graph-agent/2-multi-agent-moose-rag/reports/scientific_multimodal_retrieval_eval.json",
+  "overall": {
+    "questions": 32,
+    "source_recall_at_5": 0.974,
+    "question_hit_rate": 1.0,
+    "mrr": 0.9844,
+    "ndcg_at_5": 0.9685,
+    "page_hit_rate": 0.8571,
+    "authority_correct_rate": 0.9688,
+    "scientific_source_recall_at_5": 1.0,
+    "ocr_source_recall_at_5": 1.0,
+    "ocr_page_hit_rate": 1.0,
+    "p50_latency_ms": 0.194,
+    "p95_latency_ms": 0.295
+  },
+  "slices": {
+    "cross_source": {
+      "questions": 8,
+      "source_hit_rate": 1.0,
+      "page_hit_rate": 0.375,
+      "document_kind_hit_rate": 0.0,
+      "failed_ids": []
+    },
+    "exact_table_term": {
+      "questions": 1,
+      "source_hit_rate": 1.0,
+      "page_hit_rate": 1.0,
+      "document_kind_hit_rate": 0.0,
+      "failed_ids": []
+    },
+    "general": {
+      "questions": 14,
+      "source_hit_rate": 1.0,
+      "page_hit_rate": 0.6429,
+      "document_kind_hit_rate": 0.0,
+      "failed_ids": []
+    },
+    "mechanism_explanation": {
+      "questions": 5,
+      "source_hit_rate": 1.0,
+      "page_hit_rate": 0.6,
+      "document_kind_hit_rate": 0.0,
+      "failed_ids": []
+    },
+    "moose_method": {
+      "questions": 4,
+      "source_hit_rate": 1.0,
+      "page_hit_rate": 0.25,
+      "document_kind_hit_rate": 0.0,
+      "failed_ids": []
+    },
+    "ocr_scan": {
+      "questions": 4,
+      "source_hit_rate": 1.0,
+      "page_hit_rate": 1.0,
+      "document_kind_hit_rate": 0.0,
+      "failed_ids": []
+    }
+  },
+  "failure_families": [
+    "OCR recognition errors",
+    "table structure loss",
+    "double-column reading-order errors",
+    "parent-child localization mismatch",
+    "terminology mismatch"
+  ]
+}

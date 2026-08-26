@@ -12,7 +12,7 @@ from langgraph.graph import END, START, StateGraph
 from app.analysis import parameter_correlation, top_cases
 from app.models import AnalysisEvidence, Critique, EvidenceCard, EvidenceRequirement, GroundedStatement, ReviewDecision
 from app.claim_verifier import verify_grounded_statements
-from app.llm_protocol import EvidenceSummary, PlannerProposal, ResearchSynthesis, RoutePlan, SemanticCritique
+from app.llm_protocol import EvidenceSummary, PlannerProposal, ResearchSynthesis, RouteDecision, RoutePlan, SemanticCritique
 from app.llm_router import LLMRouter
 from app.qa import METRICS, _explicit_metric
 from app.registry import SimulationRegistry
@@ -119,7 +119,7 @@ def _decompose_question(question: str, analysis: bool, retrieval: bool) -> dict[
     return ({"analysis": question} if analysis else {}) | ({"retrieval": question} if retrieval else {})
 
 
-def _resolve_route(question: str, route_plan: RoutePlan | None, *, llm_enabled: bool) -> dict:
+def _resolve_route(question: str, route_plan: RouteDecision | RoutePlan | None, *, llm_enabled: bool) -> dict:
     """Merge an advisory model plan with deterministic minimum safeguards."""
     rule_analysis, rule_retrieval = _needs_analysis(question), _needs_retrieval(question)
     policy_overrides: list[str] = []
@@ -135,10 +135,11 @@ def _resolve_route(question: str, route_plan: RoutePlan | None, *, llm_enabled: 
         analysis = rule_analysis or route_plan.needs_registry_analysis
         retrieval = rule_retrieval or bool(route_plan.required_sources)
         accepted_sources = list(dict.fromkeys(route_plan.required_sources))
-        retrieval_query = route_plan.retrieval_query
-        if route_plan.analysis_metric in METRICS:
-            metric = route_plan.analysis_metric
-        else:
+        retrieval_query = getattr(route_plan, "retrieval_query", "") or question
+        proposed_metric = getattr(route_plan, "analysis_metric", "")
+        if proposed_metric in METRICS:
+            metric = proposed_metric
+        elif proposed_metric:
             policy_overrides.append("invalid_metric_ignored")
         status = "llm_validated"
     task_type = "mixed" if analysis and retrieval else "simulation_analysis" if analysis else "knowledge"
@@ -149,7 +150,7 @@ def _resolve_route(question: str, route_plan: RoutePlan | None, *, llm_enabled: 
             policy_overrides.append("rule_required_registry_analysis")
         if rule_retrieval and not route_plan.required_sources:
             policy_overrides.append("rule_required_document_retrieval")
-    return {"status": status, "task_type": task_type, "analysis": analysis, "retrieval": retrieval, "metric": metric, "retrieval_query": retrieval_query, "llm_plan_used": route_plan is not None, "accepted_sources": accepted_sources, "advisory_needs_experiment": route_plan.needs_experiment if route_plan else False, "policy_overrides": policy_overrides, "fallback_reason": fallback_reason}
+    return {"status": status, "task_type": task_type, "analysis": analysis, "retrieval": retrieval, "metric": metric, "retrieval_query": retrieval_query, "llm_plan_used": route_plan is not None, "accepted_sources": accepted_sources, "advisory_needs_experiment": getattr(route_plan, "needs_experiment", False) if route_plan else False, "policy_overrides": policy_overrides, "fallback_reason": fallback_reason}
 
 
 def _citation_coverage(question: str, cards: list[dict]) -> tuple[bool, list[str]]:
@@ -255,8 +256,8 @@ def build_graph(
     def supervisor(state: ResearchState) -> dict:
         q = state["question"]
         call_start = len(router.telemetry)
-        proposal = router.call_json("router", "你是科研任务路由器。只判断任务所需的受限工具和证据类型；不能作事实判断，不能授权执行仿真。", f"问题：{q}", RoutePlan)
-        route = _resolve_route(q, proposal if isinstance(proposal, RoutePlan) else None, llm_enabled=bool(getattr(router, "enabled", False)))
+        proposal = router.call_json("router", "你是科研任务路由器。只输出 task_type、needs_registry_analysis、required_sources。task_type 只能是 knowledge、simulation_analysis、mixed；不要输出 properties、description、reason 或其他字段。不能作事实判断，不能授权执行仿真。", f"问题：{q}", RouteDecision)
+        route = _resolve_route(q, proposal if isinstance(proposal, (RouteDecision, RoutePlan)) else None, llm_enabled=bool(getattr(router, "enabled", False)))
         calls = observed_calls(call_start, "router", proposal)
         requirements = _evidence_requirements(q, route["analysis"])
         existing = {item.kind for item in requirements}

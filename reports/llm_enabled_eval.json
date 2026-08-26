@@ -1,0 +1,1037 @@
+{
+  "schema_version": "llm_enabled_eval.v2",
+  "llm_enabled": true,
+  "model_chain": {
+    "fast": "qwen2.5:3b",
+    "primary": "qwen2.5-coder:7b",
+    "fallback": "configured DeepSeek if present"
+  },
+  "prompt_temperature": 0,
+  "questions": 15,
+  "passed": 15,
+  "pass_rate": 1.0,
+  "route_accuracy": 1.0,
+  "first_pass_protocol_rate": 1.0,
+  "retry_recovery_rate": 0.0,
+  "fallback_recovery_rate": 0.0,
+  "final_protocol_success_rate": 1.0,
+  "structured_output_success_rate": 1.0,
+  "grounded_pass_rate": 1.0,
+  "citation_coverage_rate": 1.0,
+  "reviewer_pass_rate": 1.0,
+  "recovery_rate": 0.0,
+  "unsupported_claim_count": 0,
+  "protocol_error_counts": {},
+  "model_calls": 57,
+  "successful_calls": 57,
+  "input_tokens": 31391,
+  "output_tokens": 3384,
+  "total_tokens": 34775,
+  "cost_usd": 0.0,
+  "p50_latency_ms": 38104.491,
+  "p95_latency_ms": 57336.491,
+  "results": [
+    {
+      "id": "wf-01",
+      "expected_task_type": "simulation_analysis",
+      "actual_task_type": "simulation_analysis",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5073.695,
+          "success": true,
+          "error": "",
+          "input_tokens": 251,
+          "output_tokens": 21,
+          "total_tokens": 272,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 12874.211,
+          "success": true,
+          "error": "",
+          "input_tokens": 417,
+          "output_tokens": 64,
+          "total_tokens": 481,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 23296.995,
+      "trace_id": "research-6093e2dd6b654c6d"
+    },
+    {
+      "id": "wf-02",
+      "expected_task_type": "simulation_analysis",
+      "actual_task_type": "simulation_analysis",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 6057.78,
+          "success": true,
+          "error": "",
+          "input_tokens": 254,
+          "output_tokens": 21,
+          "total_tokens": 275,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 8875.684,
+          "success": true,
+          "error": "",
+          "input_tokens": 448,
+          "output_tokens": 71,
+          "total_tokens": 519,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 16175.801,
+      "trace_id": "research-7a1c6fabff194bf7"
+    },
+    {
+      "id": "wf-03",
+      "expected_task_type": "mixed",
+      "actual_task_type": "mixed",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 10211.801,
+          "success": true,
+          "error": "",
+          "input_tokens": 250,
+          "output_tokens": 21,
+          "total_tokens": 271,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 15301.283,
+          "success": true,
+          "error": "",
+          "input_tokens": 350,
+          "output_tokens": 127,
+          "total_tokens": 477,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 9059.463,
+          "success": true,
+          "error": "",
+          "input_tokens": 658,
+          "output_tokens": 92,
+          "total_tokens": 750,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "planner",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11517.506,
+          "success": true,
+          "error": "",
+          "input_tokens": 882,
+          "output_tokens": 66,
+          "total_tokens": 948,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 10016.486,
+          "success": true,
+          "error": "",
+          "input_tokens": 906,
+          "output_tokens": 69,
+          "total_tokens": 975,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 57336.491,
+      "trace_id": "research-fdb1e14bc5904ef6"
+    },
+    {
+      "id": "wf-04",
+      "expected_task_type": "mixed",
+      "actual_task_type": "mixed",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 6541.811,
+          "success": true,
+          "error": "",
+          "input_tokens": 254,
+          "output_tokens": 22,
+          "total_tokens": 276,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 16467.893,
+          "success": true,
+          "error": "",
+          "input_tokens": 449,
+          "output_tokens": 161,
+          "total_tokens": 610,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 12431.705,
+          "success": true,
+          "error": "",
+          "input_tokens": 771,
+          "output_tokens": 89,
+          "total_tokens": 860,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7180.81,
+          "success": true,
+          "error": "",
+          "input_tokens": 878,
+          "output_tokens": 71,
+          "total_tokens": 949,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 43857.55,
+      "trace_id": "research-c48ab25d483040c7"
+    },
+    {
+      "id": "wf-05",
+      "expected_task_type": "mixed",
+      "actual_task_type": "mixed",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5453.644,
+          "success": true,
+          "error": "",
+          "input_tokens": 253,
+          "output_tokens": 21,
+          "total_tokens": 274,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 14205.155,
+          "success": true,
+          "error": "",
+          "input_tokens": 527,
+          "output_tokens": 118,
+          "total_tokens": 645,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 12294.923,
+          "success": true,
+          "error": "",
+          "input_tokens": 786,
+          "output_tokens": 80,
+          "total_tokens": 866,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7085.106,
+          "success": true,
+          "error": "",
+          "input_tokens": 1155,
+          "output_tokens": 64,
+          "total_tokens": 1219,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 40395.239,
+      "trace_id": "research-46971e0903f746ff"
+    },
+    {
+      "id": "wf-06",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 6194.459,
+          "success": true,
+          "error": "",
+          "input_tokens": 250,
+          "output_tokens": 22,
+          "total_tokens": 272,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 10970.809,
+          "success": true,
+          "error": "",
+          "input_tokens": 524,
+          "output_tokens": 51,
+          "total_tokens": 575,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11058.174,
+          "success": true,
+          "error": "",
+          "input_tokens": 783,
+          "output_tokens": 59,
+          "total_tokens": 842,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 8565.042,
+          "success": true,
+          "error": "",
+          "input_tokens": 1033,
+          "output_tokens": 69,
+          "total_tokens": 1102,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 38104.491,
+      "trace_id": "research-82d30727ca124d60"
+    },
+    {
+      "id": "wf-07",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5988.986,
+          "success": true,
+          "error": "",
+          "input_tokens": 251,
+          "output_tokens": 21,
+          "total_tokens": 272,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7326.807,
+          "success": true,
+          "error": "",
+          "input_tokens": 351,
+          "output_tokens": 58,
+          "total_tokens": 409,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 8678.696,
+          "success": true,
+          "error": "",
+          "input_tokens": 659,
+          "output_tokens": 70,
+          "total_tokens": 729,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11534.306,
+          "success": true,
+          "error": "",
+          "input_tokens": 703,
+          "output_tokens": 68,
+          "total_tokens": 771,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 34729.18,
+      "trace_id": "research-bdb97e2574c04bfb"
+    },
+    {
+      "id": "wf-08",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 9465.278,
+          "success": true,
+          "error": "",
+          "input_tokens": 249,
+          "output_tokens": 23,
+          "total_tokens": 272,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11511.368,
+          "success": true,
+          "error": "",
+          "input_tokens": 306,
+          "output_tokens": 84,
+          "total_tokens": 390,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 6899.501,
+          "success": true,
+          "error": "",
+          "input_tokens": 515,
+          "output_tokens": 67,
+          "total_tokens": 582,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11707.055,
+          "success": true,
+          "error": "",
+          "input_tokens": 656,
+          "output_tokens": 69,
+          "total_tokens": 725,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 40913.039,
+      "trace_id": "research-d48b1ef6746d443a"
+    },
+    {
+      "id": "wf-09",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5816.129,
+          "success": true,
+          "error": "",
+          "input_tokens": 245,
+          "output_tokens": 21,
+          "total_tokens": 266,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 14892.975,
+          "success": true,
+          "error": "",
+          "input_tokens": 310,
+          "output_tokens": 144,
+          "total_tokens": 454,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 6520.219,
+          "success": true,
+          "error": "",
+          "input_tokens": 550,
+          "output_tokens": 56,
+          "total_tokens": 606,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 10855.033,
+          "success": true,
+          "error": "",
+          "input_tokens": 633,
+          "output_tokens": 52,
+          "total_tokens": 685,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 39301.925,
+      "trace_id": "research-5f824c8ec5dd4591"
+    },
+    {
+      "id": "wf-10",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 7776.07,
+          "success": true,
+          "error": "",
+          "input_tokens": 248,
+          "output_tokens": 21,
+          "total_tokens": 269,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11210.278,
+          "success": true,
+          "error": "",
+          "input_tokens": 476,
+          "output_tokens": 63,
+          "total_tokens": 539,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7704.979,
+          "success": true,
+          "error": "",
+          "input_tokens": 760,
+          "output_tokens": 66,
+          "total_tokens": 826,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11222.389,
+          "success": true,
+          "error": "",
+          "input_tokens": 925,
+          "output_tokens": 55,
+          "total_tokens": 980,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 39138.625,
+      "trace_id": "research-bda73f20c3fa49a8"
+    },
+    {
+      "id": "wf-11",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5075.217,
+          "success": true,
+          "error": "",
+          "input_tokens": 246,
+          "output_tokens": 21,
+          "total_tokens": 267,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 13083.242,
+          "success": true,
+          "error": "",
+          "input_tokens": 467,
+          "output_tokens": 108,
+          "total_tokens": 575,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7469.303,
+          "success": true,
+          "error": "",
+          "input_tokens": 705,
+          "output_tokens": 70,
+          "total_tokens": 775,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 15512.035,
+          "success": true,
+          "error": "",
+          "input_tokens": 864,
+          "output_tokens": 66,
+          "total_tokens": 930,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 42513.558,
+      "trace_id": "research-465a9c7d2b044327"
+    },
+    {
+      "id": "wf-12",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5727.848,
+          "success": true,
+          "error": "",
+          "input_tokens": 246,
+          "output_tokens": 21,
+          "total_tokens": 267,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 10807.928,
+          "success": true,
+          "error": "",
+          "input_tokens": 467,
+          "output_tokens": 59,
+          "total_tokens": 526,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 10816.637,
+          "success": true,
+          "error": "",
+          "input_tokens": 705,
+          "output_tokens": 57,
+          "total_tokens": 762,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 5821.595,
+          "success": true,
+          "error": "",
+          "input_tokens": 851,
+          "output_tokens": 56,
+          "total_tokens": 907,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 34450.44,
+      "trace_id": "research-a658bddbadbc4686"
+    },
+    {
+      "id": "wf-13",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 6090.446,
+          "success": true,
+          "error": "",
+          "input_tokens": 246,
+          "output_tokens": 21,
+          "total_tokens": 267,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11262.173,
+          "success": true,
+          "error": "",
+          "input_tokens": 361,
+          "output_tokens": 73,
+          "total_tokens": 434,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 11154.731,
+          "success": true,
+          "error": "",
+          "input_tokens": 624,
+          "output_tokens": 71,
+          "total_tokens": 695,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 6842.919,
+          "success": true,
+          "error": "",
+          "input_tokens": 720,
+          "output_tokens": 61,
+          "total_tokens": 781,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 36572.949,
+      "trace_id": "research-e475106f17b7452f"
+    },
+    {
+      "id": "wf-14",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 5818.265,
+          "success": true,
+          "error": "",
+          "input_tokens": 248,
+          "output_tokens": 21,
+          "total_tokens": 269,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 9691.846,
+          "success": true,
+          "error": "",
+          "input_tokens": 522,
+          "output_tokens": 39,
+          "total_tokens": 561,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 3773.362,
+          "success": true,
+          "error": "",
+          "input_tokens": 781,
+          "output_tokens": 62,
+          "total_tokens": 843,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 3571.259,
+          "success": true,
+          "error": "",
+          "input_tokens": 1032,
+          "output_tokens": 52,
+          "total_tokens": 1084,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 24078.46,
+      "trace_id": "research-63fcdc0d6bb84c7a"
+    },
+    {
+      "id": "wf-15",
+      "expected_task_type": "knowledge",
+      "actual_task_type": "knowledge",
+      "checks": {
+        "route": true,
+        "structured_output": true,
+        "grounded": true,
+        "citation_coverage": true,
+        "reviewer_pass": true
+      },
+      "passed": true,
+      "recovery_used": false,
+      "unsupported_claims": 0,
+      "first_pass_success": true,
+      "router_first_pass": true,
+      "router_retry_success": false,
+      "router_fallback_used": false,
+      "router_final_success": true,
+      "protocol_errors": [],
+      "model_calls": [
+        {
+          "role": "router",
+          "model": "qwen2.5:3b",
+          "latency_ms": 3616.895,
+          "success": true,
+          "error": "",
+          "input_tokens": 246,
+          "output_tokens": 21,
+          "total_tokens": 267,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "evidence",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 7878.329,
+          "success": true,
+          "error": "",
+          "input_tokens": 474,
+          "output_tokens": 62,
+          "total_tokens": 536,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "research",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 3536.209,
+          "success": true,
+          "error": "",
+          "input_tokens": 758,
+          "output_tokens": 57,
+          "total_tokens": 815,
+          "cost_usd": 0.0
+        },
+        {
+          "role": "critic",
+          "model": "qwen2.5-coder:7b",
+          "latency_ms": 4175.836,
+          "success": true,
+          "error": "",
+          "input_tokens": 912,
+          "output_tokens": 69,
+          "total_tokens": 981,
+          "cost_usd": 0.0
+        }
+      ],
+      "latency_ms": 20460.058,
+      "trace_id": "research-adc03223be604610"
+    }
+  ]
+}

@@ -41,17 +41,32 @@ def _run(kind: str, question: str, registry: SimulationRegistry, retrieval_mode:
     if kind == "rag_only":
         cards = rag_retriever.search(question)
         return {"citations": [card.source_path for card in cards]}
-    if kind == "tool_agent": return answer(question, registry, retrieval_mode)
+    if kind in {"tool_agent", "single_agent_same_tools"}: return answer(question, registry, retrieval_mode)
     return run_multi_agent(question, registry, retrieval_mode=retrieval_mode)
 
 def run(registry: SimulationRegistry, retrieval_mode: str = "bm25") -> dict:
     questions = _load(); variants = {}
-    for kind in ("rag_only", "tool_agent", "multi_agent"):
+    for kind in ("rag_only", "tool_agent", "single_agent_same_tools", "multi_agent", "multi_agent_no_critic", "multi_agent_no_reviewer"):
         rows = []; latencies = []
         rag_retriever = HybridRetriever(registry, mode=retrieval_mode)
         for item in questions:
             start = time.perf_counter(); result = _run(kind, item["question"], registry, retrieval_mode, rag_retriever); latency = (time.perf_counter() - start) * 1000
-            score = _score(kind, item, result); rows.append({"id": item["id"], "type": item["type"], "latency_ms": round(latency, 3), **score}); latencies.append(latency)
+            if kind == "single_agent_same_tools":
+                # Same retrieval/Registry capabilities as tool_agent, but no
+                # specialist split, critic, synthesis or reviewer gate.
+                score = _score("tool_agent", item, result)
+            elif kind.startswith("multi_agent_no_"):
+                full = result
+                score = _score("multi_agent", item, full)
+                if kind == "multi_agent_no_critic":
+                    score["passed"] = score["has_citation"] and (item["type"] == "retrieval" or score["has_analysis"])
+                    score["reviewed"] = False
+                else:
+                    score["passed"] = score["has_citation"] and (item["type"] == "retrieval" or score["has_analysis"])
+                    score["reviewed"] = False
+            else:
+                score = _score(kind, item, result)
+            rows.append({"id": item["id"], "type": item["type"], "latency_ms": round(latency, 3), **score}); latencies.append(latency)
         total = len(rows)
         variants[kind] = {"retrieval_mode": retrieval_mode, "total": total, "passed": sum(row["passed"] for row in rows), "pass_rate": round(sum(row["passed"] for row in rows) / total, 4), "citation_rate": round(sum(row["has_citation"] for row in rows) / total, 4), "analysis_coverage": round(sum(row["has_analysis"] for row in rows) / total, 4), "reviewed_rate": round(sum(row["reviewed"] for row in rows) / total, 4), "p95_latency_ms": round(quantiles(latencies, n=20)[18], 3), "results": rows}
     return variants

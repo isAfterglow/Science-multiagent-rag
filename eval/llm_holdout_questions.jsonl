@@ -1,0 +1,12 @@
+{"id":"ho-01","question":"如果只看历史样本，ER_scale 和温度误差指标之间的统计关系如何解释？","task_type":"mixed"}
+{"id":"ho-02","question":"报告中关于热响应参数的结论，哪些属于相关性，哪些不能直接称为因果？","task_type":"mixed"}
+{"id":"ho-03","question":"请查找 MOOSE 输入文件里与材料层热物性有关的配置位置。","task_type":"knowledge"}
+{"id":"ho-04","question":"某次批量计算没有收敛时，应该联合查看哪些运行证据？","task_type":"knowledge"}
+{"id":"ho-05","question":"历史 case 的最小误差记录与它的参数组合是否可以直接作为新工况答案？","task_type":"mixed"}
+{"id":"ho-06","question":"比较两个材料参数对早期误差的影响，并说明历史报告不能证明什么。","task_type":"mixed"}
+{"id":"ho-07","question":"如果问题只询问已有报告对参数敏感性的总结，需要查询 Registry 吗？","task_type":"knowledge"}
+{"id":"ho-08","question":"新边界条件下没有 cpv_mid_scale 的历史样本，应该如何提出验证建议？","task_type":"knowledge"}
+{"id":"ho-09","question":"如何根据状态记录中的返回码判断一个 case 是否值得进一步复现？","task_type":"knowledge"}
+{"id":"ho-10","question":"请结合历史指标和输入配置说明最优候选是否适合复现实验。","task_type":"mixed"}
+{"id":"ho-11","question":"如果公开论文与项目内部报告对机理描述不完全一致，应如何组织证据并保留限制？","task_type":"knowledge"}
+{"id":"ho-12","question":"当前数据没有覆盖的参数组合，系统能否直接声称它会降低 early_1_2_rmse？","task_type":"mixed"}

@@ -21,6 +21,12 @@ class RoutePlan(BaseModel):
     analysis_metric: str = Field(min_length=1, max_length=64)
     reason: str = Field(min_length=1, max_length=300)
 
+class RouteDecision(BaseModel):
+    """Small router contract; derived fields are filled deterministically."""
+    task_type: Literal["knowledge", "simulation_analysis", "mixed"]
+    needs_registry_analysis: bool
+    required_sources: list[Literal["report", "input_deck", "run_log", "run_status", "script", "paper", "scan_report"]] = Field(default_factory=list, max_length=4)
+
 class EvidenceSummary(BaseModel):
     summary: str = Field(min_length=1, max_length=900)
     limitations: list[str] = Field(default_factory=list, max_length=4)
